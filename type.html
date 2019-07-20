@@ -1,0 +1,128 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>type</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.css" rel="stylesheet" />
+	</head>
+	
+	<div class="mui-content">
+		<!-- 顶部选项卡ST -->
+		<div id="slider" class="mui-slider" data-slider="4">
+				<div id="sliderSegmentedControl" class="mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+					<a class="mui-control-item" href="#item1mobile">
+				待办公文
+			</a>
+					<a class="mui-control-item" href="#item2mobile">
+				已办公文
+			</a>
+					<a class="mui-control-item" href="#item3mobile">
+				全部公文
+			</a>
+				</div>
+				<div id="sliderProgressBar" class="mui-slider-progress-bar mui-col-xs-4" style="transform: translate3d(0px, 0px, 0px) translateZ(0px);"></div>
+				<div class="mui-slider-group" style="transform: translate3d(0px, 0px, 0px) translateZ(0px);">
+					<div id="item1mobile" class="mui-slider-item mui-control-content mui-active">
+						<div id="scroll1" class="mui-scroll-wrapper" data-scroll="1">
+							<div class="mui-scroll" style="transform: translate3d(0px, 0px, 0px) translateZ(0px);">
+								<ul class="mui-table-view">
+									<li class="mui-table-view-cell">
+										第一个选项卡子项-1
+									</li>
+									<li class="mui-table-view-cell">
+										第一个选项卡子项-2
+									</li>
+									<li class="mui-table-view-cell">
+										第一个选项卡子项-3
+									</li>
+									<li class="mui-table-view-cell">
+										第一个选项卡子项-4
+									</li>
+									<li class="mui-table-view-cell">
+										第一个选项卡子项-5
+									</li>
+								</ul>
+							</div>
+						<div class="mui-scrollbar mui-scrollbar-vertical"><div class="mui-scrollbar-indicator" style="transition-duration: 0ms; display: block; height: 52px; transform: translate3d(0px, 0px, 0px) translateZ(0px);"></div></div></div>
+					</div>
+					<div id="item2mobile" class="mui-slider-item mui-control-content">
+						<div id="scroll2" class="mui-scroll-wrapper" data-scroll="2">
+							<div class="mui-scroll" style="transform: translate3d(0px, 0px, 0px) translateZ(0px);">
+								<div class="mui-loading">
+									<div class="mui-spinner">
+									</div>
+								</div>
+							</div>
+						<div class="mui-scrollbar mui-scrollbar-vertical"><div class="mui-scrollbar-indicator" style="transition-duration: 0ms; display: none; height: 209px; transform: translate3d(0px, 0px, 0px) translateZ(0px);"></div></div></div>
+
+					</div>
+					<div id="item3mobile" class="mui-slider-item mui-control-content">
+						<div id="scroll3" class="mui-scroll-wrapper" data-scroll="3">
+							<div class="mui-scroll" style="transform: translate3d(0px, 0px, 0px) translateZ(0px);">
+								<div class="mui-loading">
+									<div class="mui-spinner">
+									</div>
+								</div>
+							</div>
+						<div class="mui-scrollbar mui-scrollbar-vertical"><div class="mui-scrollbar-indicator" style="transition-duration: 0ms; display: none; height: 209px; transform: translate3d(0px, 0px, 0px) translateZ(0px);"></div></div></div>
+
+					</div>
+				</div>
+			</div>
+			<!-- 頂部選項卡END -->
+		
+	</div>	
+		
+	<!--选项卡部分-->
+	<nav class="mui-bar mui-bar-tab" style="touch-action:none;">
+		<a class="mui-tab-item" id="home">
+			<span class="mui-icon mui-icon-home"></span>
+			<span class="mui-tab-label">首页</span>
+		</a>
+		<a class="mui-tab-item" id="type">
+			<span class="mui-icon mui-icon-spinner mui-spin"></span>
+			<span class="mui-tab-label">类型</span>
+		</a>
+		<a class="mui-tab-item" id="welfare">
+			<span class="mui-icon mui-icon-navigate"></span>
+			<span class="mui-tab-label">福利</span>
+		</a>
+		<a class="mui-tab-item" id="ranking">
+			<span class="mui-icon mui-icon-list"></span>
+			<span class="mui-tab-label">排行</span>
+		</a>
+		<a class="mui-tab-item" id="member">
+			<span class="mui-icon mui-icon-person"></span>
+			<span class="mui-tab-label">会员中心</span>
+		</a>
+	</nav>
+	
+	<body>
+		
+	</body>
+	
+	<script src="js/mui.js"></script>
+	<script type="text/javascript">
+		mui.init()
+		
+		/* 导航栏 */
+		document.getElementById('home').addEventListener('tap',function(){
+			mui.openWindow('index.html','home');
+		})
+		document.getElementById('type').addEventListener('tap',function(){
+			mui.openWindow('type.html','type')
+		})
+		document.getElementById('welfare').addEventListener('tap',function(){
+			mui.openWindow('welfare.html','welfare')
+		})
+		document.getElementById('ranking').addEventListener('tap',function(){
+			mui.openWindow('ranking.html','ranking')
+		})
+		document.getElementById('member').addEventListener('tap',function(){
+			mui.openWindow('member.html','member')
+		})
+	</script>
+    
+</html>

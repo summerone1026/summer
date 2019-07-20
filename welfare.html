@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>福利</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.css" rel="stylesheet" />
+	</head>
+	
+	<header class="mui-bar mui-bar-nav">
+		<h1 class="mui-title">welfare</h1>
+	</header>
+
+	<!--选项卡部分-->
+	<nav class="mui-bar mui-bar-tab" style="touch-action:none;">
+		<a class="mui-tab-item" id="home">
+			<span class="mui-icon mui-icon-home"></span>
+			<span class="mui-tab-label">首页</span>
+		</a>
+		<a class="mui-tab-item" id="type">
+			<span class="mui-icon mui-icon-spinner mui-spin"></span>
+			<span class="mui-tab-label">类型</span>
+		</a>
+		<a class="mui-tab-item" id="welfare">
+			<span class="mui-icon mui-icon-navigate"></span>
+			<span class="mui-tab-label">福利</span>
+		</a>
+		<a class="mui-tab-item" id="ranking">
+			<span class="mui-icon mui-icon-list"></span>
+			<span class="mui-tab-label">排行</span>
+		</a>
+		<a class="mui-tab-item" id="member">
+			<span class="mui-icon mui-icon-person"></span>
+			<span class="mui-tab-label">会员中心</span>
+		</a>
+	</nav>
+	<body>
+		
+		
+	</body>
+
+	<script src="js/mui.js"></script>
+	<script type="text/javascript">
+		mui.init()
+		
+		/* 导航栏 */
+		document.getElementById('home').addEventListener('tap',function(){
+			mui.openWindow('index.html','home');
+		})
+		document.getElementById('type').addEventListener('tap',function(){
+			mui.openWindow('type.html','type')
+		})
+		document.getElementById('welfare').addEventListener('tap',function(){
+			mui.openWindow('welfare.html','welfare')
+		})
+		document.getElementById('ranking').addEventListener('tap',function(){
+			mui.openWindow('ranking.html','ranking')
+		})
+		document.getElementById('member').addEventListener('tap',function(){
+			mui.openWindow('member.html','member')
+		})
+	</script>
+</html>

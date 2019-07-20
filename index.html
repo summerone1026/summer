@@ -65,17 +65,21 @@
 				<span class="mui-icon mui-icon-home"></span>
 				<span class="mui-tab-label">首页</span>
 			</a>
-			<a class="mui-tab-item" id="phone">
-				<span class="mui-icon mui-icon-phone"></span>
-				<span class="mui-tab-label">电话</span>
+			<a class="mui-tab-item" id="type">
+				<span class="mui-icon mui-icon-spinner mui-spin"></span>
+				<span class="mui-tab-label">类型</span>
 			</a>
-			<a class="mui-tab-item" id="email">
-				<span class="mui-icon mui-icon-email"></span>
-				<span class="mui-tab-label">邮件</span>
+			<a class="mui-tab-item" id="welfare">
+				<span class="mui-icon mui-icon-navigate"></span>
+				<span class="mui-tab-label">福利</span>
 			</a>
-			<a class="mui-tab-item" id="setting">
-				<span class="mui-icon mui-icon-gear"></span>
-				<span class="mui-tab-label">设置</span>
+			<a class="mui-tab-item" id="ranking">
+				<span class="mui-icon mui-icon-list"></span>
+				<span class="mui-tab-label">排行</span>
+			</a>
+			<a class="mui-tab-item" id="member">
+				<span class="mui-icon mui-icon-person"></span>
+				<span class="mui-tab-label">会员中心</span>
 			</a>
 		</nav>
 	</body>
@@ -91,16 +95,18 @@
 		/* 导航栏 */
 		document.getElementById('home').addEventListener('tap',function(){
 			mui.openWindow('index.html','home');
-			this.style("a")
 		})
-		document.getElementById('phone').addEventListener('tap',function(){
-			mui.openWindow('phone.html','phone')
+		document.getElementById('type').addEventListener('tap',function(){
+			mui.openWindow('type.html','type')
 		})
-		document.getElementById('email').addEventListener('tap',function(){
-			mui.openWindow('email.html','email')
+		document.getElementById('welfare').addEventListener('tap',function(){
+			mui.openWindow('welfare.html','welfare')
 		})
-		document.getElementById('setting').addEventListener('tap',function(){
-			mui.openWindow('setting.html','setting')
+		document.getElementById('ranking').addEventListener('tap',function(){
+			mui.openWindow('ranking.html','ranking')
+		})
+		document.getElementById('member').addEventListener('tap',function(){
+			mui.openWindow('member.html','member')
 		})
 	
 	</script>
