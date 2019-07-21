@@ -10,7 +10,7 @@
     "icons" : {
         "72" : "icon.png"
     },
-    "launch_path" : "index.html", /*应用的入口页面，默认为根目录下的index.html；支持网络地址，必须以http://或https://开头*/
+    "launch_path" : "html/main.html", /*应用的入口页面，默认为根目录下的index.html；支持网络地址，必须以http://或https://开头*/
     "developer" : {
         "name" : "", /*开发者名称*/
         "email" : "", /*开发者邮箱地址*/
@@ -102,14 +102,14 @@
                         "spotlight-retina7" : "", /*iPhone iOS7高分屏Spotlight搜索程序图标，分辨率：80x80*/
                         "settings-normal" : "", /*iPhone设置页面程序图标，分辨率：29x29*/
                         "settings-retina" : "",
-                        "app@2x" : "img/160x160.png",
-                        "app@3x" : "img/160x160.png",
-                        "spotlight@2x" : "img/160x160.png",
-                        "spotlight@3x" : "img/160x160.png",
-                        "settings@2x" : "img/160x160.png",
-                        "settings@3x" : "img/160x160.png",
-                        "notification@2x" : "img/160x160.png",
-                        "notification@3x" : "img/160x160.png"
+                        "app@2x" : "images/160x160.png",
+                        "app@3x" : "images/160x160.png",
+                        "spotlight@2x" : "images/160x160.png",
+                        "spotlight@3x" : "images/160x160.png",
+                        "settings@2x" : "images/160x160.png",
+                        "settings@3x" : "images/160x160.png",
+                        "notification@2x" : "images/160x160.png",
+                        "notification@3x" : "images/160x160.png"
                     },
                     "ipad" : {
                         "normal" : "", /*iPad普通屏幕程序图标，分辨率：72x72*/
@@ -122,15 +122,15 @@
                         "spotlight-retina7" : "", /*iPad iOS7高分屏Spotlight搜索程序图标，分辨率：80x80*/
                         "settings-normal" : "", /*iPad设置页面程序图标，分辨率：29x29*/
                         "settings-retina" : "",
-                        "proapp@2x" : "img/160x160.png",
-                        "app@2x" : "img/160x160.png",
-                        "app" : "img/160x160.png",
-                        "spotlight" : "img/160x160.png",
-                        "settings" : "img/160x160.png",
-                        "spotlight@2x" : "img/160x160.png",
-                        "settings@2x" : "img/160x160.png",
-                        "notification" : "img/160x160.png",
-                        "notification@2x" : "img/160x160.png"
+                        "proapp@2x" : "images/160x160.png",
+                        "app@2x" : "images/160x160.png",
+                        "app" : "images/160x160.png",
+                        "spotlight" : "images/160x160.png",
+                        "settings" : "images/160x160.png",
+                        "spotlight@2x" : "images/160x160.png",
+                        "settings@2x" : "images/160x160.png",
+                        "notification" : "images/160x160.png",
+                        "notification@2x" : "images/160x160.png"
                     }
                 },
                 "android" : {
@@ -145,43 +145,43 @@
                 "ios" : {
                     "iphone" : {
                         "default" : "", /*iPhone3启动图片选，分辨率：320x480*/
-                        "retina35" : "img/828-1792.png", /*3.5英寸设备(iPhone4)启动图片，分辨率：640x960*/
-                        "retina40" : "img/828-1792.png",
-                        "portrait-896h@3x" : "img/828-1792.png",
-                        "portrait-896h@2x" : "img/828-1792.png",
-                        "landscape-896h@3x" : "img/828-1792.png",
-                        "landscape-896h@2x" : "img/828-1792.png",
-                        "iphonex" : "img/828-1792.png",
-                        "retina55" : "img/828-1792.png",
-                        "iphonexl" : "img/828-1792.png",
-                        "retina47" : "img/828-1792.png",
-                        "retina55l" : "img/828-1792.png",
-                        "retina47l" : "img/828-1792.png",
-                        "retina40l" : "img/828-1792.png"
+                        "retina35" : "images/828-1792.png", /*3.5英寸设备(iPhone4)启动图片，分辨率：640x960*/
+                        "retina40" : "images/828-1792.png",
+                        "portrait-896h@3x" : "images/828-1792.png",
+                        "portrait-896h@2x" : "images/828-1792.png",
+                        "landscape-896h@3x" : "images/828-1792.png",
+                        "landscape-896h@2x" : "images/828-1792.png",
+                        "iphonex" : "images/828-1792.png",
+                        "retina55" : "images/828-1792.png",
+                        "iphonexl" : "images/828-1792.png",
+                        "retina47" : "images/828-1792.png",
+                        "retina55l" : "images/828-1792.png",
+                        "retina47l" : "images/828-1792.png",
+                        "retina40l" : "images/828-1792.png"
                     },
                     "ipad" : {
                         "portrait" : "", /*iPad竖屏启动图片，分辨率：768x1004*/
                         "portrait-retina" : "", /*iPad高分屏竖屏图片，分辨率：1536x2008*/
                         "landscape" : "", /*iPad横屏启动图片，分辨率：1024x748*/
                         "landscape-retina" : "", /*iPad高分屏横屏启动图片，分辨率：2048x1496*/
-                        "portrait7" : "img/828-1792.png", /*iPad iOS7竖屏启动图片，分辨率：768x1024*/
-                        "portrait-retina7" : "img/828-1792.png", /*iPad iOS7高分屏竖屏图片，分辨率：1536x2048*/
-                        "landscape7" : "img/828-1792.png", /*iPad iOS7横屏启动图片，分辨率：1024x768*/
-                        "landscape-retina7" : "img/828-1792.png",
-                        "portrait-1366h@2x" : "img/828-1792.png",
-                        "landscape-1366h@2x" : "img/828-1792.png",
+                        "portrait7" : "images/828-1792.png", /*iPad iOS7竖屏启动图片，分辨率：768x1024*/
+                        "portrait-retina7" : "images/828-1792.png", /*iPad iOS7高分屏竖屏图片，分辨率：1536x2048*/
+                        "landscape7" : "images/828-1792.png", /*iPad iOS7横屏启动图片，分辨率：1024x768*/
+                        "landscape-retina7" : "images/828-1792.png",
+                        "portrait-1366h@2x" : "images/828-1792.png",
+                        "landscape-1366h@2x" : "images/828-1792.png",
                         "portrait-1194h@2" : "img/828-1792.png",
-                        "landscape-1194h@2x" : "img/828-1792.png",
-                        "portrait-1112h@2x" : "img/828-1792.png",
-                        "landscape-1112h@2x" : "img/828-1792.png"
+                        "landscape-1194h@2x" : "images/828-1792.png",
+                        "portrait-1112h@2x" : "images/828-1792.png",
+                        "landscape-1112h@2x" : "images/828-1792.png"
                     }
                 },
                 "android" : {
                     "mdpi" : "", /*普通屏启动图片，分辨率：240x282*/
                     "ldpi" : "", /*大屏启动图片，分辨率：320x442*/
-                    "hdpi" : "img/828-1792.png", /*高分屏启动图片，分辨率：480x762*/
-                    "xhdpi" : "img/828-1792.png", /*720P高分屏启动图片，分辨率：720x1242*/
-                    "xxhdpi" : "img/828-1792.png"
+                    "hdpi" : "images/828-1792.png", /*高分屏启动图片，分辨率：480x762*/
+                    "xhdpi" : "images/828-1792.png", /*720P高分屏启动图片，分辨率：720x1242*/
+                    "xxhdpi" : "images/828-1792.png"
                 }
             },
             "plugins" : {

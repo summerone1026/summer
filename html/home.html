@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/my.js"></script>
+		<link href="../css/mui.min.css" rel="stylesheet" />
+
+	</head>
+	<!--标题栏部分-->
+	<header class="mui-bar mui-bar-nav">
+		<a class="mui-action-back mui-icon mui-icon mui-icon-pengyouquan"></a>
+		<h1 class="mui-title">summer</h1>
+	</header>
+
+	<body>
+		<div class="mui-content">
+
+             <button type="button" class="mui-btn mui-btn-blue" ><a href="index_zi.html">按钮</a></button>
+			 
+			<!--轮播部分-->
+			<div id="slider" class="mui-slider">
+				<div class="mui-slider-group mui-slider-loop">
+					<!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
+					<div class="mui-slider-item mui-slider-item-duplicate">
+						<a href="#"><img src="../images/four.jpg"></a>
+					</div>
+					<!-- 第一张 -->
+					<div class="mui-slider-item"><a href="#"><img src="../images/one.jpg"></a></div>
+					<!-- 第二张 -->
+					<div class="mui-slider-item"><a href="#"><img src="../images/two.jpg"></a></div>
+					<!-- 第三张 -->
+					<div class="mui-slider-item"><a href="#"><img src="../images/three.jpg"></a></div>
+					<!-- 第四张 -->
+					<div class="mui-slider-item"><a href="#"><img src="../images/four.jpg"></a></div>
+					<!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
+					<div class="mui-slider-item mui-slider-item-duplicate">
+						<a href="#"><img src="../images/one.jpg"></a>
+					</div>
+				</div>
+			</div>
+
+			<!-- 图文内容 -->
+			<ul class="mui-table-view mui-grid-view">
+				<li class="mui-table-view-cell mui-media mui-col-xs-6">
+					<a href="#">
+						<img class="mui-media-object" src="http://img2.imgtn.bdimg.com/it/u=1270715910,4069008786&fm=26&gp=0.jpg">
+						<div class="mui-media-body">文字说明1</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media mui-col-xs-6">
+					<a href="#">
+						<img class="mui-media-object" src="http://img1.imgtn.bdimg.com/it/u=3449844657,594176350&fm=26&gp=0.jpg">
+						<div class="mui-media-body">文字说明2</div>
+					</a>
+				</li>
+			</ul>
+		</div>
+
+	</body>
+
+	<script type="text/javascript" charset="utf-8">
+		mui.init();
+		//轮播=====获得slider插件对象
+		var gallery = mui('.mui-slider');
+		gallery.slider({
+			interval: 2000 //自动轮播周期，若为0则不自动播放，默认为0；
+		});
+		
+	</script>
+	
+	<script src="../js/mui.min.js"></script>
+	
+</html>
