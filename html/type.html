@@ -1,85 +1,262 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-
 	<head>
 		<meta charset="utf-8">
-		<title>type</title>
-		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-		<link href="../css/mui.css" rel="stylesheet" />
+		<title>顶部选项卡-可左右拖动</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="../css/mui.min.css">
 	</head>
-	
-	<div class="mui-content">
-		<!-- 顶部选项卡ST -->
-		<div id="slider" class="mui-slider" data-slider="4">
+	<body>
+		<style>
+			.mui-control-content {
+			background-color: white;
+			min-height: 215px;
+			}
+			.mui-control-content .mui-loading {
+			margin-top: 50px;
+			}
+			.mui-slider-group{
+				height: 48.25rem;
+			}
+			.mui-media-object{
+				border-radius:8px 8px 8px 8px
+			}
+        </style>
+		
+		<div class="mui-content">
+			<div id="slider" class="mui-slider">
 				<div id="sliderSegmentedControl" class="mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
-					<a class="mui-control-item" href="#item1mobile">
-				待办公文
-			</a>
-					<a class="mui-control-item" href="#item2mobile">
-				已办公文
-			</a>
-					<a class="mui-control-item" href="#item3mobile">
-				全部公文
-			</a>
+					<a class="mui-control-item" href="#item1mobile">国产</a>
+					<a class="mui-control-item" href="#item2mobile">日韩</a>
+					<a class="mui-control-item" href="#item3mobile">欧美</a>
 				</div>
-				<div id="sliderProgressBar" class="mui-slider-progress-bar mui-col-xs-4" style="transform: translate3d(0px, 0px, 0px) translateZ(0px);"></div>
-				<div class="mui-slider-group" style="transform: translate3d(0px, 0px, 0px) translateZ(0px);">
+				<div id="sliderProgressBar" class="mui-slider-progress-bar mui-col-xs-4"></div>
+				<div class="mui-slider-group">
 					<div id="item1mobile" class="mui-slider-item mui-control-content mui-active">
-						<div id="scroll1" class="mui-scroll-wrapper" data-scroll="1">
-							<div class="mui-scroll" style="transform: translate3d(0px, 0px, 0px) translateZ(0px);">
-								<ul class="mui-table-view">
-									<li class="mui-table-view-cell">
-										第一个选项卡子项-1
+						<div id="scroll1" class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<ul class="mui-table-view mui-grid-view">
+									<li class="mui-table-view-cell mui-media mui-col-xs-6" type-id="11">
+										<a href="#">
+											<img class="mui-media-object" src="http://img2.imgtn.bdimg.com/it/u=1270715910,4069008786&fm=26&gp=0.jpg">
+											<div class="mui-media-body">子类型11</div>
+										</a>
 									</li>
-									<li class="mui-table-view-cell">
-										第一个选项卡子项-2
+									<li class="mui-table-view-cell mui-media mui-col-xs-6" type-id="12">
+										<a href="#">
+											<img class="mui-media-object" src="http://img1.imgtn.bdimg.com/it/u=3449844657,594176350&fm=26&gp=0.jpg">
+											<div class="mui-media-body">子类型12</div>
+										</a>
+									</li>	
+									<li class="mui-table-view-cell mui-media mui-col-xs-6">
+										<a href="#">
+											<img class="mui-media-object" src="http://img2.imgtn.bdimg.com/it/u=1270715910,4069008786&fm=26&gp=0.jpg">
+											<div class="mui-media-body">子类型13</div>
+										</a>
 									</li>
-									<li class="mui-table-view-cell">
-										第一个选项卡子项-3
+									<li class="mui-table-view-cell mui-media mui-col-xs-6">
+										<a href="#">
+											<img class="mui-media-object" src="http://img2.imgtn.bdimg.com/it/u=1270715910,4069008786&fm=26&gp=0.jpg">
+											<div class="mui-media-body">子类型14</div>
+										</a>
 									</li>
-									<li class="mui-table-view-cell">
-										第一个选项卡子项-4
+									<li class="mui-table-view-cell mui-media mui-col-xs-6">
+										<a href="#">
+											<img class="mui-media-object" src="http://img2.imgtn.bdimg.com/it/u=1270715910,4069008786&fm=26&gp=0.jpg">
+											<div class="mui-media-body">子类型15</div>
+										</a>
 									</li>
-									<li class="mui-table-view-cell">
-										第一个选项卡子项-5
+									<li class="mui-table-view-cell mui-media mui-col-xs-6">
+										<a href="#">
+											<img class="mui-media-object" src="http://img2.imgtn.bdimg.com/it/u=1270715910,4069008786&fm=26&gp=0.jpg">
+											<div class="mui-media-body">子类型15</div>
+										</a>
+									</li>
+								</ul>								
+							</div>
+						</div>
+					</div>
+					
+					<div id="item2mobile" class="mui-slider-item mui-control-content">
+						<div id="scroll2" class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<!-- <div class="mui-loading"><div class="mui-spinner"></div></div> -->
+								<ul class="mui-table-view mui-grid-view">
+									<li class="mui-table-view-cell mui-media mui-col-xs-6">
+										<a href="#">
+											<img class="mui-media-object" src="http://img1.imgtn.bdimg.com/it/u=3449844657,594176350&fm=26&gp=0.jpg">
+											<div class="mui-media-body">子类型21</div>
+										</a>
+									</li>
+									<li class="mui-table-view-cell mui-media mui-col-xs-6">
+										<a href="#">
+											<img class="mui-media-object" src="http://img1.imgtn.bdimg.com/it/u=3449844657,594176350&fm=26&gp=0.jpg">
+											<div class="mui-media-body">子类型22</div>
+										</a>
+									</li>	
+									<li class="mui-table-view-cell mui-media mui-col-xs-6">
+										<a href="#">
+											<img class="mui-media-object" src="http://img1.imgtn.bdimg.com/it/u=3449844657,594176350&fm=26&gp=0.jpg">
+											<div class="mui-media-body">子类型23</div>
+										</a>
+									</li>
+									<li class="mui-table-view-cell mui-media mui-col-xs-6">
+										<a href="#">
+											<img class="mui-media-object" src="http://img1.imgtn.bdimg.com/it/u=3449844657,594176350&fm=26&gp=0.jpg">
+											<div class="mui-media-body">子类型24</div>
+										</a>
+									</li>
+									<li class="mui-table-view-cell mui-media mui-col-xs-6">
+										<a href="#">
+											<img class="mui-media-object" src="http://img2.imgtn.bdimg.com/it/u=1270715910,4069008786&fm=26&gp=0.jpg">
+											<div class="mui-media-body">子类型25</div>
+										</a>
+									</li>
+									<li class="mui-table-view-cell mui-media mui-col-xs-6">
+										<a href="#">
+											<img class="mui-media-object" src="http://img2.imgtn.bdimg.com/it/u=1270715910,4069008786&fm=26&gp=0.jpg">
+											<div class="mui-media-body">子类型26</div>
+										</a>
 									</li>
 								</ul>
 							</div>
-						<div class="mui-scrollbar mui-scrollbar-vertical"><div class="mui-scrollbar-indicator" style="transition-duration: 0ms; display: block; height: 52px; transform: translate3d(0px, 0px, 0px) translateZ(0px);"></div></div></div>
+						</div>
 					</div>
-					<div id="item2mobile" class="mui-slider-item mui-control-content">
-						<div id="scroll2" class="mui-scroll-wrapper" data-scroll="2">
-							<div class="mui-scroll" style="transform: translate3d(0px, 0px, 0px) translateZ(0px);">
-								<div class="mui-loading">
-									<div class="mui-spinner">
-									</div>
-								</div>
-							</div>
-						<div class="mui-scrollbar mui-scrollbar-vertical"><div class="mui-scrollbar-indicator" style="transition-duration: 0ms; display: none; height: 209px; transform: translate3d(0px, 0px, 0px) translateZ(0px);"></div></div></div>
-
-					</div>
+					
 					<div id="item3mobile" class="mui-slider-item mui-control-content">
-						<div id="scroll3" class="mui-scroll-wrapper" data-scroll="3">
-							<div class="mui-scroll" style="transform: translate3d(0px, 0px, 0px) translateZ(0px);">
-								<div class="mui-loading">
-									<div class="mui-spinner">
-									</div>
-								</div>
+						<div id="scroll3" class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<!-- <div class="mui-loading"><div class="mui-spinner"></div></div> -->
+								<ul class="mui-table-view mui-grid-view">
+									<li class="mui-table-view-cell mui-media mui-col-xs-6">
+										<a href="#">
+											<img class="mui-media-object" src="http://img2.imgtn.bdimg.com/it/u=1270715910,4069008786&fm=26&gp=0.jpg">
+											<div class="mui-media-body">子类型31</div>
+										</a>
+									</li>
+									<li class="mui-table-view-cell mui-media mui-col-xs-6">
+										<a href="#">
+											<img class="mui-media-object" src="http://img2.imgtn.bdimg.com/it/u=1270715910,4069008786&fm=26&gp=0.jpg">
+											<div class="mui-media-body">子类型32</div>
+										</a>
+									</li>	
+									<li class="mui-table-view-cell mui-media mui-col-xs-6">
+										<a href="#">
+											<img class="mui-media-object" src="http://img2.imgtn.bdimg.com/it/u=1270715910,4069008786&fm=26&gp=0.jpg">
+											<div class="mui-media-body">子类型33</div>
+										</a>
+									</li>
+									<li class="mui-table-view-cell mui-media mui-col-xs-6">
+										<a href="#">
+											<img class="mui-media-object" src="http://img2.imgtn.bdimg.com/it/u=1270715910,4069008786&fm=26&gp=0.jpg">
+											<div class="mui-media-body">子类型34</div>
+										</a>
+									</li>
+									<li class="mui-table-view-cell mui-media mui-col-xs-6">
+										<a href="#">
+											<img class="mui-media-object" src="http://img2.imgtn.bdimg.com/it/u=1270715910,4069008786&fm=26&gp=0.jpg">
+											<div class="mui-media-body">子类型35</div>
+										</a>
+									</li>
+									<li class="mui-table-view-cell mui-media mui-col-xs-6">
+										<a href="#">
+											<img class="mui-media-object" src="http://img2.imgtn.bdimg.com/it/u=1270715910,4069008786&fm=26&gp=0.jpg">
+											<div class="mui-media-body">子类型36</div>
+										</a>
+									</li>
+								</ul>
 							</div>
-						<div class="mui-scrollbar mui-scrollbar-vertical"><div class="mui-scrollbar-indicator" style="transition-duration: 0ms; display: none; height: 209px; transform: translate3d(0px, 0px, 0px) translateZ(0px);"></div></div></div>
-
+						</div>
 					</div>
 				</div>
 			</div>
-			<!-- 頂部選項卡END -->
-		
-	</div>	
-		
+			<!--为选项卡选择样式
+			<h5 class="mui-content-padded">Color</h5>
+			<div class="mui-card">
+				<form class="mui-input-group">
+					<div class="mui-input-row mui-radio">
+						<label><span class="mui-bg-primary" style="display:block;width:25px;height:25px;"></span>
+						</label>
+						<input name="radio1" type="radio" checked value="primary">
+					</div>
+					<div class="mui-input-row mui-radio">
+						<label><span class="mui-bg-positive" style="display:block;width:25px;height:25px;"></span>
+						</label>
+						<input name="radio1" type="radio" value="positive">
+					</div>
+					<div class="mui-input-row mui-radio">
+						<label><span class="mui-bg-negative" style="display:block;width:25px;height:25px;"></span>
+						</label>
+						<input name="radio1" type="radio" value="negative">
+					</div>
+				</form>
+			</div>-->
+		</div>
+		<script src="../js/mui.min.js"></script>
+		<script>
+			mui.init({
+				swipeBack: false
+			});
+			(function($) {
+				$('.mui-scroll-wrapper').scroll({
+					indicators: true //是否显示滚动条
+				});
+				<!--动态更换滚动内容ST-->
+				//var html2 ='<ul class="mui-table-view mui-grid-view"><li class="mui-table-view-cell mui-media mui-col-xs-6"><a href="#"><img class="mui-media-object" src="http://img2.imgtn.bdimg.com/it/u=1270715910,4069008786&fm=26&gp=0.jpg"></a></li></ul>';
+				//var html3 ='<ul class="mui-table-view mui-grid-view"><li class="mui-table-view-cell mui-media mui-col-xs-6"><a href="#"><img class="mui-media-object" src="http://img1.imgtn.bdimg.com/it/u=3449844657,594176350&fm=26&gp=0.jpg"></a></li></ul>	';
+				/* var item2 = document.getElementById('item2mobile');
+				var item3 = document.getElementById('item3mobile');
+				document.getElementById('slider').addEventListener('slide', function(e) {
+					if (e.detail.slideNumber === 1) {
+						if (item2.querySelector('.mui-loading')) {
+							setTimeout(function() {
+								//item2.querySelector('.mui-scroll').innerHTML = html2;
+							}, 500);
+						}
+					} else if (e.detail.slideNumber === 2) {
+						if (item3.querySelector('.mui-loading')) {
+							setTimeout(function() {
+								item3.querySelector('.mui-scroll').innerHTML = html3;
+							}, 500);
+						}
+					}
+				}); */<!--动态更换滚动内容END-->
 
-	
-	<body>
-		
+				<!--为选项卡选择样式ST-->
+				/* var sliderSegmentedControl = document.getElementById('sliderSegmentedControl');
+				$('.mui-input-group').on('change', 'input', function() {
+					if (this.checked) {
+						sliderSegmentedControl.className =
+							'mui-slider-indicator mui-segmented-control mui-segmented-control-inverted mui-segmented-control-' + this.value;
+						//force repaint
+						sliderProgressBar.setAttribute('style', sliderProgressBar.getAttribute('style'));
+					}
+				}); */<!--为选项卡选择样式END-->
+			})(mui);			
+			
+			//进入类型			
+			mui(".mui-slider-group").on('tap','.mui-table-view-cell',function(){
+				var id = this.getAttribute("type-id");	
+				var src=this.querySelector('img').getAttribute('src')	
+				var tyepName=this.querySelector('div').innerHTML;
+			    //传值给详情页面，通知加载新数据	
+				//typedata=plus.webview.getWebviewById('type_list.html')
+				//mui.fire(typedata,'type_list',{typeId:id,typePic:src});
+				//打开类型详细列表
+				mui.openWindow({
+					id:'type_list',
+					url:'../html/type/type_list.html',
+					extras:{
+						typeId:id,
+						typePic:src,
+						tyepName:tyepName
+					}
+				 });				  
+			})
+			
+			
+		</script>
 	</body>
-
-    
 </html>

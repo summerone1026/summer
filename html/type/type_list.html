@@ -1,0 +1,108 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>具体的类型数据</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../css/main.css" rel="stylesheet" />
+		<link href="../../css/mui.css" rel="stylesheet" />
+	</head>
+	
+	<style>
+		.mui-media-object{
+			border-radius:8px 8px 8px 8px
+		}
+	</style>
+	
+	<header class="mui-bar mui-bar-nav">
+		<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		<h1 class="mui-title">类型名称</h1>
+	</header>
+	<body>
+		
+		<div class="mui-content">	
+			<div>
+				<img id="typePic" src=" " style="width: 100%;height: 190px;"/>	
+			</div>		
+			<ul class="mui-table-view mui-grid-view">
+				<li class="mui-table-view-cell mui-media mui-col-xs-6">
+					<a href="#">
+						<img class="mui-media-object" src="http://placehold.it/400x300">
+						<div class="mui-media-body">文字说明1</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media mui-col-xs-6">
+					<a href="#">
+						<img class="mui-media-object" src="http://placehold.it/400x300">
+						<div class="mui-media-body">文字说明2</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media mui-col-xs-6">
+					<a href="#">
+						<img class="mui-media-object" src="http://placehold.it/400x300">
+						<div class="mui-media-body">文字说明1</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media mui-col-xs-6">
+					<a href="#">
+						<img class="mui-media-object" src="http://placehold.it/400x300">
+						<div class="mui-media-body">文字说明2</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media mui-col-xs-6">
+					<a href="#">
+						<img class="mui-media-object" src="http://placehold.it/400x300">
+						<div class="mui-media-body">文字说明1</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media mui-col-xs-6">
+					<a href="#">
+						<img class="mui-media-object" src="http://placehold.it/400x300">
+						<div class="mui-media-body">文字说明2</div>
+					</a>
+				</li>
+			</ul>
+			
+			<p class="mui-text-center cor-999">~到底了~</p>			
+		</div>
+		
+		
+		<script src="../../js/mui.js"></script>
+		<script type="text/javascript">
+			var typeId='';
+			mui.init({
+				swipeBack:false,
+			})
+			
+			mui.plusReady(function () {
+				/* 接受参数 */
+			    var self = plus.webview.currentWebview();
+				var typeId = self.typeId;
+				var typePic = self.typePic;	
+				var tyepName = self.tyepName;	
+				document.getElementById("typePic").src=typePic;
+				document.querySelector("h1").innerHTML=tyepName
+				console.log("传入获取具体数据的类型ID=="+typeId+"====src=="+typePic+"-==="+tyepName);
+			})
+			
+			//从数据库获取该类型的数据
+			mui.ajax('url',{
+				data:{
+					typeId:typeId,
+				},
+				dataType:'json',//服务器返回json格式数据
+				type:'post',//HTTP请求类型
+				timeout:10000,//超时时间设置为10秒；
+				headers:{'Content-Type':'application/json'},	              
+				success:function(data){
+					//服务器返回响应，根据响应结果，分析是否登录成功；
+				},
+				error:function(xhr,type,errorThrown){
+					//异常处理；
+					console.log(type);
+				}
+			});
+		</script>
+	</body>
+
+</html>
