@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.css" rel="stylesheet" />
+		 <link href="../css/video-js.min.css" rel="stylesheet">
+		 <script src="../js/video.js"></script>
+		<script src="../js/videojs.min.js"></script>
+
+	</head>
+	<script src="../js/mui.js"></script>
+	<script src="../js/mui.min.js"></script>
+	<script type="text/javascript">
+		mui.init()
+		mui.plusReady(function(){
+			var self = plus.webview.currentWebview();
+			var name = self.name;//获得参数
+			var src = self.src;
+			console.log("name=" + name)
+			console.log("src=" + src)
+		})
+	</script>
+
+	<header class="mui-bar mui-bar-nav">
+		<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		<h5 class="mui-title">花木兰</h5>
+	</header>
+	
+	<body>
+		<video id="video" 
+		class="video-js "
+		controls
+		autoplay="true" 
+		topreload="auto" 
+		height="200" 
+		width="100%" 
+		loop="true" 
+		poster="" 
+		data-setup="{}">
+		  <source src="../download/videoplayback.webm" type='video/webm'>
+		  <p class="vjs-no-js">
+			TEST
+		  </p>
+		</video>
+	</body>
+	
+</html>

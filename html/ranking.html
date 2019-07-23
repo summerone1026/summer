@@ -7,52 +7,8 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<link href="../css/mui.css" rel="stylesheet" />
 	</head>
-<!-- 	<header class="mui-bar mui-bar-nav">
-		<h1 class="mui-title">ranking</h1>
-	</header> -->
-	
 
-	<!-- <div class="mui-content">
-		<div id="slider" class="mui-slider">
-			<div id="sliderSegmentedControl" class="mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
-				<a class="mui-control-item" href="#item1mobile">
-					观影榜
-				</a>
-				<a class="mui-control-item" href="#item2mobile">
-					热搜榜
-				</a>
-				<a class="mui-control-item" href="#item3mobile">
-					新片榜
-				</a>
-			</div>
-				
-				<div id="sliderProgressBar" class="mui-slider-progress-bar mui-col-xs-4"></div>
-				
-				<div class="mui-slider-group">
-				<div id="item1mobile" class="mui-slider-item mui-control-content mui-active">
-					<div id="scroll1" class="mui-scroll-wrapper">
-						<div class="mui-scroll">
-							   <ul class="mui-table-view">
-								<li class="mui-table-view-cell">
-									第一个选项卡子项-1
-								</li>
-								<li class="mui-table-view-cell">
-									第一个选项卡子项-2
-								</li>
-								<li class="mui-table-view-cell">
-									第一个选项卡子项-3
-								</li>
-											
-							</ul>
-						  </div>
-					  </div>
-				  </div>
-			</div>
-		</div>
-	</div> -->
-	
-	<body>
-		
+	<body>		
 		<style>
 		.mui-control-content {
 		background-color: white;
@@ -62,10 +18,7 @@
 		margin-top: 50px;
 		}
 		</style>
-<!-- 		<header class="mui-bar mui-bar-nav">
-		<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-		<h1 class="mui-title">顶部选项卡-可左右拖动(div)</h1>
-		</header> -->
+
 		<div class="mui-content">
 		<div id="slider" class="mui-slider">
 		<div id="sliderSegmentedControl" class="mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
@@ -84,22 +37,34 @@
 		<div id="item1mobile" class="mui-slider-item mui-control-content mui-active">
 		<div id="scroll1" class="mui-scroll-wrapper">
 		<div class="mui-scroll">
-		<ul class="mui-table-view">
-		<li class="mui-table-view-cell">
-		第一个选项卡子项-1
-		</li>
-		<li class="mui-table-view-cell">
-		第一个选项卡子项-2
-		</li>
-		<li class="mui-table-view-cell">
-		第一个选项卡子项-3
-		</li>
-		<li class="mui-table-view-cell">
-		第一个选项卡子项-4
-		</li>
-		<li class="mui-table-view-cell">
-		第一个选项卡子项-5
-		</li>
+		<ul class="mui-table-view" id="videoList">
+			<li class="mui-table-view-cell mui-media">
+				<a href="javascript:;">
+					<img class="mui-media-object mui-pull-left" src="../images/shuijiao.jpg">
+					<div class="mui-media-body">
+						幸福
+						<p class='mui-ellipsis'>能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</p>
+					</div>
+				</a>
+			</li>
+			<li class="mui-table-view-cell mui-media">
+				<a href="javascript:;">
+					<img class="mui-media-object mui-pull-left" src="../images/muwu.jpg">
+					<div class="mui-media-body">
+						木屋
+						<p class='mui-ellipsis'>想要这样一间小木屋，夏天挫冰吃瓜，冬天围炉取暖.</p>
+					</div>
+				</a>
+			</li>
+			<li class="mui-table-view-cell mui-media">
+				<a href="javascript:;">
+					<img class="mui-media-object mui-pull-left" src="../images/cbd.jpg">
+					<div class="mui-media-body">
+						CBD
+						<p class='mui-ellipsis'>烤炉模式的城，到黄昏，如同打翻的调色盘一般.</p>
+					</div>
+				</a>
+			</li>
 		</ul>
 		</div>
 		</div>
@@ -198,6 +163,17 @@
 	}
 	});
 	})(mui);
+	
+	document.getElementById('videoList').addEventListener("tap",function(){
+		var webview = mui.openWindow({
+			url:'video.html',
+			extras:{
+				name: "花木兰",
+				src: "../download/videoplayback.webm"
+			}
+		});
+	});
+	
 	</script>
 	<script src="../js/mui.js"></script>
 	
