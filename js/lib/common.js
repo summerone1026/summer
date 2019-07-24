@@ -828,9 +828,9 @@ var appPage = {
 
 			if(pageid == "HBuilder" || pageid == "cn.kayou110.kidapp") {
 				//alert(pageid)
-			} else if(pageid == "index/home.html" || pageid == "main.html") {
+			} else if(pageid == "home.html" || pageid == "main.html") {
 
-			} else if(pageid == "pk/pk.html" || pageid == "tool/tool.html" || pageid == "my/user.html" || pageid == "bbs/bbs.html" || pageid == "bbs/bbsIndex.html" || pageid == "bbs/bbsChannel.html") {
+			} else if(pageid == "type.html" || pageid == "welfare.html" || pageid == "ranking.html" || pageid == "my/user.html") {
 				log("刷新了：" + pageid);
 				mui.fire(plus.webview.getWebviewById(pageid), 'refreshPage');
 			} else {

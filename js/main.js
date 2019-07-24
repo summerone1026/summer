@@ -3,7 +3,7 @@ mui.init();
 var showMenu = false,
 	showPop = "";
 
-var subPages = ["home.html", "type.html", "welfare.html", "ranking.html", "member.html"];
+var subPages = ["home.html", "type.html", "welfare.html", "ranking.html", "my/user.html"];
 var subPagesLoad = [false, false, false, false, false];
 var subPageStyle = {
 	top: '0',
@@ -32,7 +32,7 @@ mui.plusReady(function() {
 	mui('.mui-bar-tab').on('tap', 'a', function(e) {
 		targetTab = this.dataset.href;
 		tabindex = this.dataset.index;
-		if(targetTab == 'member.html') {
+		if(targetTab == 'my/user.html') {
 			plus.navigator.setStatusBarBackground('#13D1BE');
 			plus.navigator.setStatusBarStyle('light');
 		} else {
