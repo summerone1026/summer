@@ -172,27 +172,6 @@
 					</div>
 				</div>
 			</div>
-			<!--为选项卡选择样式
-			<h5 class="mui-content-padded">Color</h5>
-			<div class="mui-card">
-				<form class="mui-input-group">
-					<div class="mui-input-row mui-radio">
-						<label><span class="mui-bg-primary" style="display:block;width:25px;height:25px;"></span>
-						</label>
-						<input name="radio1" type="radio" checked value="primary">
-					</div>
-					<div class="mui-input-row mui-radio">
-						<label><span class="mui-bg-positive" style="display:block;width:25px;height:25px;"></span>
-						</label>
-						<input name="radio1" type="radio" value="positive">
-					</div>
-					<div class="mui-input-row mui-radio">
-						<label><span class="mui-bg-negative" style="display:block;width:25px;height:25px;"></span>
-						</label>
-						<input name="radio1" type="radio" value="negative">
-					</div>
-				</form>
-			</div>-->
 		</div>
 		<script src="../js/mui.min.js"></script>
 		<script>
@@ -203,37 +182,6 @@
 				$('.mui-scroll-wrapper').scroll({
 					indicators: true //是否显示滚动条
 				});
-				<!--动态更换滚动内容ST-->
-				//var html2 ='<ul class="mui-table-view mui-grid-view"><li class="mui-table-view-cell mui-media mui-col-xs-6"><a href="#"><img class="mui-media-object" src="http://img2.imgtn.bdimg.com/it/u=1270715910,4069008786&fm=26&gp=0.jpg"></a></li></ul>';
-				//var html3 ='<ul class="mui-table-view mui-grid-view"><li class="mui-table-view-cell mui-media mui-col-xs-6"><a href="#"><img class="mui-media-object" src="http://img1.imgtn.bdimg.com/it/u=3449844657,594176350&fm=26&gp=0.jpg"></a></li></ul>	';
-				/* var item2 = document.getElementById('item2mobile');
-				var item3 = document.getElementById('item3mobile');
-				document.getElementById('slider').addEventListener('slide', function(e) {
-					if (e.detail.slideNumber === 1) {
-						if (item2.querySelector('.mui-loading')) {
-							setTimeout(function() {
-								//item2.querySelector('.mui-scroll').innerHTML = html2;
-							}, 500);
-						}
-					} else if (e.detail.slideNumber === 2) {
-						if (item3.querySelector('.mui-loading')) {
-							setTimeout(function() {
-								item3.querySelector('.mui-scroll').innerHTML = html3;
-							}, 500);
-						}
-					}
-				}); */<!--动态更换滚动内容END-->
-
-				<!--为选项卡选择样式ST-->
-				/* var sliderSegmentedControl = document.getElementById('sliderSegmentedControl');
-				$('.mui-input-group').on('change', 'input', function() {
-					if (this.checked) {
-						sliderSegmentedControl.className =
-							'mui-slider-indicator mui-segmented-control mui-segmented-control-inverted mui-segmented-control-' + this.value;
-						//force repaint
-						sliderProgressBar.setAttribute('style', sliderProgressBar.getAttribute('style'));
-					}
-				}); */<!--为选项卡选择样式END-->
 			})(mui);			
 			
 			//进入类型			
@@ -254,8 +202,7 @@
 						tyepName:tyepName
 					}
 				 });				  
-			})
-			
+			})		
 			
 		</script>
 	</body>

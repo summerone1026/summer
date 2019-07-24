@@ -6,9 +6,9 @@
 		<title></title>
 		<script src="../js/mui.min.js"></script>
 		<link href="../css/mui.min.css" rel="stylesheet" />
-		<link href="../css/iconfont.css" rel="stylesheet" />		
+		<link href="../css/iconfont.css" rel="stylesheet" />
 
-        <style>
+		<style>
 			nav {
 			position: absolute;
 			z-index: 999;
@@ -62,7 +62,28 @@
 		  fill: currentColor;
 		  overflow: hidden;
 		}
-
+		.hometype {
+			width: 92%;
+			position: relative;
+			left: 1.25rem;
+			top: 0.4125rem;
+			line-height: 1.5625rem;				
+		}	
+		.left{
+			font-family: "arial black";
+			font-size: medium;
+			color: #000000;
+		}
+		.right{
+			position: relative;
+			left: 70%;
+			font-family: "arial black";
+			font-size: x-small;
+			color: orange;
+		}	
+		.mui-media-object{
+			border-radius:8px 8px 8px 8px
+		}	
 		</style>
 	</head>
 	<!--标题栏部分-->
@@ -73,12 +94,12 @@
 	</header>
 
 	<body>
-		<div class="mui-content">				
+		<div class="mui-content">
 			<nav>
 				<input type="text" name="" id="search" readonly="readonly" value="搜索视频、明星、" placeholder="" />
 				<span class="iconfont icon-shuangsechangyongtubiao-"></span>
 			</nav>
-				
+
 			<!--轮播部分-->
 			<div id="slider" class="mui-slider">
 				<div class="mui-slider-group mui-slider-loop">
@@ -101,26 +122,175 @@
 				</div>
 			</div>
 
-            <!-- ================================================== -->
-				<div class="mui-slider-indicator mui-segmented-control mui-segmented-control-inverted ">
-					<a class="mui-control-item mui-left" href="#item1">XX类型</a>
-				</div>
-				<ul class="mui-table-view mui-grid-view">
-					<li class="mui-table-view-cell mui-media mui-col-xs-6">
-						<a href="#">
-							<img class="mui-media-object" src="http://placehold.it/400x300">
-							<div class="mui-media-body">文字说明1</div>
-						</a>
-					</li>
-					<li class="mui-table-view-cell mui-media mui-col-xs-6">
-						<a href="#">
-							<img class="mui-media-object" src="http://placehold.it/400x300">
-							<div class="mui-media-body">文字说明2</div>
-						</a>
-					</li>
-				</ul>
-				
-				
+			<!-- ================================================== -->
+			<div class="hometype">
+				<span class="left">热播推荐</span>
+				<!-- <span class="right">More</span> -->
+			</div>
+			<ul class="mui-table-view mui-grid-view">
+				<li class="mui-table-view-cell mui-media mui-col-xs-6">
+					<a href="#">
+						<img class="mui-media-object" src="http://placehold.it/400x300">
+						<div class="mui-media-body">文字说明1</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media mui-col-xs-6">
+					<a href="#">
+						<img class="mui-media-object" src="http://placehold.it/400x300">
+						<div class="mui-media-body">文字说明2</div>
+					</a>
+				</li>
+			</ul>
+			<ul class="mui-table-view mui-grid-view">
+				<li class="mui-table-view-cell mui-media mui-col-xs-6">
+					<a href="#">
+						<img class="mui-media-object" src="http://placehold.it/400x300">
+						<div class="mui-media-body">文字说明1</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media mui-col-xs-6">
+					<a href="#">
+						<img class="mui-media-object" src="http://placehold.it/400x300">
+						<div class="mui-media-body">文字说明2</div>
+					</a>
+				</li>
+			</ul>
+			<hr>
+			<!-- =============================================================================== -->
+			<div class="hometype">
+				<span class="left">国产高清</span>
+				<a class="right">More</a>
+			</div>
+			<ul class="mui-table-view mui-grid-view">
+				<li class="mui-table-view-cell mui-media mui-col-xs-6">
+					<a href="#">
+						<img class="mui-media-object" src="http://placehold.it/400x300">
+						<div class="mui-media-body">文字说明1</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media mui-col-xs-6">
+					<a href="#">
+						<img class="mui-media-object" src="http://placehold.it/400x300">
+						<div class="mui-media-body">文字说明2</div>
+					</a>
+				</li>
+			</ul>
+			<ul class="mui-table-view mui-grid-view">
+				<li class="mui-table-view-cell mui-media mui-col-xs-6">
+					<a href="#">
+						<img class="mui-media-object" src="http://placehold.it/400x300">
+						<div class="mui-media-body">文字说明1</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media mui-col-xs-6">
+					<a href="#">
+						<img class="mui-media-object" src="http://placehold.it/400x300">
+						<div class="mui-media-body">文字说明2</div>
+					</a>
+				</li>
+			</ul>
+			<hr>
+			<!-- =============================================================================== -->
+			<div class="hometype">
+				<span class="left">热辣主播</span>
+				<a class="right">More</a>
+			</div>
+			<ul class="mui-table-view mui-grid-view">
+				<li class="mui-table-view-cell mui-media mui-col-xs-6">
+					<a href="#">
+						<img class="mui-media-object" src="http://placehold.it/400x300">
+						<div class="mui-media-body">文字说明1</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media mui-col-xs-6">
+					<a href="#">
+						<img class="mui-media-object" src="http://placehold.it/400x300">
+						<div class="mui-media-body">文字说明2</div>
+					</a>
+				</li>
+			</ul>
+			<ul class="mui-table-view mui-grid-view">
+				<li class="mui-table-view-cell mui-media mui-col-xs-6">
+					<a href="#">
+						<img class="mui-media-object" src="http://placehold.it/400x300">
+						<div class="mui-media-body">文字说明1</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media mui-col-xs-6">
+					<a href="#">
+						<img class="mui-media-object" src="http://placehold.it/400x300">
+						<div class="mui-media-body">文字说明2</div>
+					</a>
+				</li>
+			</ul>
+			<hr>
+			<!-- =============================================================================== -->
+			<div class="hometype">
+				<span class="left">激情欧美</span>
+				<a class="right">More</a>
+			</div>
+			<ul class="mui-table-view mui-grid-view">
+				<li class="mui-table-view-cell mui-media mui-col-xs-6">
+					<a href="#">
+						<img class="mui-media-object" src="http://placehold.it/400x300">
+						<div class="mui-media-body">文字说明1</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media mui-col-xs-6">
+					<a href="#">
+						<img class="mui-media-object" src="http://placehold.it/400x300">
+						<div class="mui-media-body">文字说明2</div>
+					</a>
+				</li>
+			</ul>
+			<ul class="mui-table-view mui-grid-view">
+				<li class="mui-table-view-cell mui-media mui-col-xs-6">
+					<a href="#">
+						<img class="mui-media-object" src="http://placehold.it/400x300">
+						<div class="mui-media-body">文字说明1</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media mui-col-xs-6">
+					<a href="#">
+						<img class="mui-media-object" src="http://placehold.it/400x300">
+						<div class="mui-media-body">文字说明2</div>
+					</a>
+				</li>
+			</ul>
+			<hr >
+			<!-- =============================================================================== -->
+			<div class="hometype">
+				<span class="left">猜你喜欢</span>
+				<a class="right">换一批</a>
+			</div>
+			<ul class="mui-table-view mui-grid-view">
+				<li class="mui-table-view-cell mui-media mui-col-xs-6">
+					<a href="#">
+						<img class="mui-media-object" src="http://placehold.it/400x300">
+						<div class="mui-media-body">文字说明1</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media mui-col-xs-6">
+					<a href="#">
+						<img class="mui-media-object" src="http://placehold.it/400x300">
+						<div class="mui-media-body">文字说明2</div>
+					</a>
+				</li>
+			</ul>
+			<ul class="mui-table-view mui-grid-view">
+				<li class="mui-table-view-cell mui-media mui-col-xs-6">
+					<a href="#">
+						<img class="mui-media-object" src="http://placehold.it/400x300">
+						<div class="mui-media-body">文字说明1</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media mui-col-xs-6">
+					<a href="#">
+						<img class="mui-media-object" src="http://placehold.it/400x300">
+						<div class="mui-media-body">文字说明2</div>
+					</a>
+				</li>
+			</ul>
 		</div>
 	</body>
 
@@ -129,26 +299,24 @@
 		//轮播=====获得slider插件对象
 		var gallery = mui('.mui-slider');
 		gallery.slider({
-			interval: 2000 
+			interval: 2000
 		});
-		
+
 		//播放历史记录			
-		document.querySelector('.icon-history').addEventListener('tap',function () {
-		    //mui.alert('history....')  
+		document.querySelector('.icon-history').addEventListener('tap', function() {
+			//mui.alert('history....')  
 			mui.openWindow({
 				url: 'home/history.html',
 				id: 'history',
 			});
 		})
-		
+
 		//搜索			
-		document.querySelector('nav').addEventListener('tap',function () {
+		document.querySelector('nav').addEventListener('tap', function() {
 			mui.openWindow({
-				url:'home/search.html',
+				url: 'home/search.html',
 				id: 'search',
 			})
 		})
-		
-		
-	</script>	
+	</script>
 </html>
