@@ -5,6 +5,7 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<title></title>
 		<script src="../js/mui.min.js"></script>
+		<script src="../js/h.js"></script>
 		<link href="../css/mui.min.css" rel="stylesheet" />
 		<link href="../css/iconfont.css" rel="stylesheet" />
 
@@ -78,12 +79,15 @@
 			position: relative;
 			left: 70%;
 			font-family: "arial black";
-			font-size: x-small;
+			font-size: small;
 			color: orange;
 		}	
 		.mui-media-object{
 			border-radius:8px 8px 8px 8px
 		}	
+		#slider{
+			height: 500px;;
+		}
 		</style>
 	</head>
 	<!--标题栏部分-->
@@ -101,7 +105,7 @@
 			</nav>
 
 			<!--轮播部分-->
-			<div id="slider" class="mui-slider">
+			<div class="mui-slider">
 				<div class="mui-slider-group mui-slider-loop">
 					<!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
 					<div class="mui-slider-item mui-slider-item-duplicate">
@@ -263,34 +267,87 @@
 				<span class="left">猜你喜欢</span>
 				<a id="changeVod" class="right">换一批</a>
 			</div>
-			<ul class="mui-table-view mui-grid-view">
+			<ul id="guessLike1" class="mui-table-view mui-grid-view" style="display:;">
 				<li class="mui-table-view-cell mui-media mui-col-xs-6">
-					<a href="#">
+					<a href="javascript:void(0);">
+						<img class="mui-media-object" src="../images/home15.jpg">
+						<div class="mui-media-body">文字说明1</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media mui-col-xs-6" >
+					<a href="javascript:void(0);">
+						<img class="mui-media-object" src="../images/home16.jpg">
+						<div class="mui-media-body">文字说明1</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media mui-col-xs-6">
+					<a href="javascript:void(0);">
 						<img class="mui-media-object" src="../images/home17.jpg">
 						<div class="mui-media-body">文字说明1</div>
 					</a>
 				</li>
-				<li class="mui-table-view-cell mui-media mui-col-xs-6">
-					<a href="#">
+				<li class="mui-table-view-cell mui-media mui-col-xs-6" >
+					<a href="javascript:void(0);">
 						<img class="mui-media-object" src="../images/home18.jpg">
-						<div class="mui-media-body">文字说明2</div>
-					</a>
-				</li>
-			</ul>
-			<ul class="mui-table-view mui-grid-view">
-				<li class="mui-table-view-cell mui-media mui-col-xs-6">
-					<a href="#">
-						<img class="mui-media-object" src="../images/home19.jpg">
 						<div class="mui-media-body">文字说明1</div>
 					</a>
 				</li>
+			</ul>
+			<!-- ================= -->
+			<ul id="guessLike2" class="mui-table-view mui-grid-view" style="display: none;">
 				<li class="mui-table-view-cell mui-media mui-col-xs-6">
-					<a href="#">
-						<img class="mui-media-object" src="../images/home20.jpg">
+					<a href="javascript:void(0);">
+						<img class="mui-media-object" src="../images/home25.jpg">
+						<div class="mui-media-body">文字说明2</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media mui-col-xs-6">
+					<a href="javascript:void(0);">
+						<img class="mui-media-object" src="../images/home26.jpg">
+						<div class="mui-media-body">文字说明2</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media mui-col-xs-6">
+					<a href="javascript:void(0);">
+						<img class="mui-media-object" src="../images/home27.jpg">
+						<div class="mui-media-body">文字说明2</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media mui-col-xs-6">
+					<a href="javascript:void(0);">
+						<img class="mui-media-object" src="../images/home28.jpg">
 						<div class="mui-media-body">文字说明2</div>
 					</a>
 				</li>
 			</ul>
+			<!-- ================= -->
+			<ul id="guessLike3" class="mui-table-view mui-grid-view" style="display: none;">
+				<li class="mui-table-view-cell mui-media mui-col-xs-6">
+					<a href="javascript:void(0);">
+						<img class="mui-media-object" src="../images/home30.jpg">
+						<div class="mui-media-body">文字说明3</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media mui-col-xs-6">
+					<a href="javascript:void(0);">
+						<img class="mui-media-object" src="../images/home29.jpg">
+						<div class="mui-media-body">文字说明3</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media mui-col-xs-6">
+					<a href="javascript:void(0);">
+						<img class="mui-media-object" src="../images/home28.jpg">
+						<div class="mui-media-body">文字说明3</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media mui-col-xs-6">
+					<a href="javascript:void(0);">
+						<img class="mui-media-object" src="../images/home27.jpg">
+						<div class="mui-media-body">文字说明3</div>
+					</a>
+				</li>
+			</ul>
+			<!-- ================= -->			
 		</div>
 	</body>
 
@@ -317,6 +374,24 @@
 				url: 'home/search.html',
 				id: 'search',
 			})
+		})
+		
+		//猜你喜欢换一批
+		var guessNo=2;
+		h('#changeVod').tap(function(){			
+			if(guessNo==4){
+				var showimg="#guessLike"+1;
+		        var hiedimg="#guessLike"+3;
+				 h(hiedimg).attr("style","display:none");
+				 h(showimg).attr("style","display:block");
+				 guessNo=2;
+			}else{
+				var xx=guessNo-1;
+				var hidden="#guessLike"+xx;
+				h(hidden).attr('style','display:none');
+				h('#guessLike'+guessNo).attr('style','display:block');
+				guessNo++;
+			}				 
 		})
 	</script>
 </html>
