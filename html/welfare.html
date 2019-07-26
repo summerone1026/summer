@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>顶部选项卡-可左右拖动</title>
+		<title></title>
 		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
@@ -26,8 +26,15 @@
 			.mui-table-view .mui-media-object{
 				max-width: 5rem;
 			}
-			.mui-btn-block{
-				border: 0.3125rem solid palevioletred;
+			.payChannel{
+				max-height: 8.625rem;max-width: 8.125rem;
+				border:0.08rem lightgray solid;				
+				padding:0.6375rem;
+				margin: 0.1rem;
+			}
+			#payInfo{
+				position: relative;
+				top: 42.2rem;
 			}
         </style>
 		
@@ -41,33 +48,25 @@
 				<div id="sliderProgressBar" class="mui-slider-progress-bar mui-col-xs-4"></div>
 				<div class="mui-slider-group">
 					<div id="item1mobile" class="mui-slider-item mui-control-content mui-active">
-						<div id="scroll1" class="mui-scroll-wrapper">
+						<div id="scroll1" class="mui-scroll-wrapper">							
+							<hr />
+							<div class="divPayChanel">
+								<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;请选择支付方式。</p>
+								<img class="payChannel" style="border:0.08rem red solid;" src="../images/wechatpay.png"/>
+								<img class="payChannel" style="" src="../images/zfbpay.png"/>
+							</div>							
+							<hr />							
 							<div class="mui-scroll">
-								
-								<ul class="mui-table-view">
-									<li class="mui-table-view-cell">
-										<div class="mui-input-row mui-radio ">
-											<label><img style="max-height: 4.625rem;max-width: 6.625rem;" src="../images/wechatpay.png"/></label>
-											<input name="pay" type="radio" checked>
-										</div>
-									</li>
-									<li class="mui-table-view-cell">
-										<div class="mui-input-row mui-radio ">
-											<label><img style="max-height: 4.625rem;max-width: 6.625rem;" src="../images/zfbpay.png"/></label>
-											<input name="pay" type="radio" checked>
-										</div>
-									</li>
-																			
-								</ul><hr />
-								
-								<button type="button" class="mui-btn mui-btn-orange mui-btn-block">一天VIP</button>
-								<button type="button" class="mui-btn mui-btn-yellow mui-btn-block">一周VIP</button>
-								<button type="button" class="mui-btn mui-btn-blue mui-btn-block">一月VIP</button>
-								<button type="button" class="mui-btn mui-btn-green mui-btn-block">一年VIP</button>
-								<button type="button" class="mui-btn mui-btn-red mui-btn-block">永久VIP</button>								
-								
+								<button type="button" class="mui-btn mui-btn-yellow mui-btn-block mui-btn-outlined">一天VIP</button>
+								<button type="button" class="mui-btn mui-btn-yellow mui-btn-block mui-btn-outlined">一周VIP</button>
+								<button type="button" class="mui-btn mui-btn-yellow mui-btn-block mui-btn-outlined">一月VIP</button>
+								<button type="button" class="mui-btn mui-btn-yellow mui-btn-block mui-btn-outlined">一年VIP</button>
+								<button type="button" class="mui-btn mui-btn-yellow mui-btn-block mui-btn-outlined">永久VIP</button>								
 							</div>
 						</div>
+						<div>
+							<button id="payInfo" type="button" class="mui-btn mui-btn-blue mui-btn-block mui-btn-outlined">点击前往支付</button>
+						</div>						
 					</div>
 					
 					<div id="item2mobile" class="mui-slider-item mui-control-content">
@@ -130,8 +129,10 @@
 					</div>
 				</div>
 			</div>
+			
 		</div>
 		<script src="../js/mui.min.js"></script>
+		<script src="../js/h.js"></script>
 		<script>
 			mui.init({
 				swipeBack: false
@@ -162,7 +163,25 @@
 				 });				  
 			})
 			
+			//选中支付方式和金额
+			mui('.mui-scroll').on('tap','button',function(){							
+				h('button').each(function(obj){
+					var checked=h(obj).hasClass('mui-btn-outlined')
+					if(!checked){
+						h(obj).addClass('mui-btn-outlined')
+					}
+				})
+				h(this).removeClass('mui-btn-outlined');				
+				console.log("选择的"+h(this).html())
+			})
 			
+			//确定支付通道
+			mui('.divPayChanel').on('tap','img',function(){
+				h('img').each(function(obj){
+					h(obj).attr("style","")
+				})
+				h(this).attr("style","border:0.08rem red solid;")
+			})
 		</script>
 	</body>
 </html>
