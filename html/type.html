@@ -187,7 +187,7 @@
 			//进入类型			
 			mui(".mui-slider-group").on('tap','.mui-table-view-cell',function(){
 				var id = this.getAttribute("type-id");	
-				var src=this.querySelector('img').getAttribute('src')	
+				var src=this.querySelector('img').getAttribute('src')
 				var tyepName=this.querySelector('div').innerHTML;
 			    //传值给详情页面，通知加载新数据	
 				//typedata=plus.webview.getWebviewById('type_list.html')
@@ -198,7 +198,7 @@
 					url:'../html/type/type_list.html',
 					extras:{
 						typeId:id,
-						typePic:src,
+						typePic:"../"+src,
 						tyepName:tyepName
 					}
 				 });				  

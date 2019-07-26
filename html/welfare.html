@@ -23,6 +23,12 @@
 			.mui-media-object{
 				border-radius:8px 8px 8px 8px
 			}
+			.mui-table-view .mui-media-object{
+				max-width: 5rem;
+			}
+			.mui-btn-block{
+				border: 0.3125rem solid palevioletred;
+			}
         </style>
 		
 		<div class="mui-content">
@@ -37,23 +43,29 @@
 					<div id="item1mobile" class="mui-slider-item mui-control-content mui-active">
 						<div id="scroll1" class="mui-scroll-wrapper">
 							<div class="mui-scroll">
+								
 								<ul class="mui-table-view">
-										<li class="mui-table-view-cell">
-											<a class="mui-navigate-right">
-												充值通道1
-											</a>
-										</li>
-										<li class="mui-table-view-cell">
-											<a class="mui-navigate-right">
-												 充值通道1
-											</a>
-										</li>
-										<li class="mui-table-view-cell">
-											<a class="mui-navigate-right">
-												 充值通道3
-											</a>
-										</li>
-									</ul>								
+									<li class="mui-table-view-cell">
+										<div class="mui-input-row mui-radio ">
+											<label><img style="max-height: 4.625rem;max-width: 6.625rem;" src="../images/wechatpay.png"/></label>
+											<input name="pay" type="radio" checked>
+										</div>
+									</li>
+									<li class="mui-table-view-cell">
+										<div class="mui-input-row mui-radio ">
+											<label><img style="max-height: 4.625rem;max-width: 6.625rem;" src="../images/zfbpay.png"/></label>
+											<input name="pay" type="radio" checked>
+										</div>
+									</li>
+																			
+								</ul><hr />
+								
+								<button type="button" class="mui-btn mui-btn-orange mui-btn-block">一天VIP</button>
+								<button type="button" class="mui-btn mui-btn-yellow mui-btn-block">一周VIP</button>
+								<button type="button" class="mui-btn mui-btn-blue mui-btn-block">一月VIP</button>
+								<button type="button" class="mui-btn mui-btn-green mui-btn-block">一年VIP</button>
+								<button type="button" class="mui-btn mui-btn-red mui-btn-block">永久VIP</button>								
+								
 							</div>
 						</div>
 					</div>
