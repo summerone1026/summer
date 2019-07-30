@@ -24,40 +24,27 @@
 			<div>
 				<img id="typePic" src=" " style="width: 100%;height: 190px;"/>	
 			</div>		
-			<ul class="mui-table-view mui-grid-view">
-				<li class="mui-table-view-cell mui-media mui-col-xs-6">
+			<ul class="mui-table-view mui-grid-view" id="allvedio"></ul>
+				<!-- <li class="mui-table-view-cell mui-media mui-col-xs-6">
 						<img class="mui-media-object" src="../../images/fl3.jpg">
 						<div class="mui-media-body">文字说明1</div>
-				</li>
-				<li class="mui-table-view-cell mui-media mui-col-xs-6">
-						<img class="mui-media-object" src="../../images/home12.jpg">
-						<div class="mui-media-body">文字说明2</div>
-				</li>
-				<li class="mui-table-view-cell mui-media mui-col-xs-6">
-						<img class="mui-media-object" src="../../images/home13.jpg">
-						<div class="mui-media-body">文字说明1</div>
-				</li>
-				<li class="mui-table-view-cell mui-media mui-col-xs-6">
-						<img class="mui-media-object" src="../../images/home19.jpg">
-						<div class="mui-media-body">文字说明2</div>
-				</li>
-				<li class="mui-table-view-cell mui-media mui-col-xs-6">
-						<img class="mui-media-object" src="../../images/home22.jpg">
-						<div class="mui-media-body">文字说明1</div>
-				</li>
-				<li class="mui-table-view-cell mui-media mui-col-xs-6">
-						<img class="mui-media-object" src="../../images/home29.jpg">
-						<div class="mui-media-body">文字说明2</div>
-				</li>
-			</ul>
-			
+				</li> -->
+				
+				<script type="text/html" id="video">
+					{{each videos as value index}}
+					<li class="mui-table-view-cell mui-media mui-col-xs-6" type-id="{{value.id}}">
+							<img class="mui-media-object" src="../../images/home29.jpg">
+							<div class="mui-media-body">{{value.name}}</div>
+					</li>
+					{{/each}}
+				</script>
+						
 			<p class="mui-text-center cor-999">~到底了~</p>			
-		</div>
-		
+		</div>		
 		
 		<script src="../../js/mui.js"></script>
+		<script src="../../js/lib/template-web.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
-			var typeId='';
 			mui.init({
 				swipeBack:false,
 			})
@@ -71,25 +58,30 @@
 				document.getElementById("typePic").src=typePic;
 				document.querySelector("h1").innerHTML=tyepName
 				console.log("传入获取具体数据的类型ID=="+typeId+"====src=="+typePic+"-==="+tyepName);
+				
+				//测试渲染
+				var data ={videos:[{id:'11',name:'子类型1',src:'src...'},{id:'12',name:'子类型1',src:'src...'},{id:'13',name:'子类型1',src:'src...'},{id:'14',name:'子类型1',src:'src...'},{id:'14',name:'子类型1',src:'src...'},{id:'14',name:'子类型1',src:'src...'},{id:'14',name:'子类型1',src:'src...'},{id:'14',name:'子类型1',src:'src...'},{id:'14',name:'子类型1',src:'src...'},{id:'14',name:'子类型1',src:'src...'},{id:'14',name:'子类型1',src:'src...'}]};
+				var html=template('video',data)
+				document.getElementById("allvedio").innerHTML=html;	
+				
+				//从数据库获取该类型的数据
+				mui.ajax('url',{
+					data:{
+						typeId:typeId,
+					},
+					dataType:'json',//服务器返回json格式数据
+					type:'post',//HTTP请求类型
+					timeout:10000,//超时时间设置为10秒；
+					headers:{'Content-Type':'application/json'},	              
+					success:function(data){
+						//服务器返回响应，根据响应结果，分析是否登录成功；
+					},
+					error:function(xhr,type,errorThrown){
+						//异常处理；
+						console.log(type);
+					}
+				});				
 			})
-			
-			//从数据库获取该类型的数据
-			mui.ajax('url',{
-				data:{
-					typeId:typeId,
-				},
-				dataType:'json',//服务器返回json格式数据
-				type:'post',//HTTP请求类型
-				timeout:10000,//超时时间设置为10秒；
-				headers:{'Content-Type':'application/json'},	              
-				success:function(data){
-					//服务器返回响应，根据响应结果，分析是否登录成功；
-				},
-				error:function(xhr,type,errorThrown){
-					//异常处理；
-					console.log(type);
-				}
-			});
 		</script>
 	</body>
 

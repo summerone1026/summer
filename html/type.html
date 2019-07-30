@@ -37,44 +37,16 @@
 					<div id="item1mobile" class="mui-slider-item mui-control-content mui-active">
 						<div id="scroll1" class="mui-scroll-wrapper">
 							<div class="mui-scroll">
-								<ul class="mui-table-view mui-grid-view">
-									<li class="mui-table-view-cell mui-media mui-col-xs-6" type-id="11">
-										<a href="#">
+								<ul class="mui-table-view mui-grid-view" id="type1"></ul>
+								
+								<script type="text/html" id="type1Model">
+									{{each type1 as value index}}
+									<li class="mui-table-view-cell mui-media mui-col-xs-6" type-id="{{value.id}}">
 											<img class="mui-media-object" src="../images/home21.jpg">
-											<div class="mui-media-body">子类型11</div>
-										</a>
+											<div class="mui-media-body">{{value.name}}</div>
 									</li>
-									<li class="mui-table-view-cell mui-media mui-col-xs-6" type-id="12">
-										<a href="#">
-											<img class="mui-media-object" src="../images/home22.jpg">
-											<div class="mui-media-body">子类型12</div>
-										</a>
-									</li>	
-									<li class="mui-table-view-cell mui-media mui-col-xs-6">
-										<a href="#">
-											<img class="mui-media-object" src="../images/home23.jpg">
-											<div class="mui-media-body">子类型13</div>
-										</a>
-									</li>
-									<li class="mui-table-view-cell mui-media mui-col-xs-6">
-										<a href="#">
-											<img class="mui-media-object" src="../images/home24.jpg">
-											<div class="mui-media-body">子类型14</div>
-										</a>
-									</li>
-									<li class="mui-table-view-cell mui-media mui-col-xs-6">
-										<a href="#">
-											<img class="mui-media-object" src="../images/home25.jpg">
-											<div class="mui-media-body">子类型15</div>
-										</a>
-									</li>
-									<li class="mui-table-view-cell mui-media mui-col-xs-6">
-										<a href="#">
-											<img class="mui-media-object" src="../images/home26.jpg">
-											<div class="mui-media-body">子类型15</div>
-										</a>
-									</li>
-								</ul>								
+									{{/each}}
+								</script>																
 							</div>
 						</div>
 					</div>
@@ -83,90 +55,31 @@
 						<div id="scroll2" class="mui-scroll-wrapper">
 							<div class="mui-scroll">
 								<!-- <div class="mui-loading"><div class="mui-spinner"></div></div> -->
-								<ul class="mui-table-view mui-grid-view">
-									<li class="mui-table-view-cell mui-media mui-col-xs-6">
-										<a href="#">
-											<img class="mui-media-object" src="../images/home27.jpg">
-											<div class="mui-media-body">子类型21</div>
-										</a>
-									</li>
-									<li class="mui-table-view-cell mui-media mui-col-xs-6">
-										<a href="#">
-											<img class="mui-media-object" src="../images/home28.jpg">
-											<div class="mui-media-body">子类型22</div>
-										</a>
-									</li>	
-									<li class="mui-table-view-cell mui-media mui-col-xs-6">
-										<a href="#">
-											<img class="mui-media-object" src="../images/home29.jpg">
-											<div class="mui-media-body">子类型23</div>
-										</a>
-									</li>
-									<li class="mui-table-view-cell mui-media mui-col-xs-6">
-										<a href="#">
-											<img class="mui-media-object" src="../images/home30.jpg">
-											<div class="mui-media-body">子类型24</div>
-										</a>
-									</li>
-									<li class="mui-table-view-cell mui-media mui-col-xs-6">
-										<a href="#">
-											<img class="mui-media-object" src="../images/home31.jpg">
-											<div class="mui-media-body">子类型25</div>
-										</a>
-									</li>
-									<li class="mui-table-view-cell mui-media mui-col-xs-6">
-										<a href="#">
-											<img class="mui-media-object" src="../images/home32.jpg">
-											<div class="mui-media-body">子类型26</div>
-										</a>
-									</li>
-								</ul>
+								<ul class="mui-table-view mui-grid-view" id="type2"></ul>
+									<script type="text/html" id="type2Model">
+										{{each type2 as value index}}
+										<li class="mui-table-view-cell mui-media mui-col-xs-6" type-id="{{value.id}}">
+												<img class="mui-media-object" src="../images/home23.jpg">
+												<div class="mui-media-body">{{value.name}}</div>
+										</li>
+										{{/each}}
+									</script>								
 							</div>
 						</div>
 					</div>
-					
 					<div id="item3mobile" class="mui-slider-item mui-control-content">
 						<div id="scroll3" class="mui-scroll-wrapper">
 							<div class="mui-scroll">
 								<!-- <div class="mui-loading"><div class="mui-spinner"></div></div> -->
-								<ul class="mui-table-view mui-grid-view">
-									<li class="mui-table-view-cell mui-media mui-col-xs-6">
-										<a href="#">
-											<img class="mui-media-object" src="../images/home33.jpg">
-											<div class="mui-media-body">子类型31</div>
-										</a>
-									</li>
-									<li class="mui-table-view-cell mui-media mui-col-xs-6">
-										<a href="#">
-											<img class="mui-media-object" src="../images/home34.jpg">
-											<div class="mui-media-body">子类型32</div>
-										</a>
-									</li>	
-									<li class="mui-table-view-cell mui-media mui-col-xs-6">
-										<a href="#">
-											<img class="mui-media-object" src="../images/home35.jpg">
-											<div class="mui-media-body">子类型33</div>
-										</a>
-									</li>
-									<li class="mui-table-view-cell mui-media mui-col-xs-6">
-										<a href="#">
-											<img class="mui-media-object" src="../images/home36.jpg">
-											<div class="mui-media-body">子类型34</div>
-										</a>
-									</li>
-									<li class="mui-table-view-cell mui-media mui-col-xs-6">
-										<a href="#">
-											<img class="mui-media-object" src="../images/home37.jpg">
-											<div class="mui-media-body">子类型35</div>
-										</a>
-									</li>
-									<li class="mui-table-view-cell mui-media mui-col-xs-6">
-										<a href="#">
-											<img class="mui-media-object" src="../images/home38.jpg">
-											<div class="mui-media-body">子类型36</div>
-										</a>
-									</li>
-								</ul>
+								<ul class="mui-table-view mui-grid-view" id="type3"></ul>
+								 <script type="text/html" id="type3Model">
+								 	{{each type3 as value index}}
+								 	<li class="mui-table-view-cell mui-media mui-col-xs-6" type-id="{{value.id}}">
+								 			<img class="mui-media-object" src="../images/home22.jpg">
+								 			<div class="mui-media-body">{{value.name}}</div>
+								 	</li>
+								 	{{/each}}
+								 </script>
 							</div>
 						</div>
 					</div>
@@ -174,6 +87,7 @@
 			</div>
 		</div>
 		<script src="../js/mui.min.js"></script>
+		<script src="../js/lib/template-web.js" type="text/javascript" charset="utf-8"></script>
 		<script>
 			mui.init({
 				swipeBack: false
@@ -183,6 +97,17 @@
 					indicators: true //是否显示滚动条
 				});
 			})(mui);			
+			
+			mui.plusReady(function () {
+			   var data ={type1:[{id:'11',name:'子类型1',src:'src...'},{id:'12',name:'子类型1',src:'src...'},{id:'13',name:'子类型1',src:'src...'},{id:'14',name:'子类型1',src:'src...'}],type2:[{id:'15',name:'子类型2',src:'src...'},{id:'16',name:'子类型2',src:'src...'},{id:'17',name:'子类型2',src:'src...'},{id:'18',name:'子类型2',src:'src...'}],type3:[{id:'19',name:'子类型3',src:'src...'},{id:'20',name:'子类型3',src:'src...'},{id:'21',name:'子类型3',src:'src...'},{id:'22',name:'子类型3',src:'src...'}]};
+			   var html1=template('type1Model',data);
+			   var html2=template('type2Model',data);
+			   var html3=template('type3Model',data);
+			   document.getElementById("type1").innerHTML=html1;
+			   document.getElementById("type2").innerHTML=html2;
+			   document.getElementById("type3").innerHTML=html3;
+			})
+			
 			
 			//进入类型			
 			mui(".mui-slider-group").on('tap','.mui-table-view-cell',function(){
