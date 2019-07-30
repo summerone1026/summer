@@ -11,7 +11,7 @@
      //mui-action-back
 	<header class="mui-bar mui-bar-nav">
 		<div class="mui-input-row mui-search">
-			<input id="inputTxt" type="search" class="mui-input-clear" value="请输入搜索内容..." placeholder="">
+			<input id="inputTxt" type="search" class="mui-input-clear" value="" placeholder="请输入搜索内容...">
 		</div>			
 	</header>
 	<body>
@@ -34,16 +34,18 @@
 		<script src="../../js/mui.min.js"></script>
 		<script type="text/javascript">
 			mui.init()
-			var allButtonn=document.getElementsByClassName('mui-btn')
-			for (var i = 0; i < allButtonn.length; i++) {
-				allButtonn[i].addEventListener('tap',function(){
-					var txt=this.innerHTML;					
-					var inputTxt=document.getElementById("inputTxt");
-					inputTxt.placeholder="";
-					inputTxt.value=txt;
+			// var allButtonn=document.getElementsByClassName('mui-btn')
+			// for (var i = 0; i < allButtonn.length; i++) {
+			// 	allButtonn[i].addEventListener('tap',function(){
+			// 		var txt=this.innerHTML;					
+			// 		var inputTxt=document.getElementById("inputTxt");
+			// 		inputTxt.placeholder="";
+			// 		inputTxt.value=txt;
+			// 		
+			// 	})
+			// }
 					
-				})
-			}		
+					
 							
 		</script>
 	</body>
