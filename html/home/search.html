@@ -5,17 +5,24 @@
 		<meta charset="utf-8">
 		<title></title>
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-		<link href="../../css/mui.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../../css/mui.min.css"/>
 	</head>
-
-     //mui-action-back
+	
+	<style>
+		.mui-table-view .mui-media-object{
+			max-width: 60%;
+			height: 9.25rem
+		}
+	</style>
 	<header class="mui-bar mui-bar-nav">
-		<div class="mui-input-row mui-search">
-			<input id="inputTxt" type="search" class="mui-input-clear" value="" placeholder="请输入搜索内容...">
-		</div>			
+		<form action="">
+			<div class="mui-input-row mui-search">			
+				<input id="inputTxt" type="search" class="mui-input-clear" value="请输入搜索内容..." placeholder="">
+			</div>
+		</form>
 	</header>
 	<body>
-		<div class="mui-content">
+		<div class="mui-content"><br />			
 			<div style="font-size: large;">&nbsp;&nbsp;&nbsp;&nbsp;热搜影片</div><hr />
 			<button type="button" class="mui-btn mui-btn-royal">给我一首歌的时间。。.</button>
 			<button type="button" class="mui-btn mui-btn-primary mui-btn-outlined">七剑下天山</button>
@@ -29,24 +36,82 @@
 			<button type="button" class="mui-btn mui-btn-warning mui-btn-outlined">我的团长我的团</button>
 			<button type="button" class="mui-btn mui-btn-danger mui-btn-outlined">无问西东</button>
 			<button type="button" class="mui-btn mui-btn-royal mui-btn-outlined">虹猫蓝兔七侠传</button> 
-		</div>		
+		</div>
+		
+		<!-- 搜索结果 -->
+		<ul class="mui-table-view" id="searchResultes"></ul>
+			<script type="text/html" id="searchResult">
+				<li class="mui-table-view-cell mui-media">
+						<img class="mui-media-object mui-pull-left" src="../../images/home12.jpg">
+						<div class="mui-media-body">
+						{{vodName}}
+							<p class="mui-ellipsis">视频描述。。。。</p>
+						</div>
+				</li>
+			</script>
+		
 		<script src="../../js/mui.js"></script>
-		<script src="../../js/mui.min.js"></script>
+		<script src="../../js/h.js"></script>
+		<script src="../../js/lib/template-web.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
 			mui.init()
-			// var allButtonn=document.getElementsByClassName('mui-btn')
-			// for (var i = 0; i < allButtonn.length; i++) {
-			// 	allButtonn[i].addEventListener('tap',function(){
-			// 		var txt=this.innerHTML;					
-			// 		var inputTxt=document.getElementById("inputTxt");
-			// 		inputTxt.placeholder="";
-			// 		inputTxt.value=txt;
-			// 		
-			// 	})
-			// }
+			mui.plusReady(function(){
+				var data={vodId:'1',vodName:'视频名字',vodSrc:'../../images/home12.jpg',vodDes:'视频描述'}
+				var html=template('searchResult',data)
+				document.getElementById("searchResultes").innerHTML=html; 
+			})
+			
+			var allButtonn=document.getElementsByClassName('mui-btn')
+			for (var i = 0; i < allButtonn.length; i++) {
+				allButtonn[i].addEventListener('tap',function(){
+					var txt=this.innerHTML;					
+					var inputTxt=document.getElementById("inputTxt");
+					inputTxt.value=txt;
 					
-					
+					//直接加载当前输入的视频
+					mui.ajax('',{
+						data:{
 							
+						},
+						dataType:'json',//服务器返回json格式数据
+						type:'post',//HTTP请求类型
+						timeout:10000,//超时时间设置为10秒；
+						success:function(data){
+							
+						},
+						error:function(xhr,type,errorThrown){
+							
+						}
+					});
+					
+				})
+			}
+			h("#inputTxt").tap(function(){
+				h("#inputTxt").attr('value',"")
+				document.getElementById("inputTxt").addEventListener("keypress",function(event){
+					if(event.keyCode=="13"){
+						document.activeElement.blur();//收起虚拟键盘
+						var inputValue=this.value;
+						mui.ajax('url',{
+							data:{
+								searchKey:inputValue
+							},
+							dataType:'json',//服务器返回json格式数据
+							type:'post',//HTTP请求类型
+							timeout:10000,//超时时间设置为10秒；
+							success:function(data){
+								var data={vodId:'1',vodName:'视频名字',vodSrc:'../../images/home12.jpg',vodDes:'视频描述'}
+								var html=template('searchResult',data)
+								document.getElementById("searchResults").innerHTML=html;
+							},
+							error:function(xhr,type,errorThrown){
+								console.log('搜索页面扑街了...')
+							}
+						});
+						// event.preventDefault(); // 阻止默认事件---阻止页面刷新
+					}
+				})				
+			})
 		</script>
 	</body>
 </html>
