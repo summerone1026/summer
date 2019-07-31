@@ -1,53 +1,54 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
+
 	<head>
 		<meta charset="utf-8">
-		<title>具体的类型数据</title>
-		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-		<link href="../../css/main.css" rel="stylesheet" />
-		<link href="../../css/mui.css" rel="stylesheet" />
+		<title>Hello MUI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="../../css/mui.css">
+		<script src="../../js/lib/template-web.js"></script>
 	</head>
 	
-	<style>
-		.mui-media-object{
-			border-radius:8px 8px 8px 8px
-		}
-	</style>
-	
 	<header class="mui-bar mui-bar-nav">
-		<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-		<h1 class="mui-title"> </h1>
+		<h1 class="mui-title"></h1>
 	</header>
+	
 	<body>
-		
-		<div class="mui-content">	
+		<div class="mui-content">
 			<div>
 				<img id="typePic" src=" " style="width: 100%;height: 190px;"/>	
-			</div>		
-			<ul class="mui-table-view mui-grid-view" id="allvedio"></ul>
-				<!-- <li class="mui-table-view-cell mui-media mui-col-xs-6">
-						<img class="mui-media-object" src="../../images/fl3.jpg">
-						<div class="mui-media-body">文字说明1</div>
-				</li> -->
-				
-				<script type="text/html" id="video">
-					{{each videos as value index}}
-					<li class="mui-table-view-cell mui-media mui-col-xs-6" type-id="{{value.id}}">
-							<img class="mui-media-object" src="../../images/home29.jpg">
-							<div class="mui-media-body">{{value.name}}</div>
-					</li>
-					{{/each}}
-				</script>
-						
-			<p class="mui-text-center cor-999">~到底了~</p>			
-		</div>		
+			</div>	
+			<!--下拉刷新容器-->
+			<div id="pullrefresh" class="mui-content mui-scroll-wrapper">
+				<div class="mui-scroll">
+					
+					<!--数据列表-->
+					<ul class="mui-table-view mui-grid-view" id="videos"></ul>				
+					<script id="video" type="text/html">
+						{{each videos as value index}}
+							<li class="mui-table-view-cell mui-media mui-col-xs-6">
+								<img class="mui-media-object" src="../../images/home12.jpg">
+								<div class="mui-media-body">文字说明1</div>
+							</li>
+						{{/each}}					
+					</script>				
+				</div>
+		    </div>
 		
-		<script src="../../js/mui.js"></script>
-		<script src="../../js/lib/template-web.js" type="text/javascript" charset="utf-8"></script>
-		<script type="text/javascript">
+		</div>
+		<script src="../../js/mui.min.js"></script>
+		<script>
 			mui.init({
-				swipeBack:false,
-			})
+				pullRefresh: {
+					container: '#pullrefresh',
+					up: {
+						contentrefresh: '正在加载...',
+						callback: pullupRefresh
+					}
+				}
+			});
 			
 			mui.plusReady(function () {
 				/* 接受参数 */
@@ -57,32 +58,31 @@
 				var tyepName = self.tyepName;	
 				document.getElementById("typePic").src=typePic;
 				document.querySelector("h1").innerHTML=tyepName
-				console.log("传入获取具体数据的类型ID=="+typeId+"====src=="+typePic+"-==="+tyepName);
-				
+				// console.log("传入获取具体数据的类型ID=="+typeId+"====src=="+typePic+"-==="+tyepName);
+
 				//测试渲染
-				var data ={videos:[{id:'11',name:'子类型1',src:'src...'},{id:'12',name:'子类型1',src:'src...'},{id:'13',name:'子类型1',src:'src...'},{id:'14',name:'子类型1',src:'src...'},{id:'14',name:'子类型1',src:'src...'},{id:'14',name:'子类型1',src:'src...'},{id:'14',name:'子类型1',src:'src...'},{id:'14',name:'子类型1',src:'src...'},{id:'14',name:'子类型1',src:'src...'},{id:'14',name:'子类型1',src:'src...'},{id:'14',name:'子类型1',src:'src...'}]};
+				var data ={videos:[{id:'11',name:'子类型1',src:'src...'},{id:'12',name:'子类型1',src:'src...'},{id:'13',name:'子类型1',src:'src...'},{id:'14',name:'子类型1',src:'src...'},{id:'14',name:'子类型1',src:'src...'},{id:'14',name:'子类型1',src:'src...'},{id:'14',name:'子类型1',src:'src...'},{id:'14',name:'子类型1',src:'src...'},{id:'14',name:'子类型1',src:'src...'},{id:'14',name:'子类型1',src:'src...'}]};
 				var html=template('video',data)
-				document.getElementById("allvedio").innerHTML=html;	
-				
-				//从数据库获取该类型的数据
-				mui.ajax('url',{
-					data:{
-						typeId:typeId,
-					},
-					dataType:'json',//服务器返回json格式数据
-					type:'post',//HTTP请求类型
-					timeout:10000,//超时时间设置为10秒；
-					headers:{'Content-Type':'application/json'},	              
-					success:function(data){
-						//服务器返回响应，根据响应结果，分析是否登录成功；
-					},
-					error:function(xhr,type,errorThrown){
-						//异常处理；
-						console.log(type);
+				document.getElementById("videos").innerHTML=html;	
+			});
+			
+			
+			/* 上拉加载具体业务实现
+			 */
+			function pullupRefresh() {
+				setTimeout(function() {
+					mui('#pullrefresh').pullRefresh().endPullupToRefresh(false); //参数为true代表没有更多数据了。
+					var table = document.body.querySelector('.mui-table-view');
+					var cells = document.body.querySelectorAll('.mui-table-view-cell');
+					
+					for (var i = cells.length, len = i + 2; i < len; i++) {
+						var li = document.createElement('li');
+						li.className = 'mui-table-view-cell mui-media mui-col-xs-6';
+						li.innerHTML = '<img class="mui-media-object" src="../../images/home'+(i+1)+'.jpg"><div class="mui-media-body">文字说明'+ (i + 1) +'</div>';
+						table.appendChild(li);
 					}
-				});				
-			})
+				}, 1500);
+			}
 		</script>
 	</body>
-
 </html>

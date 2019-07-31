@@ -67,6 +67,7 @@
 					var txt=this.innerHTML;					
 					var inputTxt=document.getElementById("inputTxt");
 					inputTxt.value=txt;
+					console.log("开始搜索"+txt)
 					
 					//直接加载当前输入的视频
 					mui.ajax('',{
@@ -92,6 +93,7 @@
 					if(event.keyCode=="13"){
 						document.activeElement.blur();//收起虚拟键盘
 						var inputValue=this.value;
+						console.log("开始搜索"+inputValue)
 						mui.ajax('url',{
 							data:{
 								searchKey:inputValue

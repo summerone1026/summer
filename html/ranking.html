@@ -6,144 +6,152 @@
 		<title>ranking</title>
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<link href="../css/mui.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../css/mui.min.css">
+		<script src="../js/mui.js"></script>
+		<script src="../js/lib/art-template.js" type="text/javascript" charset="utf-8"></script>
 	</head>
 
-	<body>		
+	<body>
 		<style>
-		.mui-control-content {
-		background-color: white;
-		min-height: 215px;
-		}
-		.mui-control-content .mui-loading {
-		margin-top: 50px;
-		}
+			.mui-slider-group{
+				height: 48.25rem;
+			}
+			.mui-control-content .mui-loading {
+				margin-top: 50px;
+			}
+			.mui-table-view .mui-media-object{
+				max-width: 60%;
+				height: 9.25rem
+			}
 		</style>
 
 		<div class="mui-content">
-		<div id="slider" class="mui-slider">
-		<div id="sliderSegmentedControl" class="mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
-		<a class="mui-control-item" href="#item1mobile">
-			观影榜
-		</a>
-		<a class="mui-control-item" href="#item2mobile">
-			热搜榜
-		</a>
-		<a class="mui-control-item" href="#item3mobile">
-			新片榜
-		</a>
-		</div>
-		<div id="sliderProgressBar" class="mui-slider-progress-bar mui-col-xs-4"></div>
-		<div class="mui-slider-group">
-		<div id="item1mobile" class="mui-slider-item mui-control-content mui-active">
-		<div id="scroll1" class="mui-scroll-wrapper">
-		<div class="mui-scroll">
-		<ul class="mui-table-view" id="videoList">
-			<li class="mui-table-view-cell mui-media">
-				<a href="javascript:;">
-					<img class="mui-media-object mui-pull-left" src="../images/shuijiao.jpg">
-					<div class="mui-media-body">
-						幸福
-						<p class='mui-ellipsis'>能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</p>
-					</div>
-				</a>
-			</li>
-			<li class="mui-table-view-cell mui-media">
-				<a href="javascript:;">
-					<img class="mui-media-object mui-pull-left" src="../images/muwu.jpg">
-					<div class="mui-media-body">
-						木屋
-						<p class='mui-ellipsis'>想要这样一间小木屋，夏天挫冰吃瓜，冬天围炉取暖.</p>
-					</div>
-				</a>
-			</li>
-			<li class="mui-table-view-cell mui-media">
-				<a href="javascript:;">
-					<img class="mui-media-object mui-pull-left" src="../images/cbd.jpg">
-					<div class="mui-media-body">
-						CBD
-						<p class='mui-ellipsis'>烤炉模式的城，到黄昏，如同打翻的调色盘一般.</p>
-					</div>
-				</a>
-			</li>
-		</ul>
-		</div>
-		</div>
-		</div>
-		<div id="item2mobile" class="mui-slider-item mui-control-content">
-		<div id="scroll2" class="mui-scroll-wrapper">
-		<div class="mui-scroll">
-		<div class="mui-loading">
-		<div class="mui-spinner">
-		</div>
-		</div>
-		</div>
-		</div>
-		
-		
-		</div>
-		<div id="item3mobile" class="mui-slider-item mui-control-content">
-		<div id="scroll3" class="mui-scroll-wrapper">
-		<div class="mui-scroll">
-		<div class="mui-loading">
-		<div class="mui-spinner">
-		</div>
-		</div>
-		</div>
-		</div>
-		</div>
-		</div>
-		</div>
-		
+			<div id="slider" class="mui-slider">
+				<div id="sliderSegmentedControl" class="mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+					<a class="mui-control-item" href="#item1mobile">观影榜</a>
+					<a class="mui-control-item" href="#item2mobile">热搜榜</a>
+					<a class="mui-control-item" href="#item3mobile">新片榜</a>
+				</div>
+				<div id="sliderProgressBar" class="mui-slider-progress-bar mui-col-xs-4"></div>
+				<div class="mui-slider-group">
+
+					<div id="item1mobile" class="mui-slider-item mui-control-content mui-active"></div>
+					<div id="item2mobile" class="mui-slider-item mui-control-content"></div>
+					<div id="item3mobile" class="mui-slider-item mui-control-content"></div>
+					
+					<script id="guanYingBangModel" type="text/html">
+						<div id="scroll1" class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<ul class="mui-table-view">
+									{{each guanyingbang as value index}}
+									<li class="mui-table-view-cell mui-media" vod-id="">
+										<img class="mui-media-object mui-pull-left" src="../images/home15.jpg">
+										<div class="mui-media-body">幸福
+											<p class="mui-ellipsis">能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</p>
+										</div>
+									</li>
+									{{/each}}
+								</ul>
+							</div>
+						</div>
+					</script>
+					<script id="reSouBang" type="text/html">
+						<div id="scroll2" class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<ul class="mui-table-view">
+									{{each resoubang as value index}}
+									<li class="mui-table-view-cell mui-media" vod-id="">
+										<img class="mui-media-object mui-pull-left" src="../images/shuijiao.jpg">
+										<div class="mui-media-body">幸福
+											<p class="mui-ellipsis">能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</p>
+										</div>
+									</li>
+									{{/each}}
+								</ul>
+							</div>
+						</div>
+					</script>
+					<script id="xinPianBang" type="text/html">
+						<div id="scroll3" class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<ul class="mui-table-view">
+									{{each xinpianbang as value index}}
+									<li class="mui-table-view-cell mui-media" vod-id="">
+										<img class="mui-media-object mui-pull-left" src="../images/muwu.jpg">
+										<div class="mui-media-body">幸福
+											<p class="mui-ellipsis">能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</p>
+										</div>
+									</li>
+									{{/each}}
+								</ul>
+							</div>
+						</div>
+					</script>
+
+				</div>
+			</div>
 		</div>
 
-		
+
 	</body>
 	<script src="../js/mui.min.js"></script>
 	<script>
-	mui.init({
-	swipeBack: false
-	});
-	(function($) {
-	$('.mui-scroll-wrapper').scroll({
-	indicators: true //是否显示滚动条
-	});
-	
-	<!--根据选择获取各个面板-->
-	
-	var html2 = '<ul class="mui-table-view"><li class="mui-table-view-cell">第二个选项卡子项-1</li><li class="mui-table-view-cell">第二个选项卡子项-2</li><li class="mui-table-view-cell">第二个选项卡子项-3</li><li class="mui-table-view-cell">第二个选项卡子项-4</li><li class="mui-table-view-cell">第二个选项卡子项-5</li></ul>';
-	var html3 = '<ul class="mui-table-view"><li class="mui-table-view-cell">第三个选项卡子项-1</li><li class="mui-table-view-cell">第三个选项卡子项-2</li><li class="mui-table-view-cell">第三个选项卡子项-3</li><li class="mui-table-view-cell">第三个选项卡子项-4</li><li class="mui-table-view-cell">第三个选项卡子项-5</li></ul>';
-	var item2 = document.getElementById('item2mobile');
-	var item3 = document.getElementById('item3mobile');
-	document.getElementById('slider').addEventListener('slide', function(e) {
-	if (e.detail.slideNumber === 1) {
-	if (item2.querySelector('.mui-loading')) {
-	setTimeout(function() {
-	item2.querySelector('.mui-scroll').innerHTML = html2;
-	}, 500);
-	}
-	} else if (e.detail.slideNumber === 2) {
-	if (item3.querySelector('.mui-loading')) {
-	setTimeout(function() {
-	item3.querySelector('.mui-scroll').innerHTML = html3;
-	}, 500);
-	}
-	}
-	});
-	
-	})(mui);
-	
-	document.getElementById('videoList').addEventListener("tap",function(){
-		var webview = mui.openWindow({
-			url:'video.html',
-			extras:{
-				name: "花木兰",
-				src: "../download/videoplayback.webm"
-			}
+		mui.init({
+			swipeBack: false
 		});
-	});
-	
-	</script>
-	<script src="../js/mui.js"></script>
-	
+		(function($) {
+			$('.mui-scroll-wrapper').scroll({
+				indicators: true //是否显示滚动条
+			});
+		})(mui);
 
+
+		mui.plusReady(function() {
+			var data = {
+				guanyingbang: [{
+					id: '11',
+					name: '子类型1',
+					src: 'src...'
+				}, {
+					id: '12',
+					name: '子类型1',
+					src: 'src...'
+				}],
+				resoubang: [{
+					id: '11',
+					name: '子类型1',
+					src: 'src...'
+				}, {
+					id: '12',
+					name: '子类型1',
+					src: 'src...'
+				}],
+				xinpianbang: [{
+					id: '11',
+					name: '子类型1',
+					src: 'src...'
+				}, {
+					id: '12',
+					name: '子类型1',
+					src: 'src...'
+				}]
+			};
+			var html1 = template('guanYingBangModel', data)
+			var html2 = template('reSouBang', data)
+			var html3 = template('xinPianBang', data)
+			document.getElementById("item1mobile").innerHTML = html1;
+			document.getElementById("item2mobile").innerHTML = html2;
+			document.getElementById("item3mobile").innerHTML = html3;
+		})
+
+		mui(".mui-slider-group").on('tap',".mui-table-view",function(){
+			var webview = mui.openWindow({
+				url: 'video.html',
+				extras: {
+					name: "花木兰",
+					src: "../download/videoplayback.webm"
+				}
+			});
+		})
+	</script>
 </html>
