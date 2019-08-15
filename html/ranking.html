@@ -4,20 +4,24 @@
 	<head>
 		<meta charset="utf-8">
 		<title>ranking</title>
-		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-		<link href="../css/mui.css" rel="stylesheet" />
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
 		<link rel="stylesheet" href="../css/mui.min.css">
-		<script src="../js/mui.js"></script>
-		<script src="../js/lib/art-template.js" type="text/javascript" charset="utf-8"></script>
 	</head>
 
 	<body>
 		<style>
-			.mui-slider-group{
-				height: 48.25rem;
+			html,
+			body {
+				background-color: #efeff4;
 			}
-			.mui-control-content .mui-loading {
-				margin-top: 50px;
+/* 			.mui-bar~.mui-content .mui-fullscreen {
+				top: 44px;
+				height: auto;
+			} */
+			.mui-slider {
+				height: 100%;
 			}
 			.mui-table-view .mui-media-object{
 				max-width: 60%;
@@ -25,133 +29,202 @@
 			}
 		</style>
 
-		<div class="mui-content">
+		<div class="mui-content mui-fullscreen" >
 			<div id="slider" class="mui-slider">
 				<div id="sliderSegmentedControl" class="mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
-					<a class="mui-control-item" href="#item1mobile">观影榜</a>
-					<a class="mui-control-item" href="#item2mobile">热搜榜</a>
-					<a class="mui-control-item" href="#item3mobile">新片榜</a>
+						<a class="mui-control-item" href="#item1mobile">观影榜</a>
+						<a class="mui-control-item" href="#item2mobile">热搜榜</a>
+						<a class="mui-control-item" href="#item3mobile">新片榜</a>
 				</div>
 				<div id="sliderProgressBar" class="mui-slider-progress-bar mui-col-xs-4"></div>
 				<div class="mui-slider-group">
+					<div id="item1mobile" class="mui-slider-item mui-control-content mui-active">
+							<div id="scroll1" class="mui-scroll-wrapper">
+								<div class="mui-scroll">
+									<ul class="mui-table-view">
 
-					<div id="item1mobile" class="mui-slider-item mui-control-content mui-active"></div>
-					<div id="item2mobile" class="mui-slider-item mui-control-content"></div>
-					<div id="item3mobile" class="mui-slider-item mui-control-content"></div>
-					
-					<script id="guanYingBangModel" type="text/html">
-						<div id="scroll1" class="mui-scroll-wrapper">
-							<div class="mui-scroll">
-								<ul class="mui-table-view">
-									{{each guanyingbang as value index}}
-									<li class="mui-table-view-cell mui-media" vod-id="">
-										<img class="mui-media-object mui-pull-left" src="../images/home15.jpg">
-										<div class="mui-media-body">幸福
-											<p class="mui-ellipsis">能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</p>
-										</div>
-									</li>
-									{{/each}}
-								</ul>
+									</ul>
+								</div>
 							</div>
-						</div>
-					</script>
-					<script id="reSouBang" type="text/html">
+					</div>
+					
+					<div id="item2mobile" class="mui-slider-item mui-control-content">
 						<div id="scroll2" class="mui-scroll-wrapper">
 							<div class="mui-scroll">
 								<ul class="mui-table-view">
-									{{each resoubang as value index}}
-									<li class="mui-table-view-cell mui-media" vod-id="">
-										<img class="mui-media-object mui-pull-left" src="../images/shuijiao.jpg">
-										<div class="mui-media-body">幸福
-											<p class="mui-ellipsis">能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</p>
-										</div>
-									</li>
-									{{/each}}
+
 								</ul>
 							</div>
 						</div>
-					</script>
-					<script id="xinPianBang" type="text/html">
+					</div>
+					
+					<div id="item3mobile" class="mui-slider-item mui-control-content">
 						<div id="scroll3" class="mui-scroll-wrapper">
 							<div class="mui-scroll">
 								<ul class="mui-table-view">
-									{{each xinpianbang as value index}}
-									<li class="mui-table-view-cell mui-media" vod-id="">
-										<img class="mui-media-object mui-pull-left" src="../images/muwu.jpg">
-										<div class="mui-media-body">幸福
-											<p class="mui-ellipsis">能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</p>
-										</div>
-									</li>
-									{{/each}}
+				
 								</ul>
 							</div>
 						</div>
-					</script>
-
+					</div>
+					
+<!-- 					<div id="item1mobile" class="mui-slider-item mui-control-content mui-active">
+						<script id="guanYingBangModel" type="text/html">
+							<div id="scroll1" class="mui-scroll-wrapper">
+								<div class="mui-scroll">
+									<ul class="mui-table-view">
+										{{each video value index}}
+										<li class="mui-table-view-cell mui-media" id="{{value.vod_id}}" name="{{value.vod_name}}" url="{{value.vod_play_url}}">
+											<img class="mui-media-object mui-pull-left" src="{{value.vod_pic}}">
+											<div class="mui-media-body">{{value.vod_name}}
+												<p class="mui-ellipsis">播放次数：{{value.vod_hits}}</p>
+											</div>
+										</li>
+										{{/each}}
+									</ul>
+								</div>
+							</div>
+						</script>
+					</div>
+					<div id="item2mobile" class="mui-slider-item mui-control-content">
+						<script id="reSouBang" type="text/html">
+							<div id="scroll2" class="mui-scroll-wrapper">
+								<div class="mui-scroll">
+									<ul class="mui-table-view">
+										{{each video value index}}
+										<li class="mui-table-view-cell mui-media" id="{{value.vod_id}}" name="{{value.vod_name}}" url="{{value.vod_play_url}}">
+											<img class="mui-media-object mui-pull-left" src="{{value.vod_pic}}">
+											<div class="mui-media-body">{{value.vod_name}}
+												<p class="mui-ellipsis">播放次数：{{value.vod_hits}}</p>
+											</div>
+										</li>
+										{{/each}}
+									</ul>
+								</div>
+							</div>
+						</script>						
+					</div>
+					<div id="item3mobile" class="mui-slider-item mui-control-content">
+						<script id="xinPianBang" type="text/html">
+							<div id="scroll3" class="mui-scroll-wrapper">
+								<div class="mui-scroll">
+									<ul class="mui-table-view">
+										{{each video value index}}
+										<li class="mui-table-view-cell mui-media" id="{{value.vod_id}}" name="{{value.vod_name}}" url="{{value.vod_play_url}}">
+											<img class="mui-media-object mui-pull-left" src="{{value.vod_pic}}">
+											<div class="mui-media-body">{{value.vod_name}}
+												<p class="mui-ellipsis">播放次数：{{value.vod_hits}}</p>
+											</div>
+										</li>
+										{{/each}}
+									</ul>
+								</div>
+							</div>
+						</script>						
+					</div> -->
 				</div>
 			</div>
-		</div>
-
-
-	</body>
-	<script src="../js/mui.min.js"></script>
-	<script>
-		mui.init({
-			swipeBack: false
-		});
-		(function($) {
-			$('.mui-scroll-wrapper').scroll({
-				indicators: true //是否显示滚动条
-			});
-		})(mui);
-
-
-		mui.plusReady(function() {
-			var data = {
-				guanyingbang: [{
-					id: '11',
-					name: '子类型1',
-					src: 'src...'
-				}, {
-					id: '12',
-					name: '子类型1',
-					src: 'src...'
-				}],
-				resoubang: [{
-					id: '11',
-					name: '子类型1',
-					src: 'src...'
-				}, {
-					id: '12',
-					name: '子类型1',
-					src: 'src...'
-				}],
-				xinpianbang: [{
-					id: '11',
-					name: '子类型1',
-					src: 'src...'
-				}, {
-					id: '12',
-					name: '子类型1',
-					src: 'src...'
-				}]
-			};
-			var html1 = template('guanYingBangModel', data)
-			var html2 = template('reSouBang', data)
-			var html3 = template('xinPianBang', data)
-			document.getElementById("item1mobile").innerHTML = html1;
-			document.getElementById("item2mobile").innerHTML = html2;
-			document.getElementById("item3mobile").innerHTML = html3;
-		})
-
-		mui(".mui-slider-group").on('tap',".mui-table-view",function(){
-			var webview = mui.openWindow({
-				url: 'video.html',
-				extras: {
-					name: "花木兰",
-					src: "../download/videoplayback.webm"
+		
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/mui.pullToRefresh.js"></script>
+		<script src="../js/mui.pullToRefresh.material.js"></script>
+		<script src="../js/lib/art-template.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/lib/common.js"></script>
+		<script src="../js/ranking.js"></script>
+		<script>
+			(function ($) {
+				//阻尼系数
+				var deceleration = mui.os.ios ? 0.003 : 0.0009;
+				$('.mui-scroll-wrapper').scroll({
+					bounce: false,
+					indicators: true, //是否显示滚动条
+					deceleration: deceleration
+				});
+				//因为是三个不同的区块，每一个页数不一样，所以要存不同的页数
+				var pageNum=null;
+				var pageNum1=1;
+				var pageNum2=1;
+				var pageNum3=1;
+				$.ready(function () {
+					//循环初始化所有下拉刷新，上拉加载。
+					$.each(document.querySelectorAll('.mui-slider-group .mui-scroll'), function (index, pullRefreshEl) {
+						$(pullRefreshEl).pullToRefresh({
+							up: {
+								auto: true, //自动执行一次上拉加载，可选；
+								show: false, //显示底部上拉加载提示信息，可选；      
+								contentrefresh: '尊敬的客官，英皇小姐姐正在努力加载中...', //上拉进行中提示信息
+								contentnomore: '尊敬的客官，英皇小姐姐是有底线的哟！', //上拉无更多信息时提示信息
+								style: mui.os.android ? "circle" : "default",
+								color:"#2BD009",
+								height:50,
+								callback:function () {
+									var self = this;                  
+									setTimeout(function () {
+									//获取三个不同的区块显示的位置
+										var ul = self.element.querySelector('.mui-table-view');
+										if(index == 0){//全部选项卡的index是0，当显示它的时候，滑动页面加1，调数据，以下以此类推
+											pageNum=pageNum1++;
+											createFragment(ul, index,self,pageNum);
+										}else if(index == 1){
+											pageNum=pageNum2++;
+											createFragment(ul, index,self,pageNum);
+										}else if(index == 2){
+											pageNum=pageNum3++;
+											createFragment(ul, index,self,pageNum);
+										}
+									}, 1000);
+								}
+							}
+						});
+					});
+				});
+			})(mui);
+			function createFragment(ul, index,self,pageNum) {
+				var fragment = document.createDocumentFragment();
+				var play_ranking, new_ranking=null;//这是传给后台参数状态
+				var data = {};
+				if(index == 0){
+					play_ranking=true;//为0的时候是观影榜
+					data["play_ranking"] = true;
+				}else if(index == 1){
+					play_ranking=true;//为1的时候是热搜榜
+					data["play_ranking"] = true;
+				}else if(index == 2){
+					new_ranking=true;//为2的时候是新片榜
+					data["new_ranking"] = true;
 				}
-			});
-		})
-	</script>
+				var page_size = 10;//传给后台的参数，想要几条数据
+
+				console.log("请求数据页数：" + pageNum);
+				console.log("请求数据起始位置：" + pageNum * page_size - page_size);
+				data["offset"] = pageNum * page_size - page_size;
+				data["limit"] = page_size;
+				//请求后台数据
+				mui.getJSON(APP_DOMAIN + "/videos", data, function (info) {
+					
+					if(info.length == 0){//当info.length为0时，表示没有数据了
+						self.endPullUpToRefresh(true);//当为true时，底部出现没有更多数据，并且不能滑动
+					}else{
+						for (var i = 0; i < info.length; i++) {
+							video = info[i];
+							var str='';
+							var li = document.createElement('li');
+							li.className = "mui-table-view-cell mui-media";
+							li.id =  video["vod_id"] ;
+ 							str+='<img class="mui-media-object mui-pull-left" src="' + video["vod_pic"] + '"/>'
+							+'<div class="mui-media-body">' + video["vod_name"]
+							+'<p class="mui-ellipsis">播放次数:' + video["vod_hits"] + '</p>'
+							+'<a id="videoURL" href="' + video["vod_play_url"] + '"></a>'
+							+ '</div>';
+							
+							li.innerHTML=str;
+							fragment.appendChild(li);
+						}
+						ul.appendChild(fragment);//注意一定要插入使用appendChild，不是替换里面的数据用innerHTML,否则会出现没有文字提醒以及会出现很大的空白区
+						self.endPullUpToRefresh();//当为false或空时，底部出现正在加载，滑动到下一页
+					}
+				});
+			};
+		</script>
+	</body>
 </html>

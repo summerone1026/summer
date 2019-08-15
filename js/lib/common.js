@@ -1,10 +1,21 @@
 //api连接前缀
-var APP_DOMAIN = '';
+var APP_DOMAIN = 'http://192.168.1.195:5000';
 
 //为true输出日志
 var debug = true;
 
-
+var VideoType = {
+	CHINESE_HD:1, //"国产高清"
+	JAPAN_STAR:2, //"日韩女优"
+	EUROPE:3, //"欧美激情"
+	HD_NO_CODE:4, //"高清无码"
+	CHINESE_FONT:5, //"中文字幕"
+	ANIME:6, //"卡通动漫"
+	CANDID:7, //"偷拍自拍"
+	INTERNET_STAR:8, //"网红主播"
+	STAR_SCANDAL:9, //"明星丑闻"
+	LEVEL3:10 //三级片
+};
 
 
 

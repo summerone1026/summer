@@ -3,50 +3,63 @@
 	<head>
 		<meta charset="utf-8">
 		<title>顶部选项卡-可左右拖动</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
-		<meta name="apple-mobile-web-app-capable" content="yes">
-		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<link rel="stylesheet" href="../css/mui.min.css">
 	</head>
+	
 	<body>
 		<style>
-			.mui-control-content {
-			background-color: white;
-			min-height: 215px;
+			html,
+			body {
+				background-color: #efeff4;
 			}
-			.mui-control-content .mui-loading {
-			margin-top: 50px;
+			.mui-slider {
+				height: 100%;
 			}
-			.mui-slider-group{
-				height: 48.25rem;
-			}
-			.mui-media-object{
-				border-radius:8px 8px 8px 8px
+			.mui-table-view .mui-media-object{
+				max-width: 60%;
+				height: 9.25rem
 			}
         </style>
 		
-		<div class="mui-content">
+		<div class="mui-content mui-fullscreen" id="pullrefresh">
 			<div id="slider" class="mui-slider">
-				<div id="sliderSegmentedControl" class="mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
-					<a class="mui-control-item" href="#item1mobile">国产</a>
-					<a class="mui-control-item" href="#item2mobile">日韩</a>
-					<a class="mui-control-item" href="#item3mobile">欧美</a>
+				<div id="sliderSegmentedControl" class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+					<div class="mui-scroll">
+						<a class="mui-control-item" href="#item1mobile">国产高清</a>
+						<a class="mui-control-item" href="#item2mobile">日韩女优</a>
+						<a class="mui-control-item" href="#item3mobile">欧美激情</a>
+						<a class="mui-control-item" href="#item4mobile">高清无码</a>
+						<a class="mui-control-item" href="#item5mobile">中文字幕</a>
+						<a class="mui-control-item" href="#item6mobile">卡通动漫</a>
+						<a class="mui-control-item" href="#item7mobile">偷拍自拍</a>
+						<a class="mui-control-item" href="#item8mobile">网红主播</a>
+						<a class="mui-control-item" href="#item9mobile">明星丑闻</a>
+						<a class="mui-control-item" href="#item10mobile">三级大片</a>
+					</div>
 				</div>
-				<div id="sliderProgressBar" class="mui-slider-progress-bar mui-col-xs-4"></div>
+				<!-- <div id="sliderProgressBar" class="mui-slider-progress-bar mui-col-xs-3"></div> -->
 				<div class="mui-slider-group">
+					
+					
+					
+<!-- 					<div id="item1mobile" class="mui-slider-item mui-control-content  mui-active"></div>
+					<div id="item2mobile" class="mui-slider-item mui-control-content"></div>
+					<div id="item3mobile" class="mui-slider-item mui-control-content"></div>
+					<div id="item4mobile" class="mui-slider-item mui-control-content"></div>
+					<div id="item5mobile" class="mui-slider-item mui-control-content"></div>
+					<div id="item6mobile" class="mui-slider-item mui-control-content"></div>
+					<div id="item7mobile" class="mui-slider-item mui-control-content"></div>
+					<div id="item8mobile" class="mui-slider-item mui-control-content"></div>
+					<div id="item9mobile" class="mui-slider-item mui-control-content"></div>
+					<div id="item10mobile" class="mui-slider-item mui-control-content"></div> -->
+					
 					<div id="item1mobile" class="mui-slider-item mui-control-content mui-active">
 						<div id="scroll1" class="mui-scroll-wrapper">
 							<div class="mui-scroll">
-								<ul class="mui-table-view mui-grid-view" id="type1"></ul>
-								
-								<script type="text/html" id="type1Model">
-									{{each type1 as value index}}
-									<li class="mui-table-view-cell mui-media mui-col-xs-6" type-id="{{value.id}}">
-											<img class="mui-media-object" src="../images/home21.jpg">
-											<div class="mui-media-body">{{value.name}}</div>
-									</li>
-									{{/each}}
-								</script>																
+								<ul class="mui-table-view">
+										
+								</ul>
 							</div>
 						</div>
 					</div>
@@ -54,81 +67,404 @@
 					<div id="item2mobile" class="mui-slider-item mui-control-content">
 						<div id="scroll2" class="mui-scroll-wrapper">
 							<div class="mui-scroll">
-								<!-- <div class="mui-loading"><div class="mui-spinner"></div></div> -->
-								<ul class="mui-table-view mui-grid-view" id="type2"></ul>
-									<script type="text/html" id="type2Model">
-										{{each type2 as value index}}
-										<li class="mui-table-view-cell mui-media mui-col-xs-6" type-id="{{value.id}}">
-												<img class="mui-media-object" src="../images/home23.jpg">
-												<div class="mui-media-body">{{value.name}}</div>
-										</li>
-										{{/each}}
-									</script>								
+								<ul class="mui-table-view">
+										
+								</ul>
 							</div>
 						</div>
 					</div>
-					<div id="item3mobile" class="mui-slider-item mui-control-content">
+
+					<div id="item3mobile" class="mui-slider-item mui-control-content">					
 						<div id="scroll3" class="mui-scroll-wrapper">
 							<div class="mui-scroll">
-								<!-- <div class="mui-loading"><div class="mui-spinner"></div></div> -->
-								<ul class="mui-table-view mui-grid-view" id="type3"></ul>
-								 <script type="text/html" id="type3Model">
-								 	{{each type3 as value index}}
-								 	<li class="mui-table-view-cell mui-media mui-col-xs-6" type-id="{{value.id}}">
-								 			<img class="mui-media-object" src="../images/home22.jpg">
-								 			<div class="mui-media-body">{{value.name}}</div>
-								 	</li>
-								 	{{/each}}
-								 </script>
+								<ul class="mui-table-view">
+										
+								</ul>
 							</div>
 						</div>
 					</div>
+					
+					<div id="item4mobile" class="mui-slider-item mui-control-content">					
+						<div id="scroll4" class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<ul class="mui-table-view">
+										
+								</ul>
+							</div>
+						</div>
+					</div>
+					
+					<div id="item5mobile" class="mui-slider-item mui-control-content">					
+						<div id="scroll5" class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<ul class="mui-table-view">
+										
+								</ul>
+							</div>
+						</div>
+					</div>
+					
+					<div id="item6mobile" class="mui-slider-item mui-control-content">
+						<div id="scroll6" class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<ul class="mui-table-view">
+										
+								</ul>
+							</div>
+						</div>
+					</div>
+					
+					<div id="item7mobile" class="mui-slider-item mui-control-content">
+						<div id="scroll7" class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<ul class="mui-table-view">
+										
+								</ul>
+							</div>
+						</div>
+					</div>
+					
+					<div id="item8mobile" class="mui-slider-item mui-control-content">
+						<div id="scroll8" class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<ul class="mui-table-view">
+										
+								</ul>
+							</div>
+						</div>
+					</div>
+					
+					<div id="item9mobile" class="mui-slider-item mui-control-content">
+						<div id="scroll9" class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<ul class="mui-table-view">
+										
+								</ul>
+							</div>
+						</div>
+					</div>
+					
+					<div id="item10mobile" class="mui-slider-item mui-control-content">
+						<div id="scroll10" class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<ul class="mui-table-view">
+										
+								</ul>
+							</div>
+						</div>
+					</div>
+<!-- 					<script id="type1Model" type="text/html">
+						<div id="scroll1" class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<ul class="mui-table-view">
+									{{each video value index}}
+									<li class="mui-table-view-cell mui-media" id="{{value.vod_id}}" name="{{value.vod_name}}" url="{{value.vod_play_url}}">
+										<img class="mui-media-object mui-pull-left" src="{{value.vod_pic}}">
+										<div class="mui-media-body">{{value.vod_name}}
+											<p class="mui-ellipsis">播放次数：{{value.vod_hits}}</p>
+										</div>
+									</li>
+									{{/each}}
+								</ul>
+							</div>
+						</div>
+					</script>
+					
+					<script id="type2Model" type="text/html">
+						<div id="scroll2" class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<ul class="mui-table-view">
+									{{each video value index}}
+									<li class="mui-table-view-cell mui-media" id="{{value.vod_id}}" name="{{value.vod_name}}" url="{{value.vod_play_url}}">
+										<img class="mui-media-object mui-pull-left" src="{{value.vod_pic}}">
+										<div class="mui-media-body">{{value.vod_name}}
+											<p class="mui-ellipsis">播放次数：{{value.vod_hits}}</p>
+										</div>
+									</li>
+									{{/each}}
+								</ul>
+							</div>
+						</div>
+					</script>
+					
+					<script id="type3Model" type="text/html">
+						<div id="scroll3" class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<ul class="mui-table-view">
+									{{each video value index}}
+									<li class="mui-table-view-cell mui-media" id="{{value.vod_id}}" name="{{value.vod_name}}" url="{{value.vod_play_url}}">
+										<img class="mui-media-object mui-pull-left" src="{{value.vod_pic}}">
+										<div class="mui-media-body">{{value.vod_name}}
+											<p class="mui-ellipsis">播放次数：{{value.vod_hits}}</p>
+										</div>
+									</li>
+									{{/each}}
+								</ul>
+							</div>
+						</div>
+					</script>
+					
+					<script id="type4Model" type="text/html">
+						<div id="scroll4" class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<ul class="mui-table-view">
+									{{each video value index}}
+									<li class="mui-table-view-cell mui-media" id="{{value.vod_id}}" name="{{value.vod_name}}" url="{{value.vod_play_url}}">
+										<img class="mui-media-object mui-pull-left" src="{{value.vod_pic}}">
+										<div class="mui-media-body">{{value.vod_name}}
+											<p class="mui-ellipsis">播放次数：{{value.vod_hits}}</p>
+										</div>
+									</li>
+									{{/each}}
+								</ul>
+							</div>
+						</div>
+					</script>
+					
+					<script id="type5Model" type="text/html">
+						<div id="scroll5" class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<ul class="mui-table-view">
+									{{each video value index}}
+									<li class="mui-table-view-cell mui-media" id="{{value.vod_id}}" name="{{value.vod_name}}" url="{{value.vod_play_url}}">
+										<img class="mui-media-object mui-pull-left" src="{{value.vod_pic}}">
+										<div class="mui-media-body">{{value.vod_name}}
+											<p class="mui-ellipsis">播放次数：{{value.vod_hits}}</p>
+										</div>
+									</li>
+									{{/each}}
+								</ul>
+							</div>
+						</div>
+					</script>
+					
+					<script id="type6Model" type="text/html">
+						<div id="scroll6" class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<ul class="mui-table-view">
+									{{each video value index}}
+									<li class="mui-table-view-cell mui-media" id="{{value.vod_id}}" name="{{value.vod_name}}" url="{{value.vod_play_url}}">
+										<img class="mui-media-object mui-pull-left" src="{{value.vod_pic}}">
+										<div class="mui-media-body">{{value.vod_name}}
+											<p class="mui-ellipsis">播放次数：{{value.vod_hits}}</p>
+										</div>
+									</li>
+									{{/each}}
+								</ul>
+							</div>
+						</div>
+					</script>
+					
+					<script id="type7Model" type="text/html">
+						<div id="scroll7" class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<ul class="mui-table-view">
+									{{each video value index}}
+									<li class="mui-table-view-cell mui-media" id="{{value.vod_id}}" name="{{value.vod_name}}" url="{{value.vod_play_url}}">
+										<img class="mui-media-object mui-pull-left" src="{{value.vod_pic}}">
+										<div class="mui-media-body">{{value.vod_name}}
+											<p class="mui-ellipsis">播放次数：{{value.vod_hits}}</p>
+										</div>
+									</li>
+									{{/each}}
+								</ul>
+							</div>
+						</div>
+					</script>
+					
+					<script id="type8Model" type="text/html">
+						<div id="scroll8" class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<ul class="mui-table-view">
+									{{each video value index}}
+									<li class="mui-table-view-cell mui-media" id="{{value.vod_id}}" name="{{value.vod_name}}" url="{{value.vod_play_url}}">
+										<img class="mui-media-object mui-pull-left" src="{{value.vod_pic}}">
+										<div class="mui-media-body">{{value.vod_name}}
+											<p class="mui-ellipsis">播放次数：{{value.vod_hits}}</p>
+										</div>
+									</li>
+									{{/each}}
+								</ul>
+							</div>
+						</div>
+					</script>
+					
+					<script id="type9Model" type="text/html">
+						<div id="scroll9" class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<ul class="mui-table-view">
+									{{each video value index}}
+									<li class="mui-table-view-cell mui-media" id="{{value.vod_id}}" name="{{value.vod_name}}" url="{{value.vod_play_url}}">
+										<img class="mui-media-object mui-pull-left" src="{{value.vod_pic}}">
+										<div class="mui-media-body">{{value.vod_name}}
+											<p class="mui-ellipsis">播放次数：{{value.vod_hits}}</p>
+										</div>
+									</li>
+									{{/each}}
+								</ul>
+							</div>
+						</div>
+					</script>
+					
+					<script id="type10Model" type="text/html">
+						<div id="scroll10" class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<ul class="mui-table-view">
+									{{each video value index}}
+									<li class="mui-table-view-cell mui-media" id="{{value.vod_id}}" name="{{value.vod_name}}" url="{{value.vod_play_url}}">
+										<img class="mui-media-object mui-pull-left" src="{{value.vod_pic}}">
+										<div class="mui-media-body">{{value.vod_name}}
+											<p class="mui-ellipsis">播放次数：{{value.vod_hits}}</p>
+										</div>
+									</li>
+									{{/each}}
+								</ul>
+							</div>
+						</div>
+					</script> -->		
+																								
 				</div>
 			</div>
 		</div>
+		
 		<script src="../js/mui.min.js"></script>
-		<script src="../js/lib/template-web.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/mui.pullToRefresh.js"></script>
+		<script src="../js/mui.pullToRefresh.material.js"></script>
+		<script src="../js/lib/art-template.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/lib/common.js"></script>
+		<script src="../js/type.js"></script>
 		<script>
-			mui.init({
-				swipeBack: false
-			});
-			(function($) {
+			(function ($) {
+				//阻尼系数
+				var deceleration = mui.os.ios ? 0.003 : 0.0009;
 				$('.mui-scroll-wrapper').scroll({
-					indicators: true //是否显示滚动条
+					bounce: false,
+					indicators: true, //是否显示滚动条
+					deceleration: deceleration
 				});
-			})(mui);			
-			
-			mui.plusReady(function () {
-			   var data ={type1:[{id:'11',name:'子类型1',src:'src...'},{id:'12',name:'子类型1',src:'src...'},{id:'13',name:'子类型1',src:'src...'},{id:'14',name:'子类型1',src:'src...'}],type2:[{id:'15',name:'子类型2',src:'src...'},{id:'16',name:'子类型2',src:'src...'},{id:'17',name:'子类型2',src:'src...'},{id:'18',name:'子类型2',src:'src...'}],type3:[{id:'19',name:'子类型3',src:'src...'},{id:'20',name:'子类型3',src:'src...'},{id:'21',name:'子类型3',src:'src...'},{id:'22',name:'子类型3',src:'src...'}]};
-			   var html1=template('type1Model',data);
-			   var html2=template('type2Model',data);
-			   var html3=template('type3Model',data);
-			   document.getElementById("type1").innerHTML=html1;
-			   document.getElementById("type2").innerHTML=html2;
-			   document.getElementById("type3").innerHTML=html3;
-			})
-			
-			
-			//进入类型			
-			mui(".mui-slider-group").on('tap','.mui-table-view-cell',function(){
-				var id = this.getAttribute("type-id");	
-				var src=this.querySelector('img').getAttribute('src')
-				var tyepName=this.querySelector('div').innerHTML;
-			    //传值给详情页面，通知加载新数据	
-				//typedata=plus.webview.getWebviewById('type_list.html')
-				//mui.fire(typedata,'type_list',{typeId:id,typePic:src});
-				//打开类型详细列表
-				mui.openWindow({
-					id:'type_list',
-					url:'../html/type/type_list.html',
-					extras:{
-						typeId:id,
-						typePic:"../"+src,
-						tyepName:tyepName
+				//因为是三个不同的区块，每一个页数不一样，所以要存不同的页数
+				var pageNum=null;
+				var pageNum1=1;
+				var pageNum2=1;
+				var pageNum3=1;
+				var pageNum4=1;
+				var pageNum5=1;
+				var pageNum6=1;
+				var pageNum7=1;
+				var pageNum8=1;
+				var pageNum9=1;
+				var pageNum10=1;				
+				$.ready(function () {
+					//循环初始化所有下拉刷新，上拉加载。
+					$.each(document.querySelectorAll('.mui-slider-group .mui-scroll'), function (index, pullRefreshEl) {
+						$(pullRefreshEl).pullToRefresh({
+							up: {
+								auto: true, //自动执行一次上拉加载，可选；
+								show: false, //显示底部上拉加载提示信息，可选；      
+								contentrefresh: '尊敬的客官，英皇小姐姐正在努力加载中...', //上拉进行中提示信息
+								contentnomore: '尊敬的客官，英皇小姐姐是有底线的哟！', //上拉无更多信息时提示信息
+								style: mui.os.android ? "circle" : "default",
+								callback:function () {
+									var self = this;                  
+									setTimeout(function () {
+									//获取三个不同的区块显示的位置
+										var ul = self.element.querySelector('.mui-table-view');
+										if(index == 0){//全部选项卡的index是0，当显示它的时候，滑动页面加1，调数据，以下以此类推
+											pageNum=pageNum1++;
+											createFragment(ul, index,self,pageNum);
+										}else if(index == 1){
+											pageNum=pageNum2++;
+											createFragment(ul, index,self,pageNum);
+										}else if(index == 2){
+											pageNum=pageNum3++;
+											createFragment(ul, index,self,pageNum);
+										}else if(index == 3){
+											pageNum=pageNum4++;
+											createFragment(ul, index,self,pageNum);
+										}else if(index == 4){
+											pageNum=pageNum5++;
+											createFragment(ul, index,self,pageNum);
+										}else if(index == 5){
+											pageNum=pageNum6++;
+											createFragment(ul, index,self,pageNum);
+										}else if(index == 6){
+											pageNum=pageNum7++;
+											createFragment(ul, index,self,pageNum);
+										}else if(index == 7){
+											pageNum=pageNum8++;
+											createFragment(ul, index,self,pageNum);
+										}else if(index == 8){
+											pageNum=pageNum9++;
+											createFragment(ul, index,self,pageNum);
+										}else if(index == 9){
+											pageNum=pageNum10++;
+											createFragment(ul, index,self,pageNum);
+										}
+									}, 1000);
+								}
+							}
+						});
+					});
+				});
+			})(mui);
+			function createFragment(ul, index,self,pageNum) {
+				var fragment = document.createDocumentFragment();
+				var type = null;
+				if(index == 0){
+					type=VideoType.CHINESE_HD;
+				}else if(index == 1){
+					type=VideoType.JAPAN_STAR;
+				}else if(index == 2){
+					type=VideoType.EUROPE;
+				}else if(index == 3){
+					type=VideoType.HD_NO_CODE;
+				}else if(index == 4){
+					type=VideoType.CHINESE_FONT;
+				}else if(index == 5){
+					type=VideoType.ANIME;
+				}else if(index == 6){
+					type=VideoType.CANDID;
+				}else if(index == 7){
+					type=VideoType.INTERNET_STAR;
+				}else if(index == 8){
+					type=VideoType.STAR_SCANDAL;
+				}else if(index == 9 ){
+					type= VideoType.LEVEL3;
+				}
+				
+				var page_size = 10;//传给后台的参数，想要几条数据
+				var data = {
+					offset : pageNum * page_size - page_size,
+					limit : page_size,
+					type : type
+				};
+				//请求后台数据
+				mui.getJSON(APP_DOMAIN + "/videos", data, function (info) {
+					
+					if(info.length == 0){//当info.length为0时，表示没有数据了
+						self.endPullUpToRefresh(true);//当为true时，底部出现没有更多数据，并且不能滑动
+					}else{
+						for (var i = 0; i < info.length; i++) {
+							video = info[i];
+							var str='';
+							var li = document.createElement('li');
+							li.className = "mui-table-view-cell mui-media";
+							li.id =  video["vod_id"] ;
+							str+='<img class="mui-media-object mui-pull-left" src="' + video["vod_pic"] + '"/>'
+							+'<div class="mui-media-body">' + video["vod_name"]
+							+'<p class="mui-ellipsis">播放次数:' + video["vod_hits"] + '</p>'
+							+'<a id="videoURL" href="' + video["vod_play_url"] + '"></a>'
+							+ '</div>';
+							
+							li.innerHTML=str;
+							fragment.appendChild(li);
+						}
+						ul.appendChild(fragment);//注意一定要插入使用appendChild，不是替换里面的数据用innerHTML,否则会出现没有文字提醒以及会出现很大的空白区
+						self.endPullUpToRefresh();//当为false或空时，底部出现正在加载，滑动到下一页
 					}
-				 });				  
-			})		
-			
+				});
+			};
 		</script>
+		
 	</body>
 </html>

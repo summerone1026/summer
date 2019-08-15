@@ -6,91 +6,93 @@
 		<title></title>
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<link href="../css/mui.css" rel="stylesheet" />
-		 <link href="../css/video-js.min.css" rel="stylesheet">
+		<link href="../css/video-js.css" rel="stylesheet">
+<!-- 		 <link href="../css/video-js.min.css" rel="stylesheet"> -->
 		 <script src="../js/video.js"></script>
-		<script src="../js/video.min.js"></script>
-		<script src="../js/videojs-contrib-hls.js"></script>
+<!-- 		<script src="../js/video.min.js"></script> -->
 		<script src="../js/videojs-contrib-hls.min.js"></script>
-	</head>
-	<script src="../js/mui.js"></script>
-	<script src="../js/mui.min.js"></script>
-	<script type="text/javascript">
-		mui.init()
-		mui.plusReady(function(){
-			var self = plus.webview.currentWebview();
-			var name = self.name;//获得参数
-			var src = self.src;
-			console.log("name=" + name)
-			console.log("src=" + src)
-		})
-		
-	</script>
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/lib/common.js"></script>
 
+	</head>
+		
 	<header class="mui-bar mui-bar-nav">
-		<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-		<h5 class="mui-title">花木兰</h5>
+		<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" id="muiBackButton"></a>
+		<h5 class="mui-title" id="videoName"></h5>
 	</header>
-	
 	<body>
-		<video id="video" 
-		class="video-js vjs-big-play-centered vjs-fluid"
-		controls
-		autoplay="true" 
-		topreload="auto" 
-		height="300" 
-		loop="true" 
-		poster="" 
-		data-setup="{}">
-<!-- 				  <source src="../download/videoplayback.webm" type="video/webm"> -->
-		  <source src="https://d2zihajmogu5jn.cloudfront.net/bipbop-advanced/bipbop_16x9_variant.m3u8" type="application/x-mpegURL">
-		  <p class="vjs-no-js">
-			TEST
-		  </p>
-		</video>
+		<div class="mui-content" id="videoNode">
+			<!-- <video id="video" class="video-js vjs-big-play-centered vjs-fluid" controls="" autoplay="true" topreload="auto" height="300" width="100%" loop="true" poster="" data-setup="{}"> <source src="https://d2zihajmogu5jn.cloudfront.net/bipbop-advanced/bipbop_16x9_variant.m3u8" type="application/x-mpegURL"> <p class="vjs-no-js">TEST</p> </video> -->
+		</div>
+
 	</body>
 	
 	<script type="text/javascript">
-		var options = {};
-		var player = videojs('video', options, function onPlayerReady() {
-		  videojs.log('Your player is ready!');
-
-		  // In this context, `this` is the player that was created by Video.js.
-		  //this.play();
-
-		  // How about an event listener?
-		   this.on('play', function () {
-			   console.log('开始/恢复播放');
-		   });
-		   this.on('pause', function () {
-			   console.log('暂停播放');
-		   });
-		   this.on('ended', function () {
-			   console.log('结束播放');
-		   });
-		   this.on('fullscreenchange', function () {
-			   console.log('全屏变化');
-			   var isFullScreen = this.isFullscreen();
-			   console.log('是否是全屏:' + isFullScreen);
-				if (isFullScreen) {
-					console.log('是全屏，解除屏幕锁定');
-					plus.screen.unlockOrientation();
-				}else{
-					console.log('不是全屏，执行屏幕锁定');
-					plus.screen.lockOrientation("portrait-primary"); 
-				}
-
-		   });
-
-			// this.on('enterFullScreen', function(){
-			// 	console.log('进入全屏');
-			// 	plus.screen.unlockOrientation();
-			// });
-			// this.on('exitFullScreen', function(){
-			// 	console.log('退出全屏');
-			// 	plus.screen.lockOrientation("portrait-primary"); 
-			// });
+		mui.init();
+		mui.plusReady(function(){
+			var self = plus.webview.currentWebview();
+			var videoId = self.videoId;
+			var name = self.name;//获得参数
+			var src = self.src;
+			console.log("videoId=" + videoId);
+			console.log("name=" + name);
+			console.log("src=" + src);
+			document.getElementById("videoName").innerHTML = name;
+			document.getElementById("videoNode").innerHTML = '<video \
+				id="video" \
+				class="video-js vjs-big-play-centered vjs-fluid" \
+				controls="" \
+				autoplay="ture" \
+				topreload="auto" \
+				height="300" \
+				width="100%" \
+				loop="true" \
+				poster="" \
+				data-setup="{}"> \
+				<source src="' + src + '" type="application/x-mpegURL"> \
+				<p class="vjs-no-js">TEST</p> \
+				</video>';
+			var options = {};
+			var player = videojs('video', options, function onPlayerReady() {
+			  videojs.log('Your player is ready!');
+				var flag = true;
+			  // In this context, `this` is the player that was created by Video.js.
+			  //this.play();
+			  
+				plus.screen.unlockOrientation();
+		
+			  // How about an event listener?
+			   this.on('play', function () {
+				   console.log('开始/恢复播放');
+			   });
+			   this.on('pause', function () {
+				   console.log('暂停播放');
+			   });
+			   this.on('ended', function () {
+				   console.log('结束播放');
+			   });
+			   //解锁加锁方法在华为手机上结果相反,现采用进入播放器解锁屏幕重力感应,退出播放器时竖屏正方向锁定
+			  //  this.on('fullscreenchange', function () {
+				 //   console.log('全屏变化');
+				 //   var isFullScreen = this.isFullscreen();
+				 //   console.log('是否是全屏:' + isFullScreen);
+					// if (isFullScreen) {
+					// 	console.log('是全屏，解除屏幕锁定');
+					// 	plus.screen.unlockOrientation();
+					// }else{
+					// 	console.log('不是全屏，执行屏幕锁定');
+					// 	plus.screen.lockOrientation("portrait-primary"); 
+					// }
+			  //  });
+			});
+			
+			plus.key.addEventListener("backbutton", function(){
+				plus.screen.lockOrientation("portrait-primary");
+			});
+			document.getElementById("muiBackButton").addEventListener("tap", function(){
+				plus.screen.lockOrientation("portrait-primary");				
+			});
+			
 		});
-
 	</script>
-	
 </html>

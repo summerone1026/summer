@@ -7,6 +7,8 @@
 		<script src="../js/mui.min.js" charset="utf-8"></script>
 		<script src="../js/h.js" charset="utf-8"></script>
 		<script src="../js/lib/art-template.js"></script>
+		<script src="../js/lib/common.js"></script>
+		<script src="../js/home.js"></script>
 		<link href="../css/mui.min.css" rel="stylesheet" />
 		<link href="../css/iconfont.css" rel="stylesheet" />
 
@@ -129,318 +131,88 @@
 			<!-- ================================================== -->
 			<div class="hometype">
 				<span class="left">热播推荐</span>
-				<a id="HotRecomment" class="right">换一批</a>
+				<a id="HotRecomment" class="right">换一组</a>
 				<!-- <button id="HotRecomment" type="button" class="mui-btn mui-btn-blue mui-btn-outlined right">换一批</button> -->
 			</div>
 			<ul id="HotRecomment1" class="mui-table-view mui-grid-view"></ul>
 				<script id="HotRecommendModel1" type="text/html">
-					   {{each recommend1 as value}}
-						<li class="mui-table-view-cell mui-media mui-col-xs-6" vod-id="1" vod-src="http://cp818.com/cp818.mp4">
-								<img class="mui-media-object" src="../images/home4.jpg">
-								<div class="mui-media-body">文字说明1</div>
+					   {{each video as value}}
+						<li class="mui-table-view-cell mui-media mui-col-xs-6" id="{{value.vod_id}}" name="{{value.vod_name}}" url="{{value.vod_play_url}}">
+								<img class="mui-media-object" src="{{value.vod_pic}}">
+								<div class="mui-media-body">{{value.vod_name}}</div>
 						</li>
 						{{/each}}
 				</script>
-			
-			<!-- ================= -->
-			<ul id="HotRecomment2" class="mui-table-view mui-grid-view" style="display: none;"></ul>
-				<script id="HotRecommendModel2" type="text/html">
-					   {{each recommend2 as value}}
-						<li class="mui-table-view-cell mui-media mui-col-xs-6" vod-id="1" vod-src="http://cp818.com/cp818.mp4">
-								<img class="mui-media-object" src="../images/home5.jpg">
-								<div class="mui-media-body">文字说明1</div>
-						</li>
-						{{/each}}
-				</script>	
-			<!-- ================= -->
-			<ul id="HotRecomment3" class="mui-table-view mui-grid-view" style="display: none;"></ul>
-				<script id="HotRecommendModel3" type="text/html">
-					   {{each recommend3 as value}}
-						<li class="mui-table-view-cell mui-media mui-col-xs-6" vod-id="1" vod-src="http://cp818.com/cp818.mp4">
-								<img class="mui-media-object" src="../images/home6.jpg">
-								<div class="mui-media-body">文字说明1</div>
-						</li>
-						{{/each}}
-				</script>					
+												
 			<hr>
 			<!-- =============================================================================== -->
-			<div id="guoChanGaoQing"></div>
-			<div id="zhuBo"></div>
-			<div id="jiQingOuMei"></div>
+			<div class="hometype">
+			  <span class="left">国产高清</span>
+			  <a id="ChineseHDButton" class="right">换一组</a>
+			</div>					 
+			<ul id="ChineseHD" class="mui-table-view mui-grid-view">
+				<script id="gcgq" type="text/html">	
+				{{each video as value }} 
+				<li class="mui-table-view-cell mui-media mui-col-xs-6" id="{{value.vod_id}}" name="{{value.vod_name}}" url="{{value.vod_play_url}}">
+						<img class="mui-media-object" src="{{value.vod_pic}}">
+						<div class="mui-media-body">{{value.vod_name}}</div>
+				</li>
+				{{/each}}
+				</script>
+			</ul>					
+			<hr>
 			
-				<script id="gcgq" type="text/html">					
-					 <div class="hometype" type-id="{{guochan.typeId}}">
-					   <span class="left">{{guochan.typeName}}</span>
-					   <a class="right">More</a>
-					  </div>					 
-					<ul class="mui-table-view mui-grid-view">
-						 {{each guochan.video as newdata index }} 
-						<li class="mui-table-view-cell mui-media mui-col-xs-6" vod-id="5" vod-src="http://cp818.com/cp818.mp4">
-								<img class="mui-media-object" src="../images/home5.jpg">
-								<div class="mui-media-body">文字说明1</div>
-						</li>
-						{{/each}}
-					</ul>
-					<hr>					
+			<div class="hometype">
+				   <span class="left">欧美激情</span>
+				   <a id="EuropeButton" class="right">换一组</a>
+			</div>
+								   
+			<ul id="Europe" class="mui-table-view mui-grid-view">
+				<script id="jqom" type="text/html">	
+				{{each video as value }} 
+				<li class="mui-table-view-cell mui-media mui-col-xs-6" id="{{value.vod_id}}" name="{{value.vod_name}}" url="{{value.vod_play_url}}">
+						<img class="mui-media-object" src="{{value.vod_pic}}">
+						<div class="mui-media-body">{{value.vod_name}}</div>
+				</li>
+				{{/each}}
 				</script>
-				<script id="zhubo" type="text/html">					
-					 <div class="hometype" type-id="{{zhubo.typeId}}">
-					   <span class="left">{{zhubo.typeName}}</span>
-					   <a class="right">More</a>
-					  </div>					 
-					<ul class="mui-table-view mui-grid-view">
-						 {{each zhubo.video as newdata index }} 
-						<li class="mui-table-view-cell mui-media mui-col-xs-6" vod-id="5" vod-src="http://cp818.com/cp818.mp4">
-								<img class="mui-media-object" src="../images/home5.jpg">
-								<div class="mui-media-body">文字说明1</div>
-						</li>
-						{{/each}}
-					</ul>
-					<hr>					
-				</script>
-				<script id="jqom" type="text/html">					
-					 <div class="hometype" type-id="{{jiqingoumei.typeId}}">
-					   <span class="left">{{jiqingoumei.typeName}}</span>
-					   <a class="right">More</a>
-					  </div>					 
-					<ul class="mui-table-view mui-grid-view">
-						 {{each jiqingoumei.video as newdata index }} 
-						<li class="mui-table-view-cell mui-media mui-col-xs-6" vod-id="5" vod-src="http://cp818.com/cp818.mp4">
-								<img class="mui-media-object" src="../images/home5.jpg">
-								<div class="mui-media-body">文字说明1</div>
-						</li>
-						{{/each}}
-					</ul>
-					<hr>					
-				</script>
-				<!-- <div class="hometype" type-id="1">
-					<span class="left">国产高清</span>
-					<a class="right">More</a>
-				</div>
-				<ul class="mui-table-view mui-grid-view">
-					<li class="mui-table-view-cell mui-media mui-col-xs-6" vod-id="5" vod-src="http://cp818.com/cp818.mp4">
-							<img class="mui-media-object" src="../images/home5.jpg">
-							<div class="mui-media-body">文字说明1</div>
-					</li>
-					<li class="mui-table-view-cell mui-media mui-col-xs-6" vod-id="6" vod-src="http://cp818.com/cp818.mp4">
-							<img class="mui-media-object" src="../images/home6.jpg">
-							<div class="mui-media-body">文字说明2</div>
-					</li>
-					<li class="mui-table-view-cell mui-media mui-col-xs-6">
-							<img class="mui-media-object" src="../images/home7.jpg">
-							<div class="mui-media-body">文字说明1</div>
-					</li>
-					<li class="mui-table-view-cell mui-media mui-col-xs-6">
-							<img class="mui-media-object" src="../images/home8.jpg">
-							<div class="mui-media-body">文字说明2</div>
-					</li>
-				</ul>
-				<hr>
-				<div class="hometype" type-id="2">
-					<span class="left">热辣主播</span>
-					<a class="right">More</a>
-				</div>
-				<ul class="mui-table-view mui-grid-view">
-					<li class="mui-table-view-cell mui-media mui-col-xs-6">
-							<img class="mui-media-object" src="../images/home9.jpg">
-							<div class="mui-media-body">文字说明1</div>
-					</li>
-					<li class="mui-table-view-cell mui-media mui-col-xs-6">
-							<img class="mui-media-object" src="../images/home10.jpg">
-							<div class="mui-media-body">文字说明2</div>
-					</li>
-					<li class="mui-table-view-cell mui-media mui-col-xs-6">
-							<img class="mui-media-object" src="../images/home11.jpg">
-							<div class="mui-media-body">文字说明1</div>
-					</li>
-					<li class="mui-table-view-cell mui-media mui-col-xs-6">
-							<img class="mui-media-object" src="../images/home12.jpg">
-							<div class="mui-media-body">文字说明2</div>
-					</li>
-				</ul>
-				<hr>
-				<div class="hometype" type-id="3">
-					<span class="left">激情欧美</span>
-					<a class="right">More</a>
-				</div>
-				<ul class="mui-table-view mui-grid-view">
-					<li class="mui-table-view-cell mui-media mui-col-xs-6">
-							<img class="mui-media-object" src="../images/home13.jpg">
-							<div class="mui-media-body">文字说明1</div>
-					</li>
-					<li class="mui-table-view-cell mui-media mui-col-xs-6">
-							<img class="mui-media-object" src="../images/home14.jpg">
-							<div class="mui-media-body">文字说明2</div>
-					</li>
-					<li class="mui-table-view-cell mui-media mui-col-xs-6">
-							<img class="mui-media-object" src="../images/home15.jpg">
-							<div class="mui-media-body">文字说明1</div>
-					</li>
-					<li class="mui-table-view-cell mui-media mui-col-xs-6">				
-							<img class="mui-media-object" src="../images/home16.jpg">
-							<div class="mui-media-body">文字说明2</div>
-					</li>
-				</ul>
-			<hr > -->
+			</ul>
+			<hr>
 			
+			<div class="hometype">
+				   <span class="left">网红主播</span>
+				   <a id="InternetStarButton" class="right">换一组</a>
+			</div>
+								 
+			<ul id="InternetStar" class="mui-table-view mui-grid-view">
+					<script id="zhubo" type="text/html">
+					{{each video as value }} 
+					<li class="mui-table-view-cell mui-media mui-col-xs-6" id="{{value.vod_id}}" name="{{value.vod_name}}" url="{{value.vod_play_url}}">
+							<img class="mui-media-object" src="{{value.vod_pic}}">
+							<div class="mui-media-body">{{value.vod_name}}</div>
+					</li>
+					{{/each}}
+					</script>
+			</ul>
+			<hr>					
 			<!-- =============================================================================== -->
 			<div class="hometype">
 				<span class="left">猜你喜欢</span>
-				<a id="changeVod" class="right">换一批</a>
+				<a id="changeVod" class="right">换一组</a>
 				<!-- <button id="changeVod" type="button" class="mui-btn mui-btn-blue mui-btn-outlined right">换一批</button> -->
 			</div>
-			<ul id="guessLike1" class="mui-table-view mui-grid-view" style=""></ul>				
-			<script id="guessLike1Model" type="text/html">
-				   {{each guessLike1 as value}}
-					<li class="mui-table-view-cell mui-media mui-col-xs-6" vod_id="{{value.id}}">
-							<img class="mui-media-object" src="../images/home19.jpg">
-							<div class="mui-media-body">{{value.name}}</div> 
-					</li>
-					{{/each}}
-			</script>			
-			<!-- ================= -->
-			<ul id="guessLike2" class="mui-table-view mui-grid-view" style="display: none;"></ul>
-				<script id="guessLike1Mode2" type="text/html">
-					   {{each guessLike2 as value}}
-						<li class="mui-table-view-cell mui-media mui-col-xs-6" vod_id="{{value.id}}">
-								<img class="mui-media-object" src="../images/home17.jpg">
-								<div class="mui-media-body">{{value.name}}</div> 
+			<ul id="guessLike1" class="mui-table-view mui-grid-view" style="">			
+				<script id="guessLike1Model" type="text/html">
+					   {{each video as value}}
+						<li class="mui-table-view-cell mui-media mui-col-xs-6" id="{{value.vod_id}}" name="{{value.vod_name}}" url="{{value.vod_play_url}}">
+								<img class="mui-media-object" src="{{value.vod_pic}}">
+								<div class="mui-media-body">{{value.vod_name}}</div> 
 						</li>
 						{{/each}}
-				</script>			
-			<!-- ================= -->
-			<ul id="guessLike3" class="mui-table-view mui-grid-view" style="display: none;"></ul>
-				<script id="guessLike1Mode3" type="text/html">
-					   {{each guessLike3 as value}}
-						<li class="mui-table-view-cell mui-media mui-col-xs-6" vod_id="{{value.id}}">
-								<img class="mui-media-object" src="../images/home18.jpg">
-								<div class="mui-media-body">{{value.name}}</div> 
-						</li>
-						{{/each}}
-				</script>			
+				</script>
+			</ul>	
 			<!-- ================= -->
 			<p class="mui-text-center cor-999">~我是有底线的~</p>
 		</div>
 	</body>
-
-	<script type="text/javascript" charset="utf-8">
-		mui.init();
-		mui.plusReady(function(){			
-			plus.screen.lockOrientation("portrait-primary");    //锁定屏幕方向
-			//猜你喜欢部分
-		    var data ={guessLike1:[{id:'11',name:'name1',src:'src...'},{id:'11',name:'name2',src:'src...'},{id:'11',name:'name3',src:'src...'},{id:'11',name:'name4',src:'src...'}],guessLike2:[{id:'11',name:'name5',src:'src...'},{id:'11',name:'name6',src:'src...'},{id:'11',name:'name7',src:'src...'},{id:'11',name:'name8',src:'src...'}],guessLike3:[{id:'11',name:'name9',src:'src...'},{id:'11',name:'name9',src:'src...'},{id:'11',name:'name9',src:'src...'},{id:'11',name:'name9',src:'src...'}],recommend1:[{id:'11',name:'name1',src:'src...'},{id:'11',name:'name2',src:'src...'},{id:'11',name:'name3',src:'src...'},{id:'11',name:'name4',src:'src...'}],recommend2:[{id:'11',name:'name5',src:'src...'},{id:'11',name:'name6',src:'src...'},{id:'11',name:'name7',src:'src...'},{id:'11',name:'name8',src:'src...'}],recommend3:[{id:'11',name:'name9',src:'src...'},{id:'11',name:'name9',src:'src...'},{id:'11',name:'name9',src:'src...'},{id:'11',name:'name9',src:'src...'}]};
-			var guess1 = template('guessLike1Model',data);
-			var guess2 = template('guessLike1Mode2',data);
-			var guess3 = template('guessLike1Mode3',data);
-			document.getElementById("guessLike1").innerHTML=guess1; 
-			document.getElementById("guessLike2").innerHTML=guess2; 
-			document.getElementById("guessLike3").innerHTML=guess3; 			
-			//热播推荐部分
-			var recomment1 = template('HotRecommendModel1',data);
-			var recomment2 = template('HotRecommendModel2',data);
-			var recomment3 = template('HotRecommendModel3',data);
-			document.getElementById("HotRecomment1").innerHTML=recomment1; 
-			document.getElementById("HotRecomment2").innerHTML=recomment2; 
-			document.getElementById("HotRecomment3").innerHTML=recomment3; 
-			
-			//渲染视频内容			
-			var data ={guochan:{typeId:1,typeName:'国产高清',video:[{id:'11',name:'name1',src:'src...'},{id:'11',name:'name4',src:'src...'}]},zhubo:{typeId:2,typeName:'热辣主播',video:[{id:'11',name:'name1',src:'src...'},{id:'11',name:'name4',src:'src...'}]},jiqingoumei:{typeId:3,typeName:'激情欧美',video:[{id:'11',name:'name1',src:'src...'},{id:'11',name:'name4',src:'src...'}]}};
-			var type_gc=template('gcgq',data);
-			var type_zb=template('zhubo',data);
-			var type_om=template('jqom',data);
-			document.getElementById("guoChanGaoQing").innerHTML=type_gc;
-			document.getElementById("zhuBo").innerHTML=type_zb;
-			document.getElementById("jiQingOuMei").innerHTML=type_om;
-		});
-
-		
-		//轮播=====获得slider插件对象
-		var gallery = mui('.mui-slider');
-		gallery.slider({
-			interval: 2000
-		});
-
-		//播放历史记录			
-		document.querySelector('.icon-history').addEventListener('tap', function() {
-			//mui.alert('history....')  
-			mui.openWindow({
-				url: 'home/history.html',
-				id: 'history',
-			});
-		})
-
-		//搜索			
-		document.querySelector('nav').addEventListener('tap', function() {
-			mui.openWindow({
-				url: 'home/search.html',
-				id: 'search',
-			})
-		})
-		
-		//猜你喜欢换一批
-		var guessNo=2;
-		h('#changeVod').tap(function(){			
-			if(guessNo==4){
-				var showimg="#guessLike"+1;
-		        var hiedimg="#guessLike"+3;
-				 h(hiedimg).attr("style","display:none");
-				 h(showimg).attr("style","display:block");
-				 guessNo=2;
-			}else{
-				var hidd=guessNo-1;
-				var hidden="#guessLike"+hidd;
-				h(hidden).attr('style','display:none');
-				h('#guessLike'+guessNo).attr('style','display:block');
-				guessNo++;
-			}				 
-		})
-		//热播推荐换一批
-		var reComm=2;
-		h('#HotRecomment').tap(function(){			
-			if(reComm==4){
-				var showimg="#HotRecomment"+1;
-		        var hiedimg="#HotRecomment"+3;
-				 h(hiedimg).attr("style","display:none");
-				 h(showimg).attr("style","display:block");
-				 reComm=2;
-			}else{
-				var hidd=reComm-1;
-				var hidden="#HotRecomment"+hidd;
-				h(hidden).attr('style','display:none');
-				h('#HotRecomment'+reComm).attr('style','display:block');
-				reComm++;
-			}				 
-		})
-		//类型获取更多		
-		mui(".mui-content").on('tap','.hometype',function(){
-		   var typeId = this.getAttribute("type-id");	
-		   if(typeId!=null){
-			  var tyepName=this.querySelector('span').innerHTML;
-			  mui.openWindow({
-				id:'type_list',
-				url:'type/type_list.html',
-				extras:{
-					typeId:typeId,
-					tyepName:tyepName
-				}
-			 }); 
-		   }	
-		})	
-		
-		//单部影片详情页
-		mui(".mui-content").on('tap','.mui-table-view-cell',function(){
-		   var vodId = this.getAttribute("vod-id");
-		   var vodSrc = this.getAttribute("vod-src");
-		   mui.openWindow({
-				id:'video.html',
-				url:'video.html',
-				extras:{
-					vodId:vodId,
-					src:vodSrc,
-					name:"测试名字"
-				}
-		   }); 
-		})
-		
-	</script>
 </html>
