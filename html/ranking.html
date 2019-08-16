@@ -196,7 +196,7 @@
 				var page_size = 10;//传给后台的参数，想要几条数据
 
 				console.log("请求数据页数：" + pageNum);
-				console.log("请求数据起始位置：" + pageNum * page_size - page_size);
+
 				data["offset"] = pageNum * page_size - page_size;
 				data["limit"] = page_size;
 				//请求后台数据

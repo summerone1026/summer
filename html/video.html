@@ -35,11 +35,16 @@
 			var name = self.name;//获得参数
 			var pic = self.pic;
 			var src = self.src;
-			console.log("videoId=" + videoId);
-			console.log("name=" + name);
-			console.log("pic=" + pic);
-			console.log("src=" + src);
+
+			//添加观影记录
 			addVideoInformation(videoId, name, pic, src);
+			
+			//获取最新播放总数,并更新播放次数
+			mui.getJSON(APP_DOMAIN + "/videos/" + videoId, function(data){
+				var hits = data["vod_hits"];
+				updateVideoHits(++hits);
+				}
+			);
 
 			document.getElementById("videoName").innerHTML = name;
 			document.getElementById("videoNode").innerHTML = '<video \
@@ -59,11 +64,12 @@
 			var options = {};
 			var player = videojs('video', options, function onPlayerReady() {
 			  videojs.log('Your player is ready!');
-				var flag = true;
+
 			  // In this context, `this` is the player that was created by Video.js.
 			  //this.play();
 			  
-				plus.screen.unlockOrientation();
+			  //进入播放页面,解锁重力感应
+			  plus.screen.unlockOrientation();
 		
 			  // How about an event listener?
 			   this.on('play', function () {
@@ -97,6 +103,28 @@
 				plus.screen.lockOrientation("portrait-primary");				
 			});
 			
+			function updateVideoHits(hits){
+				var info = [];
+				var data = {
+						op: "replace",
+						path: "/vod_hits",
+						value: hits
+					};
+				info.push(data);
+				mui.ajax(APP_DOMAIN + "/videos/" + videoId,{
+					data:JSON.stringify(info),
+					datatype:'json',//服务器返回json格式数据
+					type:'patch',//HTTP请求类型
+					timeout:10000,//超时时间设置为10秒；
+					headers:{'Content-Type':'application/json'},
+					success:function(data){
+						//console.log(JSON.stringify(data));
+					},
+					error:function(xhr,type,errorThrown){
+						
+					}
+				});				
+			};
 		});
 	</script>
 </html>
