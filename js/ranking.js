@@ -23,12 +23,14 @@ mui.plusReady(function() {
 	mui(".mui-slider-group").on("tap", ".mui-table-view-cell", function(){
 		var videoId = this.getAttribute("id");
 		var videoName = this.querySelector(".mui-media-body").innerText;
+		var videoPic = this.querySelector(".mui-media-object").getAttribute("src");
 		var videoUrl = this.querySelector("#videoURL").getAttribute("href");
 		var webview = mui.openWindow({
 			url: 'video.html',
 			extras: {
 				videoId: videoId,
 				name: videoName,
+				pic: videoPic,
 				src: videoUrl
 			}
 		});

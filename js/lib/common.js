@@ -19,9 +19,29 @@ var VideoType = {
 
 
 
+//历史观影记录存储
+function addVideoInformation(videoId, videoName, videoPic, videoURL){
+	//拿到观影记录，没有则创建一个空的数组
+	var historyVideoStorage = JSON.parse(localStorage.getItem("historyVideoRecord")) 
+		? JSON.parse(localStorage.getItem("historyVideoRecord")) : new Array();
+	//去重
+	for(item of historyVideoStorage) {
+		if(item["vod_id"] == videoId){
+			return;
+		}
+	}
+	//构建影片数据
+	var videoInfo = {};
+	videoInfo["vod_id"] = videoId;
+	videoInfo["vod_name"] = videoName;
+	videoInfo["vod_pic"] = videoPic;
+	videoInfo["vod_play_url"] = videoURL;
+	//将最近观影记录放在最前面
+	historyVideoStorage.unshift(videoInfo);
+	//存储观影记录
+	localStorage.setItem("historyVideoRecord", JSON.stringify(historyVideoStorage));
 
-
-
+}
 
 //页面回弹
 var sw = document.getElementsByClassName(".mui-scroll-wrapper.scroll");

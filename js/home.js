@@ -36,6 +36,7 @@ mui.plusReady(function(){
 	mui(".mui-content").on("tap", ".mui-table-view-cell", function(){
 		var videoId = this.getAttribute("id");
 		var videoName = this.getAttribute("name");
+		var videoPic = this.querySelector(".mui-media-object").getAttribute("src");
 		var videoUrl = this.getAttribute("url");
 		var webview = mui.openWindow({
 			id:'video.html',
@@ -43,6 +44,7 @@ mui.plusReady(function(){
 			extras: {
 				videoId: videoId,
 				name: videoName,
+				pic: videoPic,
 				src: videoUrl
 			}
 		});

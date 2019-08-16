@@ -33,10 +33,14 @@
 			var self = plus.webview.currentWebview();
 			var videoId = self.videoId;
 			var name = self.name;//获得参数
+			var pic = self.pic;
 			var src = self.src;
 			console.log("videoId=" + videoId);
 			console.log("name=" + name);
+			console.log("pic=" + pic);
 			console.log("src=" + src);
+			addVideoInformation(videoId, name, pic, src);
+
 			document.getElementById("videoName").innerHTML = name;
 			document.getElementById("videoNode").innerHTML = '<video \
 				id="video" \

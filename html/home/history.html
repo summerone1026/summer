@@ -7,46 +7,64 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<link href="../../css/mui.css" rel="stylesheet" />
 	</head>
-
+	<style>
+		html,
+		body {
+			background-color: #efeff4;
+		}
+		.mui-slider {
+			height: 100%;
+		}
+		.mui-table-view .mui-media-object{
+			max-width: 60%;
+			height: 9.25rem
+		}
+	</style>
 	<header class="mui-bar mui-bar-nav">
 		<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-		<h1 class="mui-title">首页历史记录的子页面</h1>
+		<h1 class="mui-title">历史观看记录</h1>
 	</header>
 	<body>
 		<div class="mui-content">
-			<ul class="mui-table-view">
-				<li class="mui-table-view-cell mui-media">
-					<a href="javascript:;">
-						<img class="mui-media-object mui-pull-right" src="../../images/160x160.png">
-						<div class="mui-media-body">
-							幸福
-							<p class="mui-ellipsis">能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</p>
-						</div>
-					</a>
-				</li>
-				<li class="mui-table-view-cell mui-media">
-					<a href="javascript:;">
-						<img class="mui-media-object mui-pull-right" src="../../images/160x160.png">
-						<div class="mui-media-body">
-							木屋
-							<p class="mui-ellipsis">想要这样一间小木屋，夏天挫冰吃瓜，冬天围炉取暖.</p>
-						</div>
-					</a>
-				</li>
-				<li class="mui-table-view-cell mui-media">
-					<a href="javascript:;">
-						<img class="mui-media-object mui-pull-right" src="../../images/160x160.png">
-						<div class="mui-media-body">
-						    CBD
-							<p class="mui-ellipsis">烤炉模式的城，到黄昏，如同打翻的调色盘一般.</p>
-						</div>
-					</a>
-				</li>
-			</ul>
+			<div id="historyVideo">
+				<script type="text/html" id="templateId">
+				<ul class="mui-table-view">
+					{{each video as value}}
+					<li class="mui-table-view-cell mui-media" id="{{value.vod_id}}" name="{{value.vod_name}}" url="{{value.vod_play_url}}">
+							<img class="mui-media-object mui-pull-left" src="{{value.vod_pic}}">
+							<div class="mui-media-body">
+								{{value.vod_name}}
+							</div>
+					</li>
+					{{/each}}				
+				</ul>
+				</script>				
+			</div>	
 		</div>		
-		<script src="../../js/mui.js"></script>
+		<script src="../../js/mui.min.js"></script>
+		<script src="../../js/lib/art-template.js"></script>
 		<script type="text/javascript">
-			mui.init()
+			var info = JSON.parse(localStorage.getItem("historyVideoRecord"));
+			var historyVideo = new Array();
+			historyVideo["video"] = info;
+			var html=template('templateId',historyVideo);
+			document.getElementById("historyVideo").innerHTML=html;	
+					
+			mui(".mui-content").on("tap", ".mui-table-view-cell", function(){
+				var videoId = this.getAttribute("id");
+				var videoName = this.getAttribute("name");
+				var videoPic = this.querySelector(".mui-media-object").getAttribute("src");				
+				var videoUrl = this.getAttribute("url");
+				var webview = mui.openWindow({
+					url: '../video.html',
+					extras: {
+						videoId: videoId,
+						name: videoName,
+						pic: videoPic,
+						src: videoUrl
+					}
+				});
+			});			
 		</script>
 	</body>
 </html>
