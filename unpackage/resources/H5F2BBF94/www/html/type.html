@@ -30,17 +30,12 @@
 						<a class="mui-control-item" href="#item2mobile">日韩女优</a>
 						<a class="mui-control-item" href="#item3mobile">欧美激情</a>
 						<a class="mui-control-item" href="#item4mobile">高清无码</a>
-						<a class="mui-control-item" href="#item5mobile">明星换脸</a>
-						<a class="mui-control-item" href="#item6mobile">网红主播</a>
-						<a class="mui-control-item" href="#item7mobile">成人动漫</a>
-						<a class="mui-control-item" href="#item8mobile">偷拍自拍</a>
-						<a class="mui-control-item" href="#item9mobile">人妻熟女</a>
-						<a class="mui-control-item" href="#item10mobile">中文字幕</a>
-						<a class="mui-control-item" href="#item11mobile">SM专区</a>
-						<a class="mui-control-item" href="#item12mobile">水下特辑</a>
-						<a class="mui-control-item" href="#item13mobile">午夜综艺</a>
-						<a class="mui-control-item" href="#item14mobile">女优专栏</a>
-						<a class="mui-control-item" href="#item15mobile">三级电影</a>						
+						<a class="mui-control-item" href="#item5mobile">中文字幕</a>
+						<a class="mui-control-item" href="#item6mobile">卡通动漫</a>
+						<a class="mui-control-item" href="#item7mobile">偷拍自拍</a>
+						<a class="mui-control-item" href="#item8mobile">网红主播</a>
+						<a class="mui-control-item" href="#item9mobile">明星丑闻</a>
+						<a class="mui-control-item" href="#item10mobile">三级大片</a>
 					</div>
 				</div>
 				<!-- <div id="sliderProgressBar" class="mui-slider-progress-bar mui-col-xs-3"></div> -->
@@ -158,56 +153,6 @@
 							</div>
 						</div>
 					</div>
-					
-					<div id="item11mobile" class="mui-slider-item mui-control-content">
-						<div id="scroll11" class="mui-scroll-wrapper">
-							<div class="mui-scroll">
-								<ul class="mui-table-view">
-										
-								</ul>
-							</div>
-						</div>
-					</div>
-					
-					<div id="item12mobile" class="mui-slider-item mui-control-content">
-						<div id="scroll12" class="mui-scroll-wrapper">
-							<div class="mui-scroll">
-								<ul class="mui-table-view">
-										
-								</ul>
-							</div>
-						</div>
-					</div>
-					
-					<div id="item13mobile" class="mui-slider-item mui-control-content">
-						<div id="scroll13" class="mui-scroll-wrapper">
-							<div class="mui-scroll">
-								<ul class="mui-table-view">
-										
-								</ul>
-							</div>
-						</div>
-					</div>
-					
-					<div id="item14mobile" class="mui-slider-item mui-control-content">
-						<div id="scroll14" class="mui-scroll-wrapper">
-							<div class="mui-scroll">
-								<ul class="mui-table-view">
-										
-								</ul>
-							</div>
-						</div>
-					</div>
-					
-					<div id="item15mobile" class="mui-slider-item mui-control-content">
-						<div id="scroll15" class="mui-scroll-wrapper">
-							<div class="mui-scroll">
-								<ul class="mui-table-view">
-										
-								</ul>
-							</div>
-						</div>
-					</div>					
 <!-- 					<script id="type1Model" type="text/html">
 						<div id="scroll1" class="mui-scroll-wrapper">
 							<div class="mui-scroll">
@@ -408,12 +353,7 @@
 				var pageNum7=1;
 				var pageNum8=1;
 				var pageNum9=1;
-				var pageNum10=1;
-				var pageNum11=1;
-				var pageNum12=1;
-				var pageNum13=1;
-				var pageNum14=1;
-				var pageNum15=1;												
+				var pageNum10=1;				
 				$.ready(function () {
 					//循环初始化所有下拉刷新，上拉加载。
 					$.each(document.querySelectorAll('.mui-slider-group .mui-scroll'), function (index, pullRefreshEl) {
@@ -459,21 +399,6 @@
 										}else if(index == 9){
 											pageNum=pageNum10++;
 											createFragment(ul, index,self,pageNum);
-										}else if(index == 10){
-											pageNum=pageNum11++;
-											createFragment(ul, index,self,pageNum);
-										}else if(index == 11){
-											pageNum=pageNum12++;
-											createFragment(ul, index,self,pageNum);
-										}else if(index == 12){
-											pageNum=pageNum13++;
-											createFragment(ul, index,self,pageNum);
-										}else if(index == 13){
-											pageNum=pageNum14++;
-											createFragment(ul, index,self,pageNum);
-										}else if(index == 14){
-											pageNum=pageNum15++;
-											createFragment(ul, index,self,pageNum);
 										}
 									}, 1000);
 								}
@@ -494,26 +419,16 @@
 				}else if(index == 3){
 					type=VideoType.HD_NO_CODE;
 				}else if(index == 4){
-					type=VideoType.STAR_CHANGE_FACE;
+					type=VideoType.CHINESE_FONT;
 				}else if(index == 5){
-					type=VideoType.INTERNET_STAR;
-				}else if(index == 6){
 					type=VideoType.ANIME;
-				}else if(index == 7){
+				}else if(index == 6){
 					type=VideoType.CANDID;
+				}else if(index == 7){
+					type=VideoType.INTERNET_STAR;
 				}else if(index == 8){
-					type=VideoType.ANOTHER_WIFE;
+					type=VideoType.STAR_SCANDAL;
 				}else if(index == 9 ){
-					type= VideoType.CHINESE_FONT;
-				}else if(index == 10){
-					type=VideoType.SM_COLUMN;
-				}else if(index == 11){
-					type=VideoType.WATER_COLUMN;
-				}else if(index == 12){
-					type=VideoType.MIDNIGHT_SHOWS;
-				}else if(index == 13){
-					type=VideoType.ACTRESS_COLUMN;
-				}else if(index == 14){
 					type= VideoType.LEVEL3;
 				}
 				

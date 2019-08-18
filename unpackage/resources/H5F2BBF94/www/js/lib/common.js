@@ -9,17 +9,12 @@ var VideoType = {
 	JAPAN_STAR:2, //"日韩女优"
 	EUROPE:3, //"欧美激情"
 	HD_NO_CODE:4, //"高清无码"
-	STAR_CHANGE_FACE:5, //"明星换脸"
-	INTERNET_STAR:6, //"网红主播"
-	ANIME:7, //"成人动漫"
-	CANDID:8, //"偷拍自拍"
-	ANOTHER_WIFE:9, //"人妻熟女"
-	CHINESE_FONT:10, //"中文字幕"
-	SM_COLUMN:11, //"SM专区"
-	WATER_COLUMN:12, //"水下特辑"
-	MIDNIGHT_SHOWS:13, //"午夜综艺"
-	ACTRESS_COLUMN:14, //"女优专栏"
-	LEVEL3:15 //三级电影
+	CHINESE_FONT:5, //"中文字幕"
+	ANIME:6, //"卡通动漫"
+	CANDID:7, //"偷拍自拍"
+	INTERNET_STAR:8, //"网红主播"
+	STAR_SCANDAL:9, //"明星丑闻"
+	LEVEL3:10 //三级片
 };
 
 
