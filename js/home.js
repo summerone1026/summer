@@ -73,6 +73,10 @@ mui.plusReady(function(){
 		console.log("执行猜你喜欢点击事件");
 		loadGuessLikeNewData();
 	})
+	
+	mui(".mui-content").on("tap", ".mui-slider-item", function(){
+		plus.runtime.openURL("http://www.yh89a.com");
+	});
 })
 
 function loadHotNewData(){
