@@ -80,7 +80,7 @@ mui.plusReady(function() {
 				}, 1000);
 			} else {
 				if(new Date().getTime() - first < 1000) {
-					localStorage.removeItem("guide");
+					// localStorage.removeItem("guide");
 					plus.runtime.quit();
 				}
 			}
