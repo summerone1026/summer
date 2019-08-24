@@ -1,5 +1,5 @@
 //api连接前缀
-var APP_DOMAIN = 'http://192.168.1.195:5000';
+var APP_DOMAIN = 'http://103.206.21.92:5000';
 
 //为true输出日志
 var debug = true;
