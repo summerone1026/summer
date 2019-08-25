@@ -47,7 +47,7 @@ mui.plusReady(function() {
 		var data = {
 			PlayerId: 1,
 			Mobile: 13800000000,
-			NickName: 'admin',
+			NickName: '游客',
 			imgurl: "../../images/defuser.jpg",
 			SelfdomSign: '',
 			//cityid:data.CityId

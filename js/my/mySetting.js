@@ -9,7 +9,7 @@ mui.plusReady(function() {
 	if(storageUser.IsLogin) {
 
 		document.getElementById("myAccount").addEventListener("tap", function() {
-			openNew("myAccount.html");
+			// openNew("myAccount.html");
 		})
 		document.getElementById("aboutApp").addEventListener("tap", function() {
 			openNew("aboutApp.html");
