@@ -1,19 +1,3 @@
-// mui.init({
-// 	swipeBack: false,
-// 	pullRefresh: {
-// 		container: '#pullrefresh',
-// 		down: { //下拉刷新
-// 			callback: pulldownRefresh,
-// 			style: mui.os.android ? "circle" : "default"
-// 		},
-// 		up : { //上拉刷新
-// 			callback:pullupRefresh,
-// 			contentrefresh:"正在加载...",
-// 			contentnomore:"没有更多数据了"
-// 		}
-// 	}
-// });
-
 function pullupRefresh(){
 	console.log("执行上拉加载")
 }
@@ -23,13 +7,13 @@ function pulldownRefresh(){
 }
 
 mui.plusReady(function() {
+	
+	//首页类型传过来的类型ID
+	var self = plus.webview.currentWebview();
+	var typeId = self.typeid;
+	
 
 	initPage();
-
-	// mui('.mui-scroll-wrapper').scroll({
-	// 	indicators: true //是否显示滚动条
-	// })
-	
 	mui(".mui-slider-group").on("tap", ".mui-table-view-cell", function(){
 		var videoId = this.getAttribute("id");
 		var videoName = this.querySelector(".mui-media-body").innerText;

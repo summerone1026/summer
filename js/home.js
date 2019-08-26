@@ -32,6 +32,18 @@ mui.plusReady(function(){
 		})
 	})
 
+	//点击首页类型
+	mui('.mui-grid-9').on('tap','li',function(){
+		var typeId = this.getAttribute("type_id");
+		mui.openWindow({
+			url: 'type.html',
+			id: 'type',
+			extras:{
+				typeid:typeId
+			}
+		})
+	})
+
 	//单部影片详情页
 	mui(".mui-content").on("tap", ".mui-table-view-cell", function(){
 		var videoId = this.getAttribute("id");

@@ -7,6 +7,7 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<link href="../css/mui.css" rel="stylesheet" />
 		<link href="../css/video-js.css" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="../css/iconfont.css"/>
 <!-- 		 <link href="../css/video-js.min.css" rel="stylesheet"> -->
 		 <script src="../js/video.js"></script>
 <!-- 		<script src="../js/video.min.js"></script> -->
@@ -15,6 +16,23 @@
 		<script src="../js/lib/common.js"></script>
 
 	</head>
+	
+	<style>
+		#vodAd{
+			width: 97%;
+			height: 6.25rem;
+			margin-left: 0.425rem;
+			margin-right: 0.425rem;
+			margin-top: 0.275rem;
+			border-radius:3% 3% 3% 3%;
+		}
+		#vodInfo span{
+			max-width: 100%;
+			color: #74858E;
+			font-size: x-small;
+			margin-left: 0.425rem;
+		}
+	</style>
 		
 	<header class="mui-bar mui-bar-nav">
 		<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" id="muiBackButton"></a>
@@ -23,8 +41,27 @@
 	<body>
 		<div class="mui-content" id="videoNode">
 			<!-- <video id="video" class="video-js vjs-big-play-centered vjs-fluid" controls="" autoplay="true" topreload="auto" height="300" width="100%" loop="true" poster="" data-setup="{}"> <source src="https://d2zihajmogu5jn.cloudfront.net/bipbop-advanced/bipbop_16x9_variant.m3u8" type="application/x-mpegURL"> <p class="vjs-no-js">TEST</p> </video> -->
+		
 		</div>
-
+		
+		
+		<div id="vodInfo">
+			<span>2019年8月26日 18点03分</span>&nbsp;&nbsp;&nbsp;&nbsp;<span>播放次数：666</span>&nbsp;&nbsp;&nbsp;&nbsp;<span>点赞人数：123</span>
+		</div>
+		<span class="mui-icon iconfont icon-aixin"></span>
+		<img id="vodAd" src="../images/cbd.jpg" >
+		
+		//猜你喜欢
+		<ul id="InternetStar" class="mui-table-view mui-grid-view">
+				<script id="zhubo" type="text/html">
+				{{each video as value }} 
+				<li class="mui-table-view-cell mui-media mui-col-xs-6" id="{{value.vod_id}}" name="{{value.vod_name}}" url="{{value.vod_play_url}}">
+						<img class="mui-media-object" src="{{value.vod_pic}}">
+						<div class="mui-media-body">{{value.vod_name}}</div>
+				</li>
+				{{/each}}
+				</script>
+		</ul>		
 	</body>
 	
 	<script type="text/javascript">
