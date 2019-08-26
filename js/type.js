@@ -7,12 +7,6 @@ function pulldownRefresh(){
 }
 
 mui.plusReady(function() {
-	
-	//首页类型传过来的类型ID
-	var self = plus.webview.currentWebview();
-	var typeId = self.typeid;
-	
-
 	initPage();
 	mui(".mui-slider-group").on("tap", ".mui-table-view-cell", function(){
 		var videoId = this.getAttribute("id");

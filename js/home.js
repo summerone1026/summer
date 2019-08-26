@@ -32,15 +32,31 @@ mui.plusReady(function(){
 		})
 	})
 
-	//点击首页类型
-	mui('.mui-grid-9').on('tap','li',function(){
-		var typeId = this.getAttribute("type_id");
+	//点击首页更多类型
+	mui('.mui-grid-9').on('tap','#moreType',function(){
 		mui.openWindow({
 			url: 'type.html',
 			id: 'type',
-			extras:{
-				typeid:typeId
-			}
+		})
+	})
+	//进入首页类型
+	mui('.mui-grid-9').on('tap','li',function(){
+		var typeName = this.getAttribute("type_name");
+		if (typeName!="更多类型") {
+			mui.openWindow({
+				url: 'home/homeType.html',
+				id: 'homeType',
+				extras:{
+					typeName:typeName
+				}
+			})
+		}
+	})
+	
+	document.querySelector('nav').addEventListener('tap', function() {
+		mui.openWindow({
+			url: 'home/search.html',
+			id: 'search',
 		})
 	})
 
