@@ -44,27 +44,33 @@
 		<script src="../../js/mui.min.js"></script>
 		<script src="../../js/lib/art-template.js"></script>
 		<script type="text/javascript">
-			var info = JSON.parse(localStorage.getItem("historyVideoRecord"));
-			var historyVideo = new Array();
-			historyVideo["video"] = info;
-			var html=template('templateId',historyVideo);
-			document.getElementById("historyVideo").innerHTML=html;	
-					
-			mui(".mui-content").on("tap", ".mui-table-view-cell", function(){
-				var videoId = this.getAttribute("id");
-				var videoName = this.getAttribute("name");
-				var videoPic = this.querySelector(".mui-media-object").getAttribute("src");				
-				var videoUrl = this.getAttribute("url");
-				var webview = mui.openWindow({
-					url: '../video.html',
-					extras: {
-						videoId: videoId,
-						name: videoName,
-						pic: videoPic,
-						src: videoUrl
-					}
-				});
-			});			
+			mui.init({
+				 swipeBack: false,
+			
+			});
+			mui.plusReady(function(){
+				var info = JSON.parse(localStorage.getItem("historyVideoRecord"));
+				var historyVideo = new Array();
+				historyVideo["video"] = info;
+				var html=template('templateId',historyVideo);
+				document.getElementById("historyVideo").innerHTML=html;	
+						
+				mui(".mui-content").on("tap", ".mui-table-view-cell", function(){
+					var videoId = this.getAttribute("id");
+					var videoName = this.getAttribute("name");
+					var videoPic = this.querySelector(".mui-media-object").getAttribute("src");				
+					var videoUrl = this.getAttribute("url");
+					var webview = mui.openWindow({
+						url: '../video.html',
+						extras: {
+							videoId: videoId,
+							name: videoName,
+							pic: videoPic,
+							src: videoUrl
+						}
+					});
+				});					
+			});		
 		</script>
 	</body>
 </html>
