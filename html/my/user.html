@@ -11,6 +11,7 @@
 		<script type="text/javascript">
 			link(['../../css/reset.css']);
 		</script>
+		<script src="../../js/mui.min.js" type="text/javascript" charset="utf-8"></script>
 		<style type="text/css">
 			.mui-bar-nav~.mui-content .mui-pull-top-pocket {
 				top: 0px;
@@ -75,11 +76,11 @@
 						<a id="mySetting" class="mui-navigate-right ckecklogin" data-loginevent="loginEvent.mySetting()" data-loginbackid="my/mySetting.html">设置</a>
 					</li>
 				</ul>
-				<!--<ul class="mui-table-view mb1rem tblv-nl">
+				<ul class="mui-table-view mb1rem tblv-nl">
 					<li class="mui-table-view-cell">
-						<a id="test">测试</a>
+						<a id="history" class="mui-navigate-right ckecklogin">观看记录</a>
 					</li>
-				</ul>-->
+				</ul>
 			</div>
 		</div>
 		<script type="text/html" id="user_view">
@@ -100,6 +101,16 @@
 			//必须顺序加载
 			script(['../../js/my/user.js']);
 		</script>
+		
+		<script type="text/javascript">
+			//播放历史记录			
+			document.querySelector('#history').addEventListener('tap', function() {
+				mui.openWindow({
+					url: '../home/history.html',
+					id: 'history',
+				});
+			})
+		</script>
+		
 	</body>
-
 </html>
