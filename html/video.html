@@ -14,6 +14,8 @@
 		<script src="../js/videojs-contrib-hls.min.js"></script>
 		<script src="../js/mui.min.js"></script>
 		<script src="../js/lib/common.js"></script>
+		<script src="../js/home.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/lib/art-template.js" type="text/javascript" charset="utf-8"></script>
 
 	</head>
 	
@@ -26,11 +28,18 @@
 			margin-top: 0.275rem;
 			border-radius:3% 3% 3% 3%;
 		}
-		#vodInfo span{
+		.vodInfo{
 			max-width: 100%;
 			color: #74858E;
 			font-size: x-small;
 			margin-left: 0.425rem;
+		}
+		#dianZan{
+			font-size: large;
+			color:#74858E;
+			position: relative;
+			top: 5px; 
+			margin-right: 0.525rem;
 		}
 	</style>
 		
@@ -41,27 +50,31 @@
 	<body>
 		<div class="mui-content" id="videoNode">
 			<!-- <video id="video" class="video-js vjs-big-play-centered vjs-fluid" controls="" autoplay="true" topreload="auto" height="300" width="100%" loop="true" poster="" data-setup="{}"> <source src="https://d2zihajmogu5jn.cloudfront.net/bipbop-advanced/bipbop_16x9_variant.m3u8" type="application/x-mpegURL"> <p class="vjs-no-js">TEST</p> </video> -->
-		
 		</div>
-		
 		
 		<div id="vodInfo">
-			<span>2019年8月26日 18点03分</span>&nbsp;&nbsp;&nbsp;&nbsp;<span>播放次数：666</span>&nbsp;&nbsp;&nbsp;&nbsp;<span>点赞人数：123</span>
+			<span class="vodInfo">2019年8月26日 18点03分</span>&nbsp;<span class="vodInfo">播放次数：666</span>&nbsp;<span class="vodInfo">点赞人数：123</span>
+		    <span id="dianZan" class="mui-icon iconfont icon-zan mui-pull-right" style="color:;"></span>
 		</div>
-		<span class="mui-icon iconfont icon-aixin"></span>
+		
+		<hr />
 		<img id="vodAd" src="../images/cbd.jpg" >
 		
-		//猜你喜欢
-		<ul id="InternetStar" class="mui-table-view mui-grid-view">
-				<script id="zhubo" type="text/html">
-				{{each video as value }} 
-				<li class="mui-table-view-cell mui-media mui-col-xs-6" id="{{value.vod_id}}" name="{{value.vod_name}}" url="{{value.vod_play_url}}">
-						<img class="mui-media-object" src="{{value.vod_pic}}">
-						<div class="mui-media-body">{{value.vod_name}}</div>
-				</li>
-				{{/each}}
-				</script>
-		</ul>
+		<!-- 猜你喜欢 -->
+		<hr />
+		<div class="hometype">
+			<span class="left">猜你喜欢</span>
+		</div>
+		<ul id="guessLike1" class="mui-table-view mui-grid-view" style="">			
+			<script id="guessLike1Model" type="text/html">
+				   {{each video as value}}
+					<li class="mui-table-view-cell mui-media mui-col-xs-6" id="{{value.vod_id}}" name="{{value.vod_name}}" url="{{value.vod_play_url}}">
+							<img class="mui-media-object" src="{{value.vod_pic}}">
+							<div class="mui-media-body">{{value.vod_name}}</div> 
+					</li>
+					{{/each}}
+			</script>
+		</ul> 
 	</body>
 	
 	<script type="text/javascript">
@@ -162,6 +175,12 @@
 					}
 				});				
 			};
+			// loadVideoGuessLikeData();
 		});
+		
+		//点赞
+		mui('#vodInfo').on('tap','#dianZan',function(){
+			document.getElementById('dianZan').style.color="red";
+		})
 	</script>
 </html>
