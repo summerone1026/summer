@@ -7,10 +7,11 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<link href="../css/mui.css" rel="stylesheet" />
 		<link href="../css/video-js.css" rel="stylesheet">
+		 <!-- <link href="../css/video-js.min.css" rel="stylesheet"> -->
 		<link rel="stylesheet" type="text/css" href="../css/iconfont.css"/>
-<!-- 		 <link href="../css/video-js.min.css" rel="stylesheet"> -->
+        <!--<link href="../css/video-js.min.css" rel="stylesheet"> -->
 		 <script src="../js/video.js"></script>
-<!-- 		<script src="../js/video.min.js"></script> -->
+		<!-- <script src="../js/video.min.js"></script> -->
 		<script src="../js/videojs-contrib-hls.min.js"></script>
 		<script src="../js/mui.min.js"></script>
 		<script src="../js/lib/common.js"></script>
@@ -49,7 +50,7 @@
 	</header>
 	<body>
 		<div class="mui-content" id="videoNode">
-			<!-- <video id="video" class="video-js vjs-big-play-centered vjs-fluid" controls="" autoplay="true" topreload="auto" height="300" width="100%" loop="true" poster="" data-setup="{}"> <source src="https://d2zihajmogu5jn.cloudfront.net/bipbop-advanced/bipbop_16x9_variant.m3u8" type="application/x-mpegURL"> <p class="vjs-no-js">TEST</p> </video> -->
+			<!-- <video id="video" class="video-js vjs-big-play-centered vjs-fluid vjs-default-skin" controls="true" autoplay="false" topreload="auto" height="300" width="100%" loop="true" poster="" data-setup="{}"> <source src="https://d2zihajmogu5jn.cloudfront.net/bipbop-advanced/bipbop_16x9_variant.m3u8" type="application/x-mpegURL"> <p class="vjs-no-js">TEST</p> </video> -->
 		</div>
 		
 		<div id="vodInfo">
@@ -99,8 +100,8 @@
 			document.getElementById("videoName").innerHTML = name;
 			document.getElementById("videoNode").innerHTML = '<video \
 				id="video" \
-				class="video-js vjs-big-play-centered vjs-fluid" \
-				controls="" \
+				class="video-js vjs-big-play-centered vjs-fluid vjs-default-skin" \
+				controls="true" \
 				autoplay="ture" \
 				topreload="auto" \
 				height="300" \
@@ -117,7 +118,7 @@
 
 			  // In this context, `this` is the player that was created by Video.js.
 			  //this.play();
-			  
+
 			  //进入播放页面,解锁重力感应
 			  plus.screen.unlockOrientation();
 		
@@ -127,6 +128,7 @@
 			   });
 			   this.on('pause', function () {
 				   console.log('暂停播放');
+				   this.pause();
 			   });
 			   this.on('ended', function () {
 				   console.log('结束播放');
