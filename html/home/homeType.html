@@ -25,23 +25,89 @@
 		<h1 id="typeName" class="mui-title"></h1>
 	</header>
 	<body>
-		<div class="mui-content">
-			<div id="historyVideo">
+		<div class="mui-content" id="pullrefresh">
+			<div id="typeVideo">
 				<ul class="mui-table-view">
 					
 				</ul>
 			</div>	
 		</div>		
 		<script src="../../js/mui.min.js"></script>
-		<script src="../../js/mui.pullToRefresh.js"></script>
-		<script src="../../js/mui.pullToRefresh.material.js"></script>
+		<script src="../../js/lib/common.js"></script>
+
 		<script type="text/javascript">
-			mui.init();
+			mui.init({
+				pullRefresh: {
+					container: '#pullrefresh',
+					up: {
+						auto:true,
+						contentrefresh: '尊敬的客官，玖玖小姐姐正在努力加载中...',
+						contentnomore: '尊敬的客官，玖玖小姐姐是有底线的哟！',
+						callback: pullupRefresh
+					}
+				}
+			});
 			mui.plusReady(function(){
+				mui(".mui-content").on("tap", ".mui-table-view-cell", function(){
+					var videoId = this.getAttribute("id");
+					var videoName = this.querySelector(".mui-media-body").innerText;
+					var videoPic = this.querySelector(".mui-media-object").getAttribute("src");
+					var videoUrl = this.querySelector("#videoURL").getAttribute("href");
+					var webview = mui.openWindow({
+						url: '../video.html',
+						extras: {
+							videoId: videoId,
+							name: videoName,
+							pic: videoPic,
+							src: videoUrl
+						}
+					});
+				});		
+						
 				var self = plus.webview.currentWebview();
 				var name = self.typeName;//获得类型名
-				document.getElementById("typeName").innerHTML=name;
+				document.getElementById("typeName").innerHTML=name;			
 			})
+		
+			var pageNum = 1;
+			var page_Size = 5;
+			function pullupRefresh(){
+				setTimeout(function(){
+					data = {
+						offset : pageNum++ * page_Size - page_Size,
+						limit : page_Size,
+						type :  localStorage.getItem("typeVideoID")
+					}
+					var ul = document.querySelector(".mui-table-view");	
+					var fragment = document.createDocumentFragment();							
+					mui.getJSON(APP_DOMAIN + "/videos", data, function (info) {
+						
+						if(info.length == 0){//当info.length为0时，表示没有数据了
+							mui('#pullrefresh').pullRefresh().endPullupToRefresh(true);
+						}else{
+							for (var i = 0; i < info.length; i++) {
+								video = info[i];
+								var str='';
+								var li = document.createElement('li');
+								li.className = "mui-table-view-cell mui-media";
+								li.id =  video["vod_id"] ;
+								str+='<img class="mui-media-object mui-pull-left" src="' + video["vod_pic"] + '"/>'
+								+'<div class="mui-media-body">' + video["vod_name"]
+								+'<p class="mui-ellipsis">播放次数:' + video["vod_hits"] + '</p>'
+								+'<a id="videoURL" href="' + video["vod_play_url"] + '"></a>'
+								+ '</div>';
+								
+								li.innerHTML=str;
+								fragment.appendChild(li);
+							}
+							ul.appendChild(fragment);
+							mui('#pullrefresh').pullRefresh().endPullupToRefresh();
+						}
+					});				
+				},1000);
+			}	
+
+	
 		</script>
 	</body>
 </html>

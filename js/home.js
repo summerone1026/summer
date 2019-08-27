@@ -42,6 +42,10 @@ mui.plusReady(function(){
 	//进入首页类型
 	mui('.mui-grid-9').on('tap','li',function(){
 		var typeName = this.getAttribute("type_name");
+		var typeId = this.getAttribute("type_id");
+
+		localStorage.removeItem("typeVideoID");
+		localStorage.setItem("typeVideoID", VideoType[typeId]);
 		if (typeName!="更多类型") {
 			mui.openWindow({
 				url: 'home/homeType.html',
