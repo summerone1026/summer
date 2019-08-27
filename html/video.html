@@ -12,7 +12,6 @@
 		<script src="../js/videojs-contrib-hls.min.js"></script>
 		<script src="../js/mui.min.js"></script>
 		<script src="../js/lib/common.js"></script>
-		<script src="../js/home.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../js/lib/art-template.js" type="text/javascript" charset="utf-8"></script>
 	</head>
 	
@@ -173,12 +172,31 @@
 					}
 				});				
 			};
-			// loadVideoGuessLikeData();
+			loadVideoGuessLikeData();
 		});
 		
 		//点赞
 		mui('#vodInfo').on('tap','#dianZan',function(){
 			document.getElementById('dianZan').style.color="red";
 		})
+		
+		function loadVideoGuessLikeData(){
+			mui.ajax(APP_DOMAIN + "/videos",{
+				data:{limit:6, guess_like:true},
+				datatype:"json",
+				type:"get",
+				timeout:5000,
+				success:function(json){
+					console.log("成功返回数据");
+					var videoGuessLikeJson = new Array();
+					videoGuessLikeJson["video"] = json;
+					var html = template('guessLike1Model', videoGuessLikeJson)
+					document.getElementById("guessLike1").innerHTML = html;
+				},
+				error:function(xhr,type,errorThrown){
+					console.log("请求失败");
+				}
+			});	
+		}
 	</script>
 </html>
