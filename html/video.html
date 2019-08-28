@@ -49,8 +49,8 @@
 		</div>
 		
 		<div id="vodInfo">
-			<span class="vodInfo">2019年8月26日 18点03分</span>&nbsp;<span class="vodInfo">播放次数：666</span>&nbsp;<span class="vodInfo">点赞人数：123</span>
-		    <span id="dianZan" class="mui-icon iconfont icon-zan mui-pull-right" style="color:;"></span>
+			<!-- <span class="vodInfo">2019年8月26日 18点03分</span>&nbsp;<span class="vodInfo">播放次数：666</span>&nbsp;<span class="vodInfo">点赞人数：123</span> -->
+		    <!-- <span id="dianZan" class="mui-icon iconfont icon-zan mui-pull-right" style="color:;"></span> -->
 		</div>
 		
 		<hr />
@@ -81,15 +81,15 @@
 			var name = self.name;//获得参数
 			var pic = self.pic;
 			var src = self.src;
+			var hits = 10000;
+			var likes = 999;
 
+			
 			//添加观影记录
 			addVideoInformation(videoId, name, pic, src);
-			//获取最新播放总数,并更新播放次数
-			mui.getJSON(APP_DOMAIN + "/videos/" + videoId, function(data){
-				var hits = data["vod_hits"];
-				updateVideoHits(++hits);
-				}
-			);
+			//获取最新播放总数、点赞数,并更新播放次数
+			updateVideoInfo(videoId);
+
 
 			document.getElementById("videoName").innerHTML = name;
 			document.getElementById("videoNode").innerHTML = '<video \
@@ -135,6 +135,30 @@
 				plus.screen.lockOrientation("portrait-primary");				
 			});
 			
+			mui('#guessLike1').on('tap','li',function(){
+				var name=this.getAttribute('name');
+				var src=this.getAttribute('url');
+				var id=this.getAttribute('id');
+				var pic = this.querySelector(".mui-media-object").getAttribute("src");
+				document.getElementById("videoName").innerHTML = name;
+				player.src(src);  //重置video的src
+				//添加观影记录
+				addVideoInformation(id, name, pic, src);
+				//获取最新播放总数、点赞数,并更新播放次数,更新video id
+				videoId = id;
+				updateVideoInfo(videoId);				
+			})
+			
+			//点赞
+			mui('#vodInfo').on('tap','#dianZan',function(){
+				var flag = document.getElementById('dianZan').style.color.endsWith("red");
+				if(!flag){
+					document.getElementById('dianZan').style.color="red";
+					document.getElementById("likeInfo").innerHTML ="点赞人数：" + ++likes;
+					updateVideoLikes(likes,);
+				}
+			})
+			
 			function updateVideoHits(hits){
 				var info = [];
 				var data = {
@@ -156,25 +180,46 @@
 					}
 				});				
 			};
+			
+			function updateVideoLikes(likes){
+				var info = [];
+				var data = {
+						op: "replace",
+						path: "/vod_up",
+						value: likes
+					};
+				info.push(data);
+				mui.ajax(APP_DOMAIN + "/videos/" + videoId,{
+					data:JSON.stringify(info),
+					datatype:'json',//服务器返回json格式数据
+					type:'patch',//HTTP请求类型
+					timeout:10000,//超时时间设置为10秒；
+					headers:{'Content-Type':'application/json'},
+					success:function(data){
+						//console.log(JSON.stringify(data));
+					},
+					error:function(xhr,type,errorThrown){
+					}
+				});				
+			};			
+					
+			function updateVideoInfo(videoId){
+				mui.getJSON(APP_DOMAIN + "/videos/" + videoId, function(data){
+					hits = data["vod_hits"];
+					likes = data["vod_up"];
+					var myDate = new Date();
+					document.getElementById("vodInfo").innerHTML = '<span class="vodInfo">' + myDate.toLocaleString() + '</span>&nbsp;' + 
+						'<span class="vodInfo">播放次数：' + hits + '</span>&nbsp;' + 
+						'<span id="likeInfo" class="vodInfo">点赞人数：' + likes + '</span>' + 
+						'<span id="dianZan" class="mui-icon iconfont icon-zan mui-pull-right" style="color:;"></span>';
+					updateVideoHits(++hits);
+					}
+				);				
+			}
+			
 			loadVideoGuessLikeData();
 			
-			mui('#guessLike1').on('tap','li',function(){
-				var name=this.getAttribute('name');
-				var src=this.getAttribute('url');
-				var id=this.getAttribute('id');
-				var pic = this.querySelector(".mui-media-object").getAttribute("src");
-				document.getElementById("videoName").innerHTML = name;
-				player.src(src);  //重置video的src
-				//添加观影记录
-				addVideoInformation(id, name, pic, src);
-			})
-			
 		});
-		
-		//点赞
-		mui('#vodInfo').on('tap','#dianZan',function(){
-			document.getElementById('dianZan').style.color="red";
-		})
 		
 		function loadVideoGuessLikeData(){
 			mui.ajax(APP_DOMAIN + "/videos",{
