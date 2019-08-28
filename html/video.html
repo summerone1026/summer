@@ -84,7 +84,6 @@
 
 			//添加观影记录
 			addVideoInformation(videoId, name, pic, src);
-			
 			//获取最新播放总数,并更新播放次数
 			mui.getJSON(APP_DOMAIN + "/videos/" + videoId, function(data){
 				var hits = data["vod_hits"];
@@ -110,7 +109,6 @@
 			var options = {};
 			var player = videojs('video', options, function onPlayerReady() {
 			  videojs.log('Your player is ready!');
-
 			  // In this context, `this` is the player that was created by Video.js.
 			  //this.play();
 
@@ -128,19 +126,6 @@
 			   this.on('ended', function () {
 				   console.log('结束播放');
 			   });
-			   //解锁加锁方法在华为手机上结果相反,现采用进入播放器解锁屏幕重力感应,退出播放器时竖屏正方向锁定
-			  //  this.on('fullscreenchange', function () {
-				 //   console.log('全屏变化');
-				 //   var isFullScreen = this.isFullscreen();
-				 //   console.log('是否是全屏:' + isFullScreen);
-					// if (isFullScreen) {
-					// 	console.log('是全屏，解除屏幕锁定');
-					// 	plus.screen.unlockOrientation();
-					// }else{
-					// 	console.log('不是全屏，执行屏幕锁定');
-					// 	plus.screen.lockOrientation("portrait-primary"); 
-					// }
-			  //  });
 			});
 			
 			plus.key.addEventListener("backbutton", function(){
@@ -168,11 +153,22 @@
 						//console.log(JSON.stringify(data));
 					},
 					error:function(xhr,type,errorThrown){
-						
 					}
 				});				
 			};
 			loadVideoGuessLikeData();
+			
+			mui('#guessLike1').on('tap','li',function(){
+				var name=this.getAttribute('name');
+				var src=this.getAttribute('url');
+				var id=this.getAttribute('id');
+				var pic = this.querySelector(".mui-media-object").getAttribute("src");
+				document.getElementById("videoName").innerHTML = name;
+				player.src(src);  //重置video的src
+				//添加观影记录
+				addVideoInformation(id, name, pic, src);
+			})
+			
 		});
 		
 		//点赞
