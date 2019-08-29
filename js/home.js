@@ -11,9 +11,10 @@ mui.plusReady(function(){
 	initPage();
 		
 	//轮播=====获得slider插件对象
-	mui('.mui-slider').slider({
-		interval: 2000
-	});
+	var gallery = mui('.mui-slider');
+	gallery.slider({
+	  interval:2000//自动轮播周期，若为0则不自动播放，默认为0；
+	});	
 	
 	//播放历史记录			
 	document.querySelector('.icon-history').addEventListener('tap', function() {
@@ -57,13 +58,6 @@ mui.plusReady(function(){
 		}
 	})
 	
-	document.querySelector('nav').addEventListener('tap', function() {
-		mui.openWindow({
-			url: 'home/search.html',
-			id: 'search',
-		})
-	})
-
 	//单部影片详情页
 	mui(".mui-content").on("tap", ".mui-table-view-cell", function(){
 		var videoId = this.getAttribute("id");
@@ -106,9 +100,27 @@ mui.plusReady(function(){
 		loadGuessLikeNewData();
 	})
 	
-	mui(".mui-content").on("tap", ".mui-slider-item", function(){
-		plus.runtime.openURL("http://www.yh89a.com");
+	document.querySelector(".mui-slider").addEventListener("tap", function(){
+		var index = gallery.slider().getSlideNumber();
+		switch(index){
+			case 0:
+				plus.runtime.openURL("https://www.yh89a.com");
+				break;
+			case 1:
+				plus.runtime.openURL("https://c78dl.vip/index.html");
+				break;
+			case 2:
+				plus.runtime.openURL("https://www.22297hubei.com:9900/");
+				break;
+			case 3:
+				plus.runtime.openURL("http://99qp.com");
+				break;
+			defalut:
+				plus.runtime.openURL("https://www.yh89a.com");				
+		}
+				
 	});
+	    
 })
 
 function loadHotNewData(){
