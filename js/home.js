@@ -115,7 +115,7 @@ mui.plusReady(function(){
 			case 3:
 				plus.runtime.openURL("http://99qp.com");
 				break;
-			defalut:
+			default:
 				plus.runtime.openURL("https://www.yh89a.com");				
 		}
 				
