@@ -110,7 +110,7 @@ mui.plusReady(function(){
 				plus.runtime.openURL("https://c78dl.vip/index.html");
 				break;
 			case 2:
-				plus.runtime.openURL("https://www.22297hubei.com:9900/");
+				plus.runtime.openURL("https://www.22297bd.com:8866");
 				break;
 			case 3:
 				plus.runtime.openURL("http://99qp.com");

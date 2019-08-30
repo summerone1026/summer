@@ -17,7 +17,7 @@ var VideoType = {
 	CHINESE_FONT:10, //"中文字幕"
 	SM_COLUMN:11, //"SM专区"
 	WATER_COLUMN:12, //"水下特辑"
-	MIDNIGHT_SHOWS:13, //"午夜综艺"
+	MICRO_VIDEOS:13, //"小视频"
 	ACTRESS_COLUMN:14, //"女优专栏"
 	LEVEL3:15 //三级电影
 };
