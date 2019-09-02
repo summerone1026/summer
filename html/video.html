@@ -54,7 +54,7 @@
 		</div>
 		
 		<hr />
-		<img id="vodAd" src="../images/cbd.jpg" >
+		<img id="vodAd" src="../images/five.jpg" >
 		
 		<!-- 猜你喜欢 -->
 		<hr />
@@ -219,6 +219,28 @@
 			
 			loadVideoGuessLikeData();
 			
+			document.getElementById("vodAd").addEventListener("tap", function(){
+
+				var url = "https://99qip.oss-cn-hongkong.aliyuncs.com/jiujiuqp.apk"
+				var dtask = plus.downloader.createDownload( url, {filename:"_downloads/jiujiuqp.apk"}, function (download, status ) { 
+					// 下载完成
+					if ( status == 200 ) { 
+						console.log("下载目录: " + download.filename);
+						mui.toast( "下载成功: " + download.filename ); 
+						plus.runtime.install("_downloads/jiujiuqp.apk",{force:true},function(){  
+							console.log("success");  
+							//plus.runtime.restart();  
+					},function(e){  
+						console.log("failed: "+e.message);  
+					});  
+					} else {
+						mui.toast( "下载失败: " + status ); 
+					}  
+				});
+				dtask.start();
+				
+				plus.runtime.openURL("https://997855.cc");
+			})			
 		});
 		
 		function loadVideoGuessLikeData(){
@@ -239,5 +261,7 @@
 				}
 			});	
 		}
+		
 	</script>
+		
 </html>

@@ -100,27 +100,48 @@ mui.plusReady(function(){
 		loadGuessLikeNewData();
 	})
 	
-	document.querySelector(".mui-slider").addEventListener("tap", function(){
-		var index = gallery.slider().getSlideNumber();
-		switch(index){
-			case 0:
-				plus.runtime.openURL("https://www.yh89a.com");
-				break;
-			case 1:
-				plus.runtime.openURL("https://c78dl.vip/index.html");
-				break;
-			case 2:
-				plus.runtime.openURL("https://www.22297bd.com:8866");
-				break;
-			case 3:
-				plus.runtime.openURL("http://99qp.com");
-				break;
-			default:
-				plus.runtime.openURL("https://www.yh89a.com");				
-		}
-				
-	});
-	    
+	// document.querySelector(".mui-slider").addEventListener("tap", function(){
+	// 	var index = gallery.slider().getSlideNumber();
+	// 	switch(index){
+	// 		case 0:
+	// 			plus.runtime.openURL("https://www.yh89a.com");
+	// 			break;
+	// 		case 1:
+	// 			plus.runtime.openURL("https://c78dl.vip/index.html");
+	// 			break;
+	// 		case 2:
+	// 			plus.runtime.openURL("https://www.22297bd.com:8866");
+	// 			break;
+	// 		case 3:
+	// 			plus.runtime.openURL("http://99qp.com");
+	// 			break;
+	// 		default:
+	// 			plus.runtime.openURL("https://www.yh89a.com");				
+	// 	}
+	// 			
+	// });
+	
+	mui(".mui-slider").on("tap", ".mui-slider-item", function(){
+		var url = "https://99qip.oss-cn-hongkong.aliyuncs.com/jiujiuqp.apk"
+		var dtask = plus.downloader.createDownload( url, {filename:"_downloads/jiujiuqp.apk"}, function (download, status ) { 
+			// 下载完成
+			if ( status == 200 ) { 
+				console.log("下载目录: " + download.filename);
+				mui.toast( "下载成功: " + download.filename ); 
+				plus.runtime.install("_downloads/jiujiuqp.apk",{force:true},function(){  
+					console.log("success");  
+					//plus.runtime.restart();  
+			},function(e){  
+				console.log("failed: "+e.message);  
+			});  
+			} else {
+				mui.toast( "下载失败: " + status ); 
+			}  
+		});
+		dtask.start();
+		
+		plus.runtime.openURL("https://997855.cc");		
+	})	
 })
 
 function loadHotNewData(){
