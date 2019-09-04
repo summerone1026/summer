@@ -110,7 +110,7 @@
 			var player = videojs('video', options, function onPlayerReady() {
 			  videojs.log('Your player is ready!');
 			  // In this context, `this` is the player that was created by Video.js.
-			  //this.play();
+			  this.play();
 
 			  //进入播放页面,解锁重力感应
 			  plus.screen.unlockOrientation();
@@ -126,8 +126,11 @@
 			   this.on('ended', function () {
 				   console.log('结束播放');
 			   });
+			   this.on('seeked', function(){
+				   this.play();
+			   })
 			});
-			
+						
 			plus.key.addEventListener("backbutton", function(){
 				plus.screen.lockOrientation("portrait-primary");
 			});
