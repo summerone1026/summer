@@ -28,7 +28,7 @@
 			<div id="slider" class="mui-slider">
 				<div id="sliderSegmentedControl" class="mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
 						<a class="mui-control-item" href="#item1mobile">观影榜</a>
-						<a class="mui-control-item" href="#item2mobile">热搜榜</a>
+						<a class="mui-control-item" href="#item2mobile">点赞榜</a>
 						<a class="mui-control-item" href="#item3mobile">新片榜</a>
 				</div>
 				<div id="sliderProgressBar" class="mui-slider-progress-bar mui-col-xs-4"></div>
@@ -122,17 +122,17 @@
 			})(mui);
 			function createFragment(ul, index,self,pageNum) {
 				var fragment = document.createDocumentFragment();
-				var play_ranking, new_ranking=null;//这是传给后台参数状态
+				var play_ranking, new_ranking, hitup_ranking=null;//这是传给后台参数状态
 				var data = {};
 				if(index == 0){
 					play_ranking=true;//为0的时候是观影榜
-					data["play_ranking"] = true;
+					data["play_ranking"] = play_ranking;
 				}else if(index == 1){
-					play_ranking=true;//为1的时候是热搜榜
-					data["play_ranking"] = true;
+					hitup_ranking=true;//为1的时候是点赞榜
+					data["hitup_ranking"] = hitup_ranking;
 				}else if(index == 2){
 					new_ranking=true;//为2的时候是新片榜
-					data["new_ranking"] = true;
+					data["new_ranking"] = new_ranking;
 				}
 				var page_size = 10;//传给后台的参数，想要几条数据
 
