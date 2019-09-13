@@ -19,8 +19,8 @@
 				height: 100%;
 			}
 			.mui-table-view .mui-media-object{
-				max-width: 60%;
-				height: 9.25rem
+				max-width: 100%;
+				height: 10.25rem
 			}
 		</style>
 
@@ -152,7 +152,7 @@
 							var li = document.createElement('li');
 							li.className = "mui-table-view-cell mui-media";
 							li.id =  video["vod_id"] ;
- 							str+='<img class="mui-media-object mui-pull-left" src="' + video["vod_pic"] + '"/>'
+ 							str+='<img class="mui-media-object" src="' + video["vod_pic"] + '"/>'
 							+'<div class="mui-media-body">' + video["vod_name"]
 							+'<p class="mui-ellipsis">播放次数:' + video["vod_hits"] + '</p>'
 							+'<a id="videoURL" href="' + video["vod_play_url"] + '"></a>'

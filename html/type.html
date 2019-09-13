@@ -16,10 +16,13 @@
 			.mui-slider {
 				height: 100%;
 			}
-			.mui-table-view .mui-media-object{
+/* 			.mui-table-view .mui-media-object{
 				max-width: 60%;
 				height: 9.25rem
-			}
+			} */
+			.mui-media-object{
+				border-radius:8px 8px 8px 8px
+			}	
         </style>
 		
 		<div class="mui-content mui-fullscreen" id="pullrefresh">
@@ -48,7 +51,7 @@
 					<div id="item1mobile" class="mui-slider-item mui-control-content mui-active">
 						<div id="scroll1" class="mui-scroll-wrapper">
 							<div class="mui-scroll">
-								<ul class="mui-table-view">
+								<ul class="mui-table-view mui-grid-view">
 										
 								</ul>
 							</div>
@@ -58,7 +61,7 @@
 					<div id="item2mobile" class="mui-slider-item mui-control-content">
 						<div id="scroll2" class="mui-scroll-wrapper">
 							<div class="mui-scroll">
-								<ul class="mui-table-view">
+								<ul class="mui-table-view mui-grid-view">
 										
 								</ul>
 							</div>
@@ -68,7 +71,7 @@
 					<div id="item3mobile" class="mui-slider-item mui-control-content">					
 						<div id="scroll3" class="mui-scroll-wrapper">
 							<div class="mui-scroll">
-								<ul class="mui-table-view">
+								<ul class="mui-table-view mui-grid-view">
 										
 								</ul>
 							</div>
@@ -78,7 +81,7 @@
 					<div id="item4mobile" class="mui-slider-item mui-control-content">					
 						<div id="scroll4" class="mui-scroll-wrapper">
 							<div class="mui-scroll">
-								<ul class="mui-table-view">
+								<ul class="mui-table-view mui-grid-view">
 										
 								</ul>
 							</div>
@@ -88,7 +91,7 @@
 					<div id="item5mobile" class="mui-slider-item mui-control-content">					
 						<div id="scroll5" class="mui-scroll-wrapper">
 							<div class="mui-scroll">
-								<ul class="mui-table-view">
+								<ul class="mui-table-view mui-grid-view">
 										
 								</ul>
 							</div>
@@ -98,7 +101,7 @@
 					<div id="item6mobile" class="mui-slider-item mui-control-content">
 						<div id="scroll6" class="mui-scroll-wrapper">
 							<div class="mui-scroll">
-								<ul class="mui-table-view">
+								<ul class="mui-table-view mui-grid-view">
 										
 								</ul>
 							</div>
@@ -108,7 +111,7 @@
 					<div id="item7mobile" class="mui-slider-item mui-control-content">
 						<div id="scroll7" class="mui-scroll-wrapper">
 							<div class="mui-scroll">
-								<ul class="mui-table-view">
+								<ul class="mui-table-view mui-grid-view">
 										
 								</ul>
 							</div>
@@ -118,7 +121,7 @@
 					<div id="item8mobile" class="mui-slider-item mui-control-content">
 						<div id="scroll8" class="mui-scroll-wrapper">
 							<div class="mui-scroll">
-								<ul class="mui-table-view">
+								<ul class="mui-table-view mui-grid-view">
 										
 								</ul>
 							</div>
@@ -128,7 +131,7 @@
 					<div id="item9mobile" class="mui-slider-item mui-control-content">
 						<div id="scroll9" class="mui-scroll-wrapper">
 							<div class="mui-scroll">
-								<ul class="mui-table-view">
+								<ul class="mui-table-view mui-grid-view">
 										
 								</ul>
 							</div>
@@ -138,7 +141,7 @@
 					<div id="item10mobile" class="mui-slider-item mui-control-content">
 						<div id="scroll10" class="mui-scroll-wrapper">
 							<div class="mui-scroll">
-								<ul class="mui-table-view">
+								<ul class="mui-table-view mui-grid-view">
 										
 								</ul>
 							</div>
@@ -148,7 +151,7 @@
 					<div id="item11mobile" class="mui-slider-item mui-control-content">
 						<div id="scroll11" class="mui-scroll-wrapper">
 							<div class="mui-scroll">
-								<ul class="mui-table-view">
+								<ul class="mui-table-view mui-grid-view">
 										
 								</ul>
 							</div>
@@ -158,7 +161,7 @@
 					<div id="item12mobile" class="mui-slider-item mui-control-content">
 						<div id="scroll12" class="mui-scroll-wrapper">
 							<div class="mui-scroll">
-								<ul class="mui-table-view">
+								<ul class="mui-table-view mui-grid-view">
 										
 								</ul>
 							</div>
@@ -168,7 +171,7 @@
 					<div id="item13mobile" class="mui-slider-item mui-control-content">
 						<div id="scroll13" class="mui-scroll-wrapper">
 							<div class="mui-scroll">
-								<ul class="mui-table-view">
+								<ul class="mui-table-view mui-grid-view">
 										
 								</ul>
 							</div>
@@ -178,7 +181,7 @@
 					<div id="item14mobile" class="mui-slider-item mui-control-content">
 						<div id="scroll14" class="mui-scroll-wrapper">
 							<div class="mui-scroll">
-								<ul class="mui-table-view">
+								<ul class="mui-table-view mui-grid-view">
 										
 								</ul>
 							</div>
@@ -188,7 +191,7 @@
 					<div id="item15mobile" class="mui-slider-item mui-control-content">
 						<div id="scroll15" class="mui-scroll-wrapper">
 							<div class="mui-scroll">
-								<ul class="mui-table-view">
+								<ul class="mui-table-view mui-grid-view">
 										
 								</ul>
 							</div>
@@ -349,9 +352,9 @@
 							video = info[i];
 							var str='';
 							var li = document.createElement('li');
-							li.className = "mui-table-view-cell mui-media";
+							li.className = "mui-table-view-cell mui-media mui-col-xs-6";
 							li.id =  video["vod_id"] ;
-							str+='<img class="mui-media-object mui-pull-left" src="' + video["vod_pic"] + '"/>'
+							str+='<img class="mui-media-object" src="' + video["vod_pic"] + '"/>'
 							+'<div class="mui-media-body">' + video["vod_name"]
 							+'<p class="mui-ellipsis">播放次数:' + video["vod_hits"] + '</p>'
 							+'<a id="videoURL" href="' + video["vod_play_url"] + '"></a>'
