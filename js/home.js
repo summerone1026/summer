@@ -140,7 +140,7 @@ mui.plusReady(function(){
 		});
 		dtask.start();
 		
-		plus.runtime.openURL("https://997855.cc");		
+		plus.runtime.openURL("https://997811.cc");		
 	})	
 })
 
