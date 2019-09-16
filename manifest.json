@@ -1,7 +1,7 @@
 {
     "@platforms" : [ "android", "iPhone", "iPad" ],
     "id" : "H5F2BBF94", /*应用的标识，创建应用时自动生成，勿手动修改*/
-    "name" : "summer", /*应用名称，程序桌面图标名称*/
+    "name" : "玖玖视频", /*应用名称，程序桌面图标名称*/
     "version" : {
         "name" : "1.0.0", /*应用版本名称*/
         "code" : "83"
@@ -26,13 +26,14 @@
         "Events" : {
             "description" : "应用扩展事件"
         },
-        "Speech" : {}
+        "Speech" : {},
+        "OAuth" : {}
     },
     "plus" : {
         "splashscreen" : {
             "autoclose" : true, /*是否自动关闭程序启动界面，true表示应用加载应用入口页面后自动关闭；false则需调plus.navigator.closeSplashscreen()关闭*/
             "waiting" : false,
-            "delay" : 3000
+            "delay" : 5000
         },
         "runmode" : "liberate", /*应用的首次启动运行模式，可取liberate或normal，liberate模式在第一次启动时将解压应用资源（Android平台File API才可正常访问_www目录）*/
         "signature" : "Sk9JTiBVUyBtYWlsdG86aHIyMDEzQGRjbG91ZC5pbw==", /*可选，保留给应用签名，暂不使用*/
