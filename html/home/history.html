@@ -24,16 +24,16 @@
 			}
 			.mui-table-view .mui-media-object{
 				max-width: 100%;
-				height: 10.25rem
+				height: 10.25%;
 			}
 		</style>
-		<div class="mui-content">
+		<div class="mui-content mui-fullscreen">
 			<div id="historyVideo">
 				<script type="text/html" id="templateId">
 				<ul class="mui-table-view">
 					{{each video value index}}
 					<li class="mui-table-view-cell mui-media" id="{{value.vod_id}}" name="{{value.vod_name}}" url="{{value.vod_play_url}}">
-							<img class="mui-media-object" src="{{value.vod_pic}}"/>
+							<img class="mui-media-object mui-icon-plus-filled" src="{{value.vod_pic}}" />
 							<div class="mui-media-body">
 								{{value.vod_name}}
 							</div>
