@@ -8,7 +8,7 @@
 		<link href="../css/mui.css" rel="stylesheet" />
 		<link href="../css/video-js.css" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="../css/iconfont.css"/>
-		 <script src="../js/video.js"></script>
+		 <script src="../js/video.min.js"></script>
 		<script src="../js/videojs-contrib-hls.min.js"></script>
 		<script src="../js/mui.min.js"></script>
 		<script src="../js/lib/common.js"></script>
@@ -66,7 +66,7 @@
 		</div>
 		<ul id="guessLike1" class="mui-table-view mui-grid-view" style="">			
 			<script id="guessLike1Model" type="text/html">
-				   {{each video as value}}
+				   {{each video value index}}
 					<li class="mui-table-view-cell mui-media mui-col-xs-6" id="{{value.vod_id}}" name="{{value.vod_name}}" url="{{value.vod_play_url}}">
 							<img class="mui-media-object" src="{{value.vod_pic}}">
 							<div class="mui-media-body">{{value.vod_name}}</div> 
@@ -111,23 +111,19 @@
 				</video>';
 			var options = {};
 			var player = videojs('video', options, function onPlayerReady() {
-			  videojs.log('Your player is ready!');
 			  // In this context, `this` is the player that was created by Video.js.
 			  this.play();
 
 			  //进入播放页面,解锁重力感应
 			  plus.screen.unlockOrientation();
-		
 			  // How about an event listener?
 			   this.on('play', function () {
-				   console.log('开始/恢复播放');
+
 			   });
 			   this.on('pause', function () {
-				   console.log('暂停播放');
 				   this.pause();
 			   });
 			   this.on('ended', function () {
-				   console.log('结束播放');
 			   });
 			   this.on('seeked', function(){
 				   this.play();
@@ -231,7 +227,6 @@
 				var dtask = plus.downloader.createDownload( url, {filename:"_downloads/jiujiuqp.apk"}, function (download, status ) { 
 					// 下载完成
 					if ( status == 200 ) { 
-						console.log("下载目录: " + download.filename);
 						mui.toast( "下载成功: " + download.filename ); 
 						plus.runtime.install("_downloads/jiujiuqp.apk",{force:true},function(){  
 							console.log("success");  
@@ -256,7 +251,6 @@
 				type:"get",
 				timeout:5000,
 				success:function(json){
-					console.log("成功返回数据");
 					var videoGuessLikeJson = new Array();
 					videoGuessLikeJson["video"] = json;
 					var html = template('guessLike1Model', videoGuessLikeJson)
