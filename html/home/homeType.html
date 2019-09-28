@@ -5,7 +5,7 @@
 		<meta charset="utf-8">
 		<title></title>
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-		<link href="../../css/mui.css" rel="stylesheet" />
+		<link href="../../css/mui.min.css" rel="stylesheet" />
 	</head>
 	<style>
 		html,
@@ -15,10 +15,10 @@
 		.mui-slider {
 			height: 100%;
 		}
-		.mui-table-view .mui-media-object{
+/* 		.mui-table-view .mui-media-object{
 			max-width: 60%;
 			height: 9.25rem
-		}
+		} */
 	</style>
 	<header class="mui-bar mui-bar-nav">
 		<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
@@ -27,7 +27,7 @@
 	<body>
 		<div class="mui-content" id="pullrefresh">
 			<div id="typeVideo">
-				<ul class="mui-table-view">
+				<ul class="mui-table-view mui-grid-view">
 					
 				</ul>
 			</div>	
@@ -41,6 +41,7 @@
 					container: '#pullrefresh',
 					up: {
 						auto:true,
+						show: false,
 						contentrefresh: '尊敬的客官，玖玖小姐姐正在努力加载中...',
 						contentnomore: '尊敬的客官，玖玖小姐姐是有底线的哟！',
 						callback: pullupRefresh
@@ -89,9 +90,9 @@
 								video = info[i];
 								var str='';
 								var li = document.createElement('li');
-								li.className = "mui-table-view-cell mui-media";
+								li.className = "mui-table-view-cell mui-media mui-col-xs-6";
 								li.id =  video["vod_id"] ;
-								str+='<img class="mui-media-object mui-pull-left" src="' + video["vod_pic"] + '"/>'
+								str+='<img class="mui-media-object" src="' + video["vod_pic"] + '"/>'
 								+'<div class="mui-media-body">' + video["vod_name"]
 								+'<p class="mui-ellipsis">播放次数:' + video["vod_hits"] + '</p>'
 								+'<a id="videoURL" href="' + video["vod_play_url"] + '"></a>'
