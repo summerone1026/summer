@@ -40,7 +40,7 @@
 						<a class="mui-control-item" href="#item9mobile">人妻熟女</a>
 						<a class="mui-control-item" href="#item10mobile">中文字幕</a>
 						<a class="mui-control-item" href="#item11mobile">SM专区</a>
-						<a class="mui-control-item" href="#item12mobile">水下特辑</a>
+						<!-- <a class="mui-control-item" href="#item12mobile">水下特辑</a> -->
 						<a class="mui-control-item" href="#item13mobile">小视频</a>
 						<a class="mui-control-item" href="#item14mobile">女优专栏</a>
 						<a class="mui-control-item" href="#item15mobile">三级电影</a>						
@@ -158,7 +158,7 @@
 						</div>
 					</div>
 					
-					<div id="item12mobile" class="mui-slider-item mui-control-content">
+<!-- 					<div id="item12mobile" class="mui-slider-item mui-control-content">
 						<div id="scroll12" class="mui-scroll-wrapper">
 							<div class="mui-scroll">
 								<ul class="mui-table-view mui-grid-view">
@@ -166,7 +166,7 @@
 								</ul>
 							</div>
 						</div>
-					</div>
+					</div> -->
 					
 					<div id="item13mobile" class="mui-slider-item mui-control-content">
 						<div id="scroll13" class="mui-scroll-wrapper">
@@ -290,9 +290,6 @@
 										}else if(index == 13){
 											pageNum=pageNum14++;
 											createFragment(ul, index,self,pageNum);
-										}else if(index == 14){
-											pageNum=pageNum15++;
-											createFragment(ul, index,self,pageNum);
 										}
 									}, 1000);
 								}
@@ -327,12 +324,10 @@
 				}else if(index == 10){
 					type=VideoType.SM_COLUMN;
 				}else if(index == 11){
-					type=VideoType.WATER_COLUMN;
-				}else if(index == 12){
 					type=VideoType.MICRO_VIDEOS;
-				}else if(index == 13){
+				}else if(index == 12){
 					type=VideoType.ACTRESS_COLUMN;
-				}else if(index == 14){
+				}else if(index == 13){
 					type= VideoType.LEVEL3;
 				}
 				
