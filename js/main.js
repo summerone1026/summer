@@ -44,7 +44,6 @@ mui.plusReady(function() {
 			return;
 		}
 
-		log("我是第" + tabindex + ",targetTab=" + targetTab)
 		plus.webview.show(targetTab); //显示页面
 		if(subPagesLoad[tabindex] == false) {
 			mui.fire(plus.webview.getWebviewById(targetTab), 'refreshPage'); //初次刷新页面

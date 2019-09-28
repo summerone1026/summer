@@ -121,10 +121,8 @@ mui.plusReady(function(){
 		var dtask = plus.downloader.createDownload( url, {filename:"_downloads/jiujiuqp.apk"}, function (download, status ) { 
 			// 下载完成
 			if ( status == 200 ) { 
-				console.log("下载目录: " + download.filename);
 				mui.toast( "下载成功: " + download.filename ); 
 				plus.runtime.install("_downloads/jiujiuqp.apk",{force:true},function(){  
-					console.log("success");  
 					//plus.runtime.restart();  
 			},function(e){  
 				console.log("failed: "+e.message);  
@@ -154,7 +152,7 @@ function loadHotNewData(){
 			if(json.length <= 0){
 				return; 
 			}
-			console.log("成功返回数据" + json.length);
+
 			var playRankingJson = new Array();
 			playRankingJson["video"] = json;
 			//热播推荐部分
@@ -182,7 +180,7 @@ function loadChineseHDNewData(){
 			if(json.length <= 0){
 				return; 
 			}
-			console.log("成功返回数据" + json.length);
+
 			var videoTypeChineseHDJson = new Array();
 			videoTypeChineseHDJson["video"] = json;
 			var html = template('gcgq', videoTypeChineseHDJson)
@@ -209,7 +207,7 @@ function loadEuropeNewData(){
 			if(json.length <= 0){
 				return; 
 			}			
-			console.log("成功返回数据" + json.length);
+
 			var videoTypeEuropeJson = new Array();
 			videoTypeEuropeJson["video"] = json;
 			var html = template('jqom', videoTypeEuropeJson)
@@ -236,7 +234,7 @@ function loadInternetStarNewData(){
 			if(json.length <= 0){
 				return; 
 			}			
-			console.log("成功返回数据" + json.length);
+
 			var videoTypeInternetStarJson = new Array();
 			videoTypeInternetStarJson["video"] = json;
 			var html = template('zhubo', videoTypeInternetStarJson)
@@ -263,7 +261,7 @@ function loadGuessLikeNewData(){
 			if(json.length <= 0){
 				return; 
 			}			
-			console.log("成功返回数据" + json.length);
+			
 			var videoGuessListJson = new Array();
 			videoGuessListJson["video"] = json;
 			var html = template('guessLike1Model', videoGuessListJson)
@@ -290,7 +288,7 @@ function loadHotRankingVideoData(){
 		type:"get",
 		timeout:5000,
 		success:function(json){
-			console.log("成功返回数据" + json.length);
+
 			var playRankingJson = new Array();
 			playRankingJson["video"] = json;
 			//热播推荐部分
@@ -310,7 +308,7 @@ function loadVideoTypeChineseHDData(){
 		type:"get",
 		timeout:5000,
 		success:function(json){
-			console.log("成功返回数据");
+
 			var videoTypeChineseHDJson = new Array();
 			videoTypeChineseHDJson["video"] = json;
 			var html = template('gcgq', videoTypeChineseHDJson)
@@ -329,7 +327,7 @@ function loadVideoTypeInternetStarData(){
 		type:"get",
 		timeout:5000,
 		success:function(json){
-			console.log("成功返回数据");
+
 			var videoTypeInternetStarJson = new Array();
 			videoTypeInternetStarJson["video"] = json;
 			var html = template('zhubo', videoTypeInternetStarJson)
@@ -348,7 +346,7 @@ function loadVideoTypeEuropeData(){
 		type:"get",
 		timeout:5000,
 		success:function(json){
-			console.log("成功返回数据");
+
 			var videoTypeEuropeJson = new Array();
 			videoTypeEuropeJson["video"] = json;
 			var html = template('jqom', videoTypeEuropeJson)
@@ -367,7 +365,7 @@ function loadVideoGuessLikeData(){
 		type:"get",
 		timeout:5000,
 		success:function(json){
-			console.log("成功返回数据");
+
 			var videoGuessLikeJson = new Array();
 			videoGuessLikeJson["video"] = json;
 			var html = template('guessLike1Model', videoGuessLikeJson)
