@@ -33,15 +33,8 @@ mui.plusReady(function(){
 		})
 	})
 
-	//点击首页更多类型
-	mui('.mui-grid-9').on('tap','#moreType',function(){
-		mui.openWindow({
-			url: 'type.html',
-			id: 'type',
-		})
-	})
 	//进入首页类型
-	mui('.mui-grid-9').on('tap','li',function(){
+	mui('.mui-grid-8').on('tap','li',function(){
 		var typeName = this.getAttribute("type_name");
 		var typeId = this.getAttribute("type_id");
 
@@ -55,11 +48,16 @@ mui.plusReady(function(){
 					typeName:typeName
 				}
 			})
+		}else{
+			mui.openWindow({
+				url: 'type.html',
+				id: 'type',
+			})			
 		}
 	})
 	
 	//单部影片详情页
-	mui(".mui-content").on("tap", ".mui-table-view-cell", function(){
+	mui(".mui-content").on("tap", ".mui-col-xs-6", function(){
 		var videoId = this.getAttribute("id");
 		var videoName = this.getAttribute("name");
 		var videoPic = this.querySelector(".mui-media-object").getAttribute("src");
@@ -81,8 +79,7 @@ mui.plusReady(function(){
 		loadHotNewData();
 	});
 	
-	document.getElementById("ChineseHDButton").addEventListener("tap", function() {
-		console.log("进入国产高清点击事件");		
+	document.getElementById("ChineseHDButton").addEventListener("tap", function() {	
 		loadChineseHDNewData();
 	});
 		
@@ -91,12 +88,10 @@ mui.plusReady(function(){
 	});
 
 	document.getElementById("InternetStarButton").addEventListener("tap", function() {
-		console.log("进入网红主播点击事件");
 		loadInternetStarNewData();
 	});
 	
 	document.getElementById("changeVod").addEventListener("tap", function(){
-		console.log("执行猜你喜欢点击事件");
 		loadGuessLikeNewData();
 	})
 	
