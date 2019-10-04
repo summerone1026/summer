@@ -40,6 +40,27 @@
 		.mui-media-object{
 			border-radius:8px 8px 8px 8px
 		}
+		.hometype {
+			width: 92%;
+			position: relative;
+			left: 1.25rem;
+			top: 0.125rem;
+			line-height: 0.625rem;				
+		}
+		.left{
+			font-family: "arial black";
+			font-size: medium;
+			color: #000000;
+		}
+		.right{
+			position: relative;
+			left: 69%;
+			bottom: 0.2rem;
+			font-family: "arial black";
+			font-size: small;
+			color: orange;
+		}
+
 	</style>
 		
 	<header class="mui-bar mui-bar-nav">
@@ -63,21 +84,38 @@
 		<hr />
 		<div class="hometype">
 			<span class="left">猜你喜欢</span>
+			<a id="changeVod" class="right">换一组</a>
 		</div>
-		<ul id="guessLike1" class="mui-table-view mui-grid-view" style="">			
-			<script id="guessLike1Model" type="text/html">
-				   {{each video value index}}
-					<li class="mui-table-view-cell mui-media mui-col-xs-6" id="{{value.vod_id}}" name="{{value.vod_name}}" url="{{value.vod_play_url}}">
-							<img class="mui-media-object" src="{{value.vod_pic}}">
-							<div class="mui-media-body">{{value.vod_name}}</div> 
-					</li>
-					{{/each}}
-			</script>
-		</ul> 
+		
+		<div class="mui-scroll-wrapper" style="top:440px">
+			<div class="mui-scroll">
+				<ul id="guessLike1" class="mui-table-view mui-grid-view" style="">			
+					<script id="guessLike1Model" type="text/html">
+						   {{each video value index}}
+							<li class="mui-table-view-cell mui-media mui-col-xs-6" id="{{value.vod_id}}" name="{{value.vod_name}}" url="{{value.vod_play_url}}">
+									<img class="mui-media-object" src="{{value.vod_pic}}">
+									<div class="mui-media-body">{{value.vod_name}}</div> 
+							</li>
+							{{/each}}
+					</script>
+				</ul> 
+			</div>
+		</div>
+
 	</body>
 	
 	<script type="text/javascript">
 		mui.init();
+		mui('.mui-scroll-wrapper').scroll({
+			scrollY: true, //是否竖向滚动
+			scrollX: false, //是否横向滚动
+			startX: 0, //初始化时滚动至x
+			startY: 0, //初始化时滚动至y
+			indicators: true, //是否显示滚动条
+			deceleration: 0.0006, //阻尼系数,系数越小滑动越灵敏
+			bounce: true //是否启用回弹
+		});
+
 		mui.plusReady(function(){
 			var self = plus.webview.currentWebview();
 			var videoId = self.videoId;
@@ -86,14 +124,7 @@
 			var src = self.src;
 			var hits = 10000;
 			var likes = 999;
-
 			
-			//添加观影记录
-			addVideoInformation(videoId, name, pic, src);
-			//获取最新播放总数、点赞数,并更新播放次数
-			updateVideoInfo(videoId);
-
-
 			document.getElementById("videoName").innerHTML = name;
 			document.getElementById("videoNode").innerHTML = '<video \
 				id="video" \
@@ -104,7 +135,7 @@
 				height="300" \
 				width="100%" \
 				loop="true" \
-				poster="" \
+				poster="' + pic + '" \
 				data-setup="{}"> \
 				<source src="' + src + '" type="application/x-mpegURL"> \
 				<p class="vjs-no-js">TEST</p> \
@@ -129,7 +160,12 @@
 				   this.play();
 			   });
 			});
-						
+			
+			//添加观影记录
+			addVideoInformation(videoId, name, pic, src);
+			//获取最新播放总数、点赞数,并更新播放次数
+			updateVideoInfo(videoId);
+									
 			plus.key.addEventListener("backbutton", function(){
 				plus.screen.lockOrientation("portrait-primary");
 			});
@@ -143,6 +179,7 @@
 				var id=this.getAttribute('id');
 				var pic = this.querySelector(".mui-media-object").getAttribute("src");
 				document.getElementById("videoName").innerHTML = name;
+				player.poster(pic);
 				player.src(src);  //重置video的src
 				//添加观影记录
 				addVideoInformation(id, name, pic, src);
@@ -159,6 +196,10 @@
 					document.getElementById("likeInfo").innerHTML ="点赞人数：" + ++likes;
 					updateVideoLikes(likes,);
 				}
+			})
+			
+			document.getElementById("changeVod").addEventListener("tap", function(){
+				loadVideoGuessLikeData();
 			})
 			
 			function updateVideoHits(hits){
