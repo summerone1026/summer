@@ -23,6 +23,21 @@ mui.plusReady(function() {
 			}
 		});
 	});
+	
+	document.addEventListener("click_type", function(event){
+		var typeName = event.detail.typeName;
+		var typeItemList = document.getElementsByClassName("mui-control-item");
+		for(i=0; i< typeItemList.length; i++ ) {
+			var name = typeItemList[i].innerText;
+			if(typeName == name) {
+				mui.trigger(typeItemList[i], "touchstart");
+				mui.trigger(typeItemList[i], "tap");
+				document.getElementsByClassName("mui-active")[0].setAttribute("class", "mui-control-item");
+				typeItemList[i].setAttribute("class", "mui-control-item mui-active");
+				return;
+			}
+		}
+	})
 })
 
 function initPage(){

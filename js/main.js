@@ -119,6 +119,18 @@ mui.plusReady(function() {
 	} else {
 		//createPKBtn();
 	}
+	
+	document.addEventListener("click_moreType", function(event){
+		targetTab = "type.html";
+		if(targetTab == activeTab) {
+			return;
+		}
+		var btn=document.getElementsByClassName("mui-tab-item")[1];
+		mui.trigger(btn,'tap');
+		document.getElementsByClassName("mui-active")[0].setAttribute("class", "mui-tab-item");
+		btn.setAttribute("class", "mui-tab-item mui-active");
+
+	})
 })
 
 function createPKBtn() {
@@ -293,6 +305,7 @@ function createPKBtn() {
 
 	//自定义监听图标点击事件
 	pkbtn_def.addEventListener('click', function(e) {
+		console.log("执行自定义click事件");
 		updatePKBtn(1);
 		targetTab = "ranking.html";
 		plus.navigator.setStatusBarBackground('#13D1BE');
@@ -312,7 +325,6 @@ function createPKBtn() {
 		document.getElementsByClassName("mui-active")[0].setAttribute("class", "mui-tab-item");
 
 	});
-
 }
 
 function updatePKBtn(type) {

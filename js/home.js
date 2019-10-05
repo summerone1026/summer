@@ -40,19 +40,14 @@ mui.plusReady(function(){
 
 		localStorage.removeItem("typeVideoID");
 		localStorage.setItem("typeVideoID", VideoType[typeId]);
+		
+		var mainPage=plus.webview.getWebviewById( plus.runtime.appid );
 		if (typeName!="更多类型") {
-			mui.openWindow({
-				url: 'home/homeType.html',
-				id: 'homeType',
-				extras:{
-					typeName:typeName
-				}
-			})
+			mui.fire(mainPage, "click_moreType");
+			var typePage=plus.webview.getWebviewById("type.html");
+			mui.fire(typePage, "click_type", {typeName: typeName});
 		}else{
-			mui.openWindow({
-				url: 'type.html',
-				id: 'type',
-			})			
+			mui.fire(mainPage, "click_moreType");		
 		}
 	})
 	
