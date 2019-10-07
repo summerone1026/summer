@@ -181,6 +181,7 @@
 				document.getElementById("videoName").innerHTML = name;
 				player.poster(pic);
 				player.src(src);  //重置video的src
+				player.play();
 				//添加观影记录
 				addVideoInformation(id, name, pic, src);
 				//获取最新播放总数、点赞数,并更新播放次数,更新video id
@@ -287,7 +288,7 @@
 		
 		function loadVideoGuessLikeData(){
 			mui.ajax(APP_DOMAIN + "/videos",{
-				data:{limit:6, guess_like:true},
+				data:{limit:10, guess_like:true},
 				datatype:"json",
 				type:"get",
 				timeout:5000,
