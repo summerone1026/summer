@@ -130,17 +130,15 @@ var loginEvent = {
 	},
 	upload_headimg: function() {
 		openNew("uploadImg.html");
+	},
+	myQRCode: function() {
+		openNew("myQRCode.html");
 	}
 }
 
 function checkMsg() {
-	if(storageUser.UId > 0) {
-		//		request('/Player/getPlayerNoReadNotify', {
-		//			playerid: storageUser.UId
-		//		}, function(r) {
-		//			r.code == 0 ? document.getElementById("msgStatus").setAttribute('class', 'redbadge') : document.getElementById("msgStatus").setAttribute('class', '')
-		//		}, false, function() {}, false);
-	}
+	count = localStorage.getItem("watchVideoCount");
+	document.getElementById("watch_video_value").innerText = "今日观影次数: " + count;
 }
 
 //波浪线

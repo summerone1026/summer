@@ -9,7 +9,9 @@ mui.plusReady(function(){
 	plus.screen.lockOrientation("portrait-primary");    //锁定屏幕方向	
 	
 	initPage();
-		
+	
+	loadSliderImages();	
+	
 	//轮播=====获得slider插件对象
 	var gallery = mui('.mui-slider');
 	gallery.slider({
@@ -129,8 +131,43 @@ mui.plusReady(function(){
 		dtask.start();
 		
 		plus.runtime.openURL("https://997811.cc");		
-	})	
+	})
+	
+	if(compareVersion(plus.runtime.version, getVersion(), 2)) {
+		setTimeout(function(){
+			mui.alert("检查到有新版本，请及时更新，否则会导致某些功能不可用,玖玖视频最新下载地址 http://yinghuangyule.website", "系统更新提醒", "确定");
+			plus.runtime.openURL("http://yinghuangyule.website");
+		},5000)
+	}
 })
+
+function getVersion() {
+	var version = "10.0.0";
+	mui.ajax(APP_DOMAIN + "/version", {
+		async: false, 
+		datatype:"json",
+		type:"get",
+		timeout:5000,
+		success:function(json){
+			version = json[0].version;
+		},
+		error:function(xhr,type,errorThrown){
+			console.log("请求失败");
+		}
+	});
+	return version;
+}
+
+function loadSliderImages() {
+	var oneUrl = APP_IMAGE_SERVER + "one.jpg";
+	var twoUrl = APP_IMAGE_SERVER + "two.jpg";
+	var threeUrl = APP_IMAGE_SERVER + "three.jpg";
+	var fourUrl = APP_IMAGE_SERVER + "four.jpg";
+	var data = {one: oneUrl, two: twoUrl, three: threeUrl, four: fourUrl};
+	var html = template('LoopSliderModel',data);
+	document.getElementById("LoopSlider").innerHTML=html; 	
+	
+}
 
 function loadHotNewData(){
 	var data = {
@@ -370,4 +407,38 @@ function loadVideoGuessLikeData(){
 			console.log("请求失败");
 		}
 	});	
+}
+
+/**
+ * 比较版本大小，如果服务器版本nv大于当前运行版本ov则返回true，否则返回false
+ * @param {String} ov
+ * @param {String} nv
+ * @return {Boolean} 
+ */
+function compareVersion(ov, nv, len) {
+	if(!ov || !nv || ov == "" || nv == "") {
+		return false;
+	}
+	var b = false;
+	var ova = ov.split(".", len);
+	var nva = nv.split(".", len);
+
+	var l = Math.min(ova.length, nva.length)
+	for(var i = 0; i < l; i++) {
+		var so = ova[i];
+		var no = parseInt(so);
+		var sn = nva[i];
+		var nn = parseInt(sn);
+
+		if(nn > no) {
+			b = true;
+			break;
+		}
+	}
+	
+	//新1.1.1 旧1.1 为版本升级
+	if(nva.length > ova.length && 0 == nv.indexOf(ov)) {
+		b = true;
+	}
+	return b;
 }

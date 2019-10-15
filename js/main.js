@@ -131,7 +131,37 @@ mui.plusReady(function() {
 		btn.setAttribute("class", "mui-tab-item mui-active");
 
 	})
+	
+	document.addEventListener("redirect_user", function(event){
+		targetTab = "my/user.html";
+		if(targetTab == activeTab) {
+			return;
+		}
+		var btn=document.getElementsByClassName("mui-tab-item")[3];
+		mui.trigger(btn,'tap');
+		document.getElementsByClassName("mui-active")[0].setAttribute("class", "mui-tab-item");
+		btn.setAttribute("class", "mui-tab-item mui-active");
+	
+	})
+	
+	//app启动时检查一次，以后每小时检查一次
+	isNeedInitWatchVideo();
+	//定时器功能： 每一小时运行一次，检测到上一次初始化观影次数的时间如果超过1天或者观影时间为空值，说明是第二天或者第一次运行app,所以立即重新初始化观影次数与时间
+	setInterval(isNeedInitWatchVideo, 3600000);
+	
+	
+
 })
+
+function isNeedInitWatchVideo() {
+	var lastUpdateTime = localStorage.getItem("watchVideoTime");
+	console.log("lastUpdateTime：" + lastUpdateTime);
+	var nowTime = new Date().getTime();
+	console.log("now time: " + nowTime);
+	if(lastUpdateTime == null || nowTime > parseInt(lastUpdateTime) + 86400000) {
+		initWatchVideoCount();
+	}	
+}
 
 function createPKBtn() {
 	log("我是self：" + JSON.stringify(self))

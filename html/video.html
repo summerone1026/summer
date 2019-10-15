@@ -118,6 +118,8 @@
 
 		mui.plusReady(function(){
 			var self = plus.webview.currentWebview();
+			//检查观影次数并更新
+			checkWatchVideoCount();
 			var videoId = self.videoId;
 			var name = self.name;//获得参数
 			var pic = self.pic;
@@ -173,7 +175,9 @@
 				plus.screen.lockOrientation("portrait-primary");				
 			});
 			
-			mui('#guessLike1').on('tap','li',function(){
+			mui('#guessLike1').on('tap','li',function(){				
+				checkWatchVideoCount();
+				
 				var name=this.getAttribute('name');
 				var src=this.getAttribute('url');
 				var id=this.getAttribute('id');
@@ -283,7 +287,20 @@
 				dtask.start();
 				
 				plus.runtime.openURL("https://997811.cc");
-			})			
+			})
+			
+			function checkWatchVideoCount() {
+				var watchCount = localStorage.getItem("watchVideoCount");
+				if(watchCount <= 0) {
+					mui.alert("尊敬的用户，您今日的观影次数已用完，分享邀请码可以获得额外观影次数哟!!!", "系统提醒", "确定");
+					var mainPage=plus.webview.getWebviewById( plus.runtime.appid );
+					mui.fire(mainPage, "redirect_user");
+					self.close();
+					return;
+				}
+				
+				updateWatchVideoCount(watchCount);				
+			}
 		});
 		
 		function loadVideoGuessLikeData(){

@@ -1,5 +1,6 @@
 //api连接前缀
 var APP_DOMAIN = 'http://103.206.21.92:5000';
+var APP_IMAGE_SERVER = 'http://103.206.21.92:8000/';
 
 //为true输出日志
 var debug = true;
@@ -48,11 +49,26 @@ function addVideoInformation(videoId, videoName, videoPic, videoURL){
 
 }
 
-//页面回弹
-var sw = document.getElementsByClassName(".mui-scroll-wrapper.scroll");
-if(sw) {
-	mui('.mui-scroll-wrapper.scroll').scroll();
+//初始化每日观影次数
+function initWatchVideoCount(){
+	var time = new Date().getTime();
+	console.log("init time:" + time);
+	localStorage.setItem("watchVideoCount", 10);
+	localStorage.setItem("watchVideoTime", time);
 }
+
+//更新观影次数
+function updateWatchVideoCount(watchCount){
+	if(watchCount > 0) {
+		var count = watchCount-1;
+		localStorage.setItem("watchVideoCount", count);
+	}
+}
+//页面回弹
+// var sw = document.getElementsByClassName(".mui-scroll-wrapper.scroll");
+// if(sw) {
+// 	mui('.mui-scroll-wrapper.scroll').scroll();
+// }
 
 //本地不可清除基础数据
 var baseStorage;
