@@ -180,8 +180,8 @@
                 },
                 "oauth" : {
                     "weixin" : {
-                        "appid" : "wx9c80ee2d414d8873",
-                        "appsecret" : "c8a8abdb2455994dfa52627a166f3270"
+                        "appid" : "wx58fe0071eb01f11f",
+                        "appsecret" : "9c360b05a38d923154848c51eddb8c9e"
                     }
                 },
                 "share" : {
@@ -189,8 +189,8 @@
                         "appid" : "1104222847"
                     },
                     "weixin" : {
-                        "appid" : "wx9c80ee2d414d8873",
-                        "appsecret" : "c8a8abdb2455994dfa52627a166f3270"
+                        "appid" : "wx58fe0071eb01f11f",
+                        "appsecret" : "9c360b05a38d923154848c51eddb8c9e"
                     }
                 }
             }
