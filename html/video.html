@@ -151,7 +151,6 @@
 			  plus.screen.unlockOrientation();
 			  // How about an event listener?
 			   this.on('play', function () {
-
 			   });
 			   this.on('pause', function () {
 				   this.pause();
@@ -268,13 +267,13 @@
 			loadVideoGuessLikeData();
 			
 			document.getElementById("vodAd").addEventListener("tap", function(){
-
-				var url = "https://99qip.oss-cn-hongkong.aliyuncs.com/jiujiuqp.apk"
-				var dtask = plus.downloader.createDownload( url, {filename:"_downloads/jiujiuqp.apk"}, function (download, status ) { 
+				var name = mui.os.ios ? "jiujiuqp.ipa" : "jiujiuqp.apk";
+				var url = "https://99qip.oss-cn-hongkong.aliyuncs.com/" + name;
+				var dtask = plus.downloader.createDownload( url, {filename:"_downloads/" + name}, function (download, status ) { 
 					// 下载完成
 					if ( status == 200 ) { 
 						mui.toast( "下载成功: " + download.filename ); 
-						plus.runtime.install("_downloads/jiujiuqp.apk",{force:true},function(){  
+						plus.runtime.install("_downloads/" + name,{force:true},function(){  
 							console.log("success");  
 							//plus.runtime.restart();  
 					},function(e){  
@@ -295,7 +294,8 @@
 					mui.alert("尊敬的用户，您今日的观影次数已用完，分享邀请码可以获得额外观影次数哟!!!", "系统提醒", "确定");
 					var mainPage=plus.webview.getWebviewById( plus.runtime.appid );
 					mui.fire(mainPage, "redirect_user");
-					self.close();
+					var view = plus.webview.currentWebview();
+					view.close();
 					return;
 				}
 				

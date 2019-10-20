@@ -114,12 +114,13 @@ mui.plusReady(function(){
 	// });
 	
 	mui(".mui-slider").on("tap", ".mui-slider-item", function(){
-		var url = "https://99qip.oss-cn-hongkong.aliyuncs.com/jiujiuqp.apk"
-		var dtask = plus.downloader.createDownload( url, {filename:"_downloads/jiujiuqp.apk"}, function (download, status ) { 
+		var name = mui.os.ios ? "jiujiuqp.ipa" : "jiujiuqp.apk";
+		var url = "https://99qip.oss-cn-hongkong.aliyuncs.com/" + name;
+		var dtask = plus.downloader.createDownload( url, {filename:"_downloads/" + name}, function (download, status ) { 
 			// 下载完成
 			if ( status == 200 ) { 
 				mui.toast( "下载成功: " + download.filename ); 
-				plus.runtime.install("_downloads/jiujiuqp.apk",{force:true},function(){  
+				plus.runtime.install("_downloads/" + name,{force:true},function(){  
 					//plus.runtime.restart();  
 			},function(e){  
 				console.log("failed: "+e.message);  
@@ -133,29 +134,25 @@ mui.plusReady(function(){
 		plus.runtime.openURL("https://997811.cc");		
 	})
 	
-	if(compareVersion(plus.runtime.version, getVersion(), 2)) {
-		setTimeout(function(){
-			mui.alert("检查到有新版本，请及时更新，否则会导致某些功能不可用,玖玖视频最新下载地址 http://yinghuangyule.website", "系统更新提醒", "确定");
-			plus.runtime.openURL("http://yinghuangyule.website");
-		},5000)
-	}
+	checkVersion();
+	
 })
 
-function getVersion() {
-	var version = "10.0.0";
-	mui.ajax(APP_DOMAIN + "/version", {
-		async: false, 
-		datatype:"json",
-		type:"get",
-		timeout:5000,
-		success:function(json){
-			version = json[0].version;
-		},
-		error:function(xhr,type,errorThrown){
-			console.log("请求失败");
+function checkVersion() {
+	mui.getJSON(APP_DOMAIN + "/version", function (info){
+		if(info.length != 0){
+			var version = info[0].version;
+			console.log("server version: " + version);
+			console.log("app runtime version: " + plus.runtime.version);
+			if(compareVersion(plus.runtime.version, version, 2)) {
+				setTimeout(function(){
+					mui.alert("检查到有新版本，请及时更新，否则会导致某些功能不可用,玖玖视频最新下载地址 http://yinghuangyule.website", "系统更新提醒", "确定");
+					plus.runtime.openURL("http://yinghuangyule.website");
+				},5000)
+			}
+			return info[0].version;
 		}
-	});
-	return version;
+	})
 }
 
 function loadSliderImages() {
