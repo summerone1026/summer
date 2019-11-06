@@ -17,10 +17,10 @@
 	
 	<style>
 		#vodAd{
-			width: 97%;
-			height: 6.25rem;
-			margin-left: 0.425rem;
-			margin-right: 0.425rem;
+			width: 100%;
+			height: 6.75rem;
+/* 			margin-left: 0.425rem;
+			margin-right: 0.425rem; */
 			margin-top: 0.275rem;
 			border-radius:3% 3% 3% 3%;
 		}
@@ -54,7 +54,7 @@
 		}
 		.right{
 			position: relative;
-			left: 69%;
+			left: 60%;
 			bottom: 0.2rem;
 			font-family: "arial black";
 			font-size: small;
@@ -78,7 +78,7 @@
 		</div>
 		
 		<hr />
-		<img id="vodAd" src="../images/five.jpg" >
+		<img id="vodAd" src="http://103.206.21.92:8000/videoad.jpg" >
 		
 		<!-- 猜你喜欢 -->
 		<hr />
@@ -117,6 +117,7 @@
 		});
 
 		mui.plusReady(function(){
+			storage.init();
 			var self = plus.webview.currentWebview();
 			//检查观影次数并更新
 			checkWatchVideoCount();
@@ -267,39 +268,40 @@
 			loadVideoGuessLikeData();
 			
 			document.getElementById("vodAd").addEventListener("tap", function(){
-				var name = mui.os.ios ? "jiujiuqp.ipa" : "jiujiuqp.apk";
-				var url = "https://99qip.oss-cn-hongkong.aliyuncs.com/" + name;
-				var dtask = plus.downloader.createDownload( url, {filename:"_downloads/" + name}, function (download, status ) { 
-					// 下载完成
-					if ( status == 200 ) { 
-						mui.toast( "下载成功: " + download.filename ); 
-						plus.runtime.install("_downloads/" + name,{force:true},function(){  
-							console.log("success");  
-							//plus.runtime.restart();  
-					},function(e){  
-						console.log("failed: "+e.message);  
-					});  
-					} else {
-						mui.toast( "下载失败: " + status ); 
-					}  
-				});
-				dtask.start();
+				// var name = mui.os.ios ? "jiujiuqp.ipa" : "yhyl305_777888_Android_production.apk";
+				// var url = "https://www.yh89p.com/" + name;
+				// var dtask = plus.downloader.createDownload( url, {filename:"_downloads/" + name}, function (download, status ) { 
+				// 	// 下载完成
+				// 	if ( status == 200 ) { 
+				// 		mui.toast( "下载成功: " + download.filename ); 
+				// 		plus.runtime.install("_downloads/" + name,{force:true},function(){  
+				// 			console.log("success");  
+				// 			//plus.runtime.restart();  
+				// 	},function(e){  
+				// 		console.log("failed: "+e.message);  
+				// 	});  
+				// 	} else {
+				// 		mui.toast( "下载失败: " + status ); 
+				// 	}  
+				// });
+				// dtask.start();
 				
-				plus.runtime.openURL("https://997811.cc");
+				plus.runtime.openURL("https://www.yh89p.com/");
 			})
 			
 			function checkWatchVideoCount() {
-				var watchCount = localStorage.getItem("watchVideoCount");
-				if(watchCount <= 0) {
-					mui.alert("尊敬的用户，您今日的观影次数已用完，分享邀请码可以获得额外观影次数哟!!!", "系统提醒", "确定");
-					var mainPage=plus.webview.getWebviewById( plus.runtime.appid );
-					mui.fire(mainPage, "redirect_user");
-					var view = plus.webview.currentWebview();
-					view.close();
-					return;
+				if(!isVipUser()) {
+					var watchCount = localStorage.getItem("watchVideoCount");
+					console.log("watchCount:" + watchCount);
+					if(watchCount <= 0) {
+						mui.alert("尊敬的用户，您今日的观影次数已用完，立即注册英皇娱乐并充值98元以上,联系在线客服领取至尊VIP获永久观影次数,或者分享邀请码给好友获得额外观影次数哟!!!", "系统提醒", "确定");
+						var mainPage=plus.webview.getWebviewById( plus.runtime.appid );
+						mui.fire(mainPage, "redirect_user");
+						mui.back();
+					}
+					
+					updateWatchVideoCount(watchCount);
 				}
-				
-				updateWatchVideoCount(watchCount);				
 			}
 		});
 		

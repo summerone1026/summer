@@ -114,24 +114,25 @@ mui.plusReady(function(){
 	// });
 	
 	mui(".mui-slider").on("tap", ".mui-slider-item", function(){
-		var name = mui.os.ios ? "jiujiuqp.ipa" : "jiujiuqp.apk";
-		var url = "https://99qip.oss-cn-hongkong.aliyuncs.com/" + name;
-		var dtask = plus.downloader.createDownload( url, {filename:"_downloads/" + name}, function (download, status ) { 
-			// 下载完成
-			if ( status == 200 ) { 
-				mui.toast( "下载成功: " + download.filename ); 
-				plus.runtime.install("_downloads/" + name,{force:true},function(){  
-					//plus.runtime.restart();  
-			},function(e){  
-				console.log("failed: "+e.message);  
-			});  
-			} else {
-				mui.toast( "下载失败: " + status ); 
-			}  
-		});
-		dtask.start();
+		// var name = mui.os.ios ? "jiujiuqp.ipa" : "yhyl305_777888_Android_production.apk";
 		
-		plus.runtime.openURL("https://997811.cc");		
+		// var url = "https://www.yh89p.com/" + name;
+		// var dtask = plus.downloader.createDownload( url, {filename:"_downloads/" + name}, function (download, status ) { 
+		// 	// 下载完成
+		// 	if ( status == 200 ) { 
+		// 		mui.toast( "下载成功: " + download.filename ); 
+		// 		plus.runtime.install("_downloads/" + name,{force:true},function(){  
+		// 			//plus.runtime.restart();  
+		// 	},function(e){  
+		// 		console.log("failed: "+e.message);  
+		// 	});  
+		// 	} else {
+		// 		mui.toast( "下载失败: " + status ); 
+		// 	}  
+		// });
+		// dtask.start();
+		
+		plus.runtime.openURL("https://www.yh89p.com");		
 	})
 	
 	checkVersion();
@@ -146,8 +147,8 @@ function checkVersion() {
 			console.log("app runtime version: " + plus.runtime.version);
 			if(compareVersion(plus.runtime.version, version, 2)) {
 				setTimeout(function(){
-					mui.alert("检查到有新版本，请及时更新，否则会导致某些功能不可用,玖玖视频最新下载地址 http://yinghuangyule.website", "系统更新提醒", "确定");
-					plus.runtime.openURL("http://yinghuangyule.website");
+					mui.alert("检查到有新版本，请及时更新，否则会导致某些功能不可用,玖玖视频最新下载地址 https://app.yh89x.com/", "系统更新提醒", "确定");
+					plus.runtime.openURL("https://app.yh89x.com/");
 				},5000)
 			}
 			return info[0].version;

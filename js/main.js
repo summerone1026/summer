@@ -141,15 +141,25 @@ mui.plusReady(function() {
 		mui.trigger(btn,'tap');
 		document.getElementsByClassName("mui-active")[0].setAttribute("class", "mui-tab-item");
 		btn.setAttribute("class", "mui-tab-item mui-active");
-	
+		setTimeout(function() {
+			plus.runtime.openURL("https://www.yh89p.com/");
+		}, 2000);
 	})
+	
+	// storageUser = kidstorageuser.getInstance();
+	// if(storageUser.IsLogin) {
+	// 	initWatchVideoCount();
+	// }else {
+	// 	//app启动时检查一次，以后每小时检查一次
+	// 	isNeedInitWatchVideo();
+	// 	//定时器功能： 每一小时运行一次，检测到上一次初始化观影次数的时间如果超过1天或者观影时间为空值，说明是第二天或者第一次运行app,所以立即重新初始化观影次数与时间
+	// 	setInterval(isNeedInitWatchVideo, 3600000);	
+	// }
 	
 	//app启动时检查一次，以后每小时检查一次
 	isNeedInitWatchVideo();
 	//定时器功能： 每一小时运行一次，检测到上一次初始化观影次数的时间如果超过1天或者观影时间为空值，说明是第二天或者第一次运行app,所以立即重新初始化观影次数与时间
-	setInterval(isNeedInitWatchVideo, 3600000);
-	
-	
+	setInterval(isNeedInitWatchVideo, 3600000);	
 
 })
 

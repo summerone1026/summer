@@ -53,8 +53,10 @@ function addVideoInformation(videoId, videoName, videoPic, videoURL){
 function initWatchVideoCount(){
 	var time = new Date().getTime();
 	console.log("init time:" + time);
-	localStorage.setItem("watchVideoCount", 10);
-	localStorage.setItem("watchVideoTime", time);
+	if(!isVipUser()) {
+		localStorage.setItem("watchVideoCount", 10);
+		localStorage.setItem("watchVideoTime", time);
+	}
 }
 
 //更新观影次数
@@ -62,6 +64,23 @@ function updateWatchVideoCount(watchCount){
 	if(watchCount > 0) {
 		var count = watchCount-1;
 		localStorage.setItem("watchVideoCount", count);
+	}
+}
+
+function isUsernameValid(username) {
+	var isUsername = /^\w+$/;//匹配由数字、26个英文字母或者下划线组成的字符串
+	if(isUsername.exec(username) && username.length >= 6) {
+		return true;
+	}
+	return false;
+}
+
+function isVipUser() {
+	storageUser = kidstorageuser.getInstance();
+	if(storageUser.IsLogin && 1 == parseInt(storageUser.vipStatus)) {
+		return true;
+	}else {
+		return false;
 	}
 }
 //页面回弹
@@ -196,11 +215,11 @@ var storage = {
 		//本地不可清除基础数据
 		baseStorage = kidstorage.getInstance("baseStorageDate");
 		//本地临时数据
-		temporaryStorage = kidstorage.getInstance("temporaryStorageDate");
+		//temporaryStorage = kidstorage.getInstance("temporaryStorageDate");
 		//本地登录用户
 		storageUser = kidstorageuser.getInstance();
 		//本地用户地址信息
-		storageLocation = kidstoragelocation.getInstance();
+		//storageLocation = kidstoragelocation.getInstance();
 	}
 }
 //单例 登录用户本地存储策略
@@ -214,7 +233,8 @@ var kidstorageuser = (function() {
 		keyname_signature = "signature",
 		keyname_msgnoreadcount = "msgnoreadcount",
 		keyname_mobile = "mobile",
-		keyname_version = "version";
+		keyname_version = "version",
+		keyname_vipstatus = "vipstatus";
 	//单例方法 
 	function singlekidstorageuser() {
 		var self = this;
@@ -222,19 +242,21 @@ var kidstorageuser = (function() {
 		self.log = function() {
 			log(JSON.stringify(self));
 		};
-		self.login = function(data) { //登录成功保存数据					
+		self.login = function(data) { //登录成功保存数据		
 			var args = {
 				id: data.PlayerId,
-				username: data.Mobile,
+				username: data.username,
 				mobile: data.Mobile,
 				nickname: data.NickName,
-				imgurl: data.ImgUrl || "../../images/defuser.jpg",
+				imgurl: data.ImgUrl || "../../images/defuser.png",
 				signature: data.SelfdomSign,
 				//cityid:data.CityId
+				vipstatus: data.vipStatus
 			}
 			self.refreshUserName(args.username) //单独设置登录名
 			self.refreshMobile(args.mobile) //单独设置手机
 			self.refreshNickName(args.nickname); //单独设置昵称
+			self.refreshVIPStatus(args.vipstatus);
 			baseStorage.setItem(keyname, undefined, args);
 			init(self);
 			//appPage.closeAllPage();
@@ -377,6 +399,12 @@ var kidstorageuser = (function() {
 		self.refreshMobile = function(val) {
 			baseStorage.setItem(keyname_mobile, undefined, val); //单独设置登录名
 			self.Mobile = baseStorage.getItem(keyname_mobile) || "";
+			console.log("data.nickname:" + baseStorage.getItem(keyname_mobile));
+		};
+		//刷新VIP状态
+		self.refreshVIPStatus = function(val) {
+			baseStorage.setItem(keyname_vipstatus, undefined, val.toString()); //单独设置vip状态,因为数字0无法添加，所以转字符串处理
+			self.vipStatus = baseStorage.getItem(keyname_vipstatus) || "";
 		};
 	}
 
@@ -385,11 +413,15 @@ var kidstorageuser = (function() {
 		_self.Mobile = baseStorage.getItem(keyname_mobile) || "";
 		_self.UserName = baseStorage.getItem(keyname_username) || "";
 		_self.NickName = baseStorage.getItem(keyname_nickname) || "";
+		// _self.NickName = "游客";
 		_self.RealName = baseStorage.getItem(keyname, keyname_realname) || "";
-		_self.ImgUrl = baseStorage.getItem(keyname, keyname_imgurl) || "";
+		// _self.ImgUrl = baseStorage.getItem(keyname, keyname_imgurl) || "";
+		_self.ImgUrl = "../../images/defuser.png";
 		_self.Signature = baseStorage.getItem(keyname, keyname_signature) || "";
 		_self.Version = baseStorage.getItem(keyname_version) || "";
 		_self.IsLogin = _self.UId > 0;
+		// _self.IsLogin = true;
+		_self.vipStatus = baseStorage.getItem(keyname_vipstatus) || "0";
 	}
 	//单例实例 
 	var instance;
@@ -833,7 +865,6 @@ var appPage = {
 		openNew("../login/login.html", param);
 	},
 	loginBack: function(backid, backurl) { //登录成功，执行跳转或刷新页面操作
-
 		storageUser = kidstorageuser.getInstance();
 		storageUser.log();
 

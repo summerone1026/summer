@@ -3,7 +3,7 @@
     "id" : "H5F2BBF94", /*应用的标识，创建应用时自动生成，勿手动修改*/
     "name" : "玖玖视频", /*应用名称，程序桌面图标名称*/
     "version" : {
-        "name" : "1.2.0", /*应用版本名称*/
+        "name" : "1.3.0", /*应用版本名称*/
         "code" : "83"
     },
     "description" : "", /*应用描述信息*/
@@ -33,7 +33,7 @@
     "plus" : {
         "splashscreen" : {
             "autoclose" : true, /*是否自动关闭程序启动界面，true表示应用加载应用入口页面后自动关闭；false则需调plus.navigator.closeSplashscreen()关闭*/
-            "waiting" : false,
+            "waiting" : true,
             "delay" : 5000
         },
         "runmode" : "liberate", /*应用的首次启动运行模式，可取liberate或normal，liberate模式在第一次启动时将解压应用资源（Android平台File API才可正常访问_www目录）*/
@@ -110,15 +110,15 @@
                         "spotlight-retina7" : "", /*iPad iOS7高分屏Spotlight搜索程序图标，分辨率：80x80*/
                         "settings-normal" : "", /*iPad设置页面程序图标，分辨率：29x29*/
                         "settings-retina" : "",
-                        "proapp@2x" : "unpackage/res/icons/167x167.png",
-                        "app@2x" : "unpackage/res/icons/152x152.png",
-                        "app" : "unpackage/res/icons/76x76.png",
-                        "spotlight" : "unpackage/res/icons/40x40.png",
-                        "settings" : "unpackage/res/icons/29x29.png",
-                        "spotlight@2x" : "unpackage/res/icons/80x80.png",
-                        "settings@2x" : "unpackage/res/icons/58x58.png",
-                        "notification" : "unpackage/res/icons/20x20.png",
-                        "notification@2x" : "unpackage/res/icons/40x40.png"
+                        "proapp@2x" : "",
+                        "app@2x" : "",
+                        "app" : "",
+                        "spotlight" : "",
+                        "settings" : "",
+                        "spotlight@2x" : "",
+                        "settings@2x" : "",
+                        "notification" : "",
+                        "notification@2x" : ""
                     },
                     "appstore" : "unpackage/res/icons/1024x1024.png"
                 },
@@ -154,16 +154,16 @@
                         "portrait-retina" : "", /*iPad高分屏竖屏图片，分辨率：1536x2008*/
                         "landscape" : "", /*iPad横屏启动图片，分辨率：1024x748*/
                         "landscape-retina" : "", /*iPad高分屏横屏启动图片，分辨率：2048x1496*/
-                        "portrait7" : "images/start.png", /*iPad iOS7竖屏启动图片，分辨率：768x1024*/
-                        "portrait-retina7" : "images/start.png", /*iPad iOS7高分屏竖屏图片，分辨率：1536x2048*/
-                        "landscape7" : "images/start.png", /*iPad iOS7横屏启动图片，分辨率：1024x768*/
-                        "landscape-retina7" : "images/start.png",
-                        "portrait-1366h@2x" : "images/start.png",
-                        "landscape-1366h@2x" : "images/start.png",
-                        "portrait-1194h@2" : "img/828-1792.png",
-                        "landscape-1194h@2x" : "images/start.png",
-                        "portrait-1112h@2x" : "images/start.png",
-                        "landscape-1112h@2x" : "images/start.png"
+                        "portrait7" : "", /*iPad iOS7竖屏启动图片，分辨率：768x1024*/
+                        "portrait-retina7" : "", /*iPad iOS7高分屏竖屏图片，分辨率：1536x2048*/
+                        "landscape7" : "", /*iPad iOS7横屏启动图片，分辨率：1024x768*/
+                        "landscape-retina7" : "",
+                        "portrait-1366h@2x" : "",
+                        "landscape-1366h@2x" : "",
+                        "portrait-1194h@2" : "",
+                        "landscape-1194h@2x" : "",
+                        "portrait-1112h@2x" : "",
+                        "landscape-1112h@2x" : ""
                     }
                 },
                 "android" : {
@@ -181,7 +181,11 @@
                 "oauth" : {
                     "weixin" : {
                         "appid" : "wx58fe0071eb01f11f",
-                        "appsecret" : "9c360b05a38d923154848c51eddb8c9e"
+                        "appsecret" : "9c360b05a38d923154848c51eddb8c9e",
+                        "UniversalLinks" : "https://yinghuangyule.website/"
+                    },
+                    "qq" : {
+                        "appid" : "1104222847"
                     }
                 },
                 "share" : {
@@ -190,7 +194,8 @@
                     },
                     "weixin" : {
                         "appid" : "wx58fe0071eb01f11f",
-                        "appsecret" : "9c360b05a38d923154848c51eddb8c9e"
+                        "appsecret" : "9c360b05a38d923154848c51eddb8c9e",
+                        "UniversalLinks" : "https://yinghuangyule.website/"
                     }
                 }
             }

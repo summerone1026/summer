@@ -61,11 +61,11 @@ function shareMessage(share, ex) {
 				scene: ex
 			}
 		};
-		msg.href = "https://sexgirl.carrd.co/";
+		msg.href = "https://url.cn/5CzvbEm";
 		msg.title = "最新最全体验最好的免费视频APP";
 		msg.content = "我正在体验玖玖视频，永久免费，影片很全，实时更新，高清画质，飞一般的观影体验，使君夜夜笙箫，乐不思蜀！！！";
 		if (~share.id.indexOf('weibo')) {
-			msg.content += "；体验地址：https://sexgirl.carrd.co/";
+			msg.content += "；体验地址：https://url.cn/5CzvbEm";
 		}
 		msg.thumbs = ["_www/images/logo.png"];
 		share.send(msg, function() {

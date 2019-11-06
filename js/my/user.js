@@ -137,8 +137,12 @@ var loginEvent = {
 }
 
 function checkMsg() {
-	count = localStorage.getItem("watchVideoCount");
-	document.getElementById("watch_video_value").innerText = "今日观影次数: " + count;
+	if(isVipUser()) {
+		document.getElementById("watch_video_value").innerText = "VIP会员今日观影次数: 永久";
+	}else {
+		count = localStorage.getItem("watchVideoCount");
+		document.getElementById("watch_video_value").innerText = "游客/普通会员今日观影次数: " + count;
+	}
 }
 
 //波浪线
