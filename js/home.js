@@ -134,9 +134,17 @@ mui.plusReady(function(){
 		
 		plus.runtime.openURL("https://www.yh89p.com");		
 	})
+
+	 var elements = document.getElementsByClassName("vodAd");
+	 for(var i = 0;i < elements.length;i++){
+		elements[i].addEventListener("tap", function(){
+			plus.runtime.openURL("https://www.yh89p.com");				
+		})
+	 }
+	
 	
 	checkVersion();
-	
+		
 })
 
 function checkVersion() {

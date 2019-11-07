@@ -44,6 +44,21 @@
 				position: relative;
 			}
 		</style>
+		<!-- <script> window.ppSettings = {app_uuid:'89ffeb38-006b-11ea-a347-00163e0c79f6',server_url:'https://ppmessage.cn'};(function(){var w=window,d=document;function l(){var a=d.createElement('script');a.type='text/javascript';a.async=!0;a.charset='utf-8';a.src='https://ppmessage.cn/ppcom/assets/shim/shim.js';var b=d.getElementsByTagName('script')[0];b.parentNode.insertBefore(a,b)}l();})();</script> -->
+		<script type='text/javascript'>
+		    (function(m, ei, q, i, a, j, s) {
+		        m[i] = m[i] || function() {
+		            (m[i].a = m[i].a || []).push(arguments)
+		        };
+		        j = ei.createElement(q),
+		            s = ei.getElementsByTagName(q)[0];
+		        j.async = true;
+		        j.charset = 'UTF-8';
+		        j.src = 'https://static.meiqia.com/dist/meiqia.js?_=t';
+		        s.parentNode.insertBefore(j, s);
+		    })(window, document, 'script', '_MEIQIA');
+		    _MEIQIA('entId', 155999);
+		</script>
 	</head>
 
 	<body>
@@ -89,6 +104,11 @@
 						<a id="myQRCode" class="mui-navigate-right ckecklogin" data-loginevent="loginEvent.myQRCode()" data-loginbackid="my/myQRCode.html">邀请二维码</a>
 					</li>
 				</ul>
+<!-- 				<ul class="mui-table-view mb1rem tblv-nl">
+					<li class="mui-table-view-cell">
+						<a id="customerService" class="mui-navigate-right ckecklogin">在线客服</a>
+					</li>
+				</ul> -->
 			</div>
 		</div>
 		<script type="text/html" id="user_view">
@@ -121,7 +141,10 @@
 					id: 'history',
 				});
 			})
-			
+			// document.getElementById("customerService").addEventListener('tap', function() {
+			// 	//plus.runtime.openURL("https://chat.mqimg.com/dist/standalone.html?eid=174413");
+			// 	plus.runtime.openURL("https://chat-new.mqimg.com/dist/standalone.html?_=t&eid=155999");
+			// })
 		</script>
 		
 	</body>
