@@ -96,12 +96,13 @@
 				</ul>
 				<ul class="mui-table-view mb1rem tblv-nl">
 					<li class="mui-table-view-cell">
-						<a id="history" class="mui-navigate-right ckecklogin">观看记录</a>
+						<a id="history" class="mui-navigate-right">观看记录</a>
 					</li>
 				</ul>
 				<ul class="mui-table-view mb1rem tblv-nl">
 					<li class="mui-table-view-cell">
-						<a id="myQRCode" class="mui-navigate-right ckecklogin" data-loginevent="loginEvent.myQRCode()" data-loginbackid="my/myQRCode.html">邀请二维码</a>
+<!-- 						<a id="myQRCode" class="mui-navigate-right ckecklogin" data-loginevent="loginEvent.myQRCode()" data-loginbackid="my/myQRCode.html">邀请二维码</a> -->
+						<a id="myQRCode" class="mui-navigate-right">邀请二维码</a>
 					</li>
 				</ul>
 <!-- 				<ul class="mui-table-view mb1rem tblv-nl">
@@ -139,6 +140,12 @@
 				mui.openWindow({
 					url: '../home/history.html',
 					id: 'history',
+				});
+			})
+			document.getElementById("myQRCode").addEventListener("tap", function(){
+				mui.openWindow({
+					url: "myQRCode.html",
+					id: "myQRCode",
 				});
 			})
 			// document.getElementById("customerService").addEventListener('tap', function() {
